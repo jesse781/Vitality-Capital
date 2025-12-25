@@ -4,6 +4,11 @@
       "source": "/for-banks",
       "destination": "https://kunfa-banking--metronomeltd.replit.app/",
       "permanent": false
+    },
+    {
+      "source": "/for-banks/",
+      "destination": "https://kunfa-banking--metronomeltd.replit.app/",
+      "permanent": false
     }
   ]
 }
