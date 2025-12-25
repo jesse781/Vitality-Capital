@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/for-banks",
+      "destination": "https://kunfa-banking--metronomeltd.replit.app/",
+      "permanent": false
+    }
+  ]
+}
