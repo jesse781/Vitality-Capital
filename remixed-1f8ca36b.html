@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality Capital | Life Fund I | Human & Planetary Optimization</title>
+    <meta name="description" content="Vitality Capital Life Fund I - Investing in category-leading Korean companies at the intersection of culture, science, and systems efficiency.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #fafafa;
+            --bg-dark: #000000;
+            --border: #e5e5e5;
+            --text: #000000;
+            --text-mid: #666666;
+            --text-light: #999999;
+            --accent: #000000;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo img {
+            height: 26px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8125rem;
+            color: var(--text-mid);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1.125rem;
+            background: var(--text);
+            color: var(--bg);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7rem 2rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-anchors {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            max-width: 720px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.0625rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--bg-alt);
+        }
+
+        .section-alt .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.625rem, 3vw, 2.25rem);
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-sub {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            max-width: 520px;
+            line-height: 1.65;
+        }
+
+        /* Verticals */
+        .verticals {
+            padding: 5rem 2rem;
+        }
+
+        .verticals-header {
+            margin-bottom: 3rem;
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .v-card {
+            background: var(--bg);
+            padding: 2rem;
+        }
+
+        .v-num {
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .v-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1875rem;
+            font-weight: 500;
+            margin-bottom: 0.625rem;
+        }
+
+        .v-card p {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .v-tags {
+            display: flex;
+            gap: 0.375rem;
+            flex-wrap: wrap;
+        }
+
+        .v-tag {
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-alt);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        /* Approach */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .a-card {
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .a-num {
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.625rem;
+        }
+
+        .a-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+        }
+
+        .a-card p {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        /* Expansion */
+        .expansion {
+            padding: 5rem 2rem;
+        }
+
+        .expansion-header {
+            margin-bottom: 3rem;
+        }
+
+        .expansion-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .e-card {
+            padding: 1.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .e-label {
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .e-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .e-card p {
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.55;
+        }
+
+        /* Thesis */
+        .thesis-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2.5rem;
+        }
+
+        .thesis-text p {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .thesis-quote {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--text);
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--text);
+            line-height: 1.5;
+        }
+
+        .thesis-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .t-pillar {
+            padding: 1.25rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+        }
+
+        .t-pillar h4 {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .t-pillar span {
+            font-size: 0.8125rem;
+            color: var(--text-mid);
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--bg-dark);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .cta .section-label {
+            color: var(--accent);
+        }
+
+        .cta .section-title {
+            color: var(--bg);
+        }
+
+        .cta .section-sub {
+            color: rgba(255,255,255,0.6);
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border-radius: 3px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--bg);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.45);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            padding: 2.5rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-logo {
+            height: 22px;
+            width: auto;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-legal {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.35);
+            line-height: 1.7;
+        }
+
+        .footer-legal p {
+            margin-bottom: 0.375rem;
+        }
+
+        .footer-legal strong {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-bottom {
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg);
+            padding: 2.5rem;
+            max-width: 440px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-light);
+            line-height: 1;
+            padding: 0.25rem;
+        }
+
+        .modal-close:hover {
+            color: var(--text);
+        }
+
+        .modal h3 {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.625rem 0.75rem;
+            border: 1px solid var(--border);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 2px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--text);
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            border-radius: 2px;
+            transition: background 0.2s;
+        }
+
+        .form-submit:hover {
+            background: #333;
+        }
+
+        /* Success State */
+        .modal-success {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .modal-success-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--text);
+            font-size: 1.25rem;
+        }
+
+        .modal-success h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-success p {
+            font-size: 0.875rem;
+            color: var(--text-mid);
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 900px) {
+            .verticals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expansion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .thesis-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 640px) {
+            .nav {
+                padding: 0.875rem 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-logo img {
+                height: 22px;
+            }
+
+            .hero {
+                padding: 6rem 1.25rem 3rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .hero-sub {
+                font-size: 0.9375rem;
+            }
+
+            .section,
+            .verticals,
+            .expansion {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .verticals-header,
+            .expansion-header {
+                margin-bottom: 2rem;
+            }
+
+            .verticals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .v-card,
+            .a-card {
+                padding: 1.5rem;
+            }
+
+            .v-card h3 {
+                font-size: 1.0625rem;
+            }
+
+            .expansion-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .e-card {
+                padding: 1.25rem;
+            }
+
+            .thesis-text p {
+                font-size: 0.875rem;
+            }
+
+            .thesis-quote {
+                font-size: 1rem;
+            }
+
+            .cta {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer {
+                padding: 2rem 1.25rem;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                text-align: center;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .modal {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-label,
+            .hero-anchors,
+            .hero h1,
+            .hero-sub {
+                opacity: 0;
+                transform: translateY(16px);
+                animation: fadeUp 0.6s ease forwards;
+            }
+
+            .hero-anchors {
+                animation-delay: 0.05s;
+            }
+
+            .hero h1 {
+                animation-delay: 0.1s;
+            }
+
+            .hero-sub {
+                animation-delay: 0.2s;
+            }
+
+            @keyframes fadeUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <img src="https://i.postimg.cc/RFRgpdKg/VC-Logo.png" alt="Vitality Capital">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#verticals">Verticals</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#expansion">Expansion</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Request Diligence</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-label">Life Fund I</div>
+        <div class="hero-anchors">Anchored by Korea Development Bank, LG and New York Green Bank</div>
+        <h1>Building for <em>human</em> and <em>planetary</em> optimization.</h1>
+        <p class="hero-sub">Investing in growth stage businesses across healthcare, artificial intelligence, and energy resilience through disciplined capital deployment and global markets arbitrage.</p>
+    </section>
+
+    <section class="section-alt verticals" id="verticals">
+        <div class="section-inner">
+            <div class="verticals-header">
+                <div class="section-label">Core Verticals</div>
+                <h2 class="section-title">Healthcare. AI. Energy. Media.</h2>
+                <p class="section-sub">Four integrated verticals positioned at the intersection of transformative megatrends driving human performance and planetary health.</p>
+            </div>
+            <div class="verticals-grid">
+                <div class="v-card">
+                    <div class="v-num">i.</div>
+                    <h3>Healthcare</h3>
+                    <p>Health intelligence platforms, consumer longevity products, and wellness infrastructure optimizing human performance and extending healthspan. Investing in K-beauty, beauty-tech, and biotech leaders advancing biological and cognitive optimization.</p>
+                    <div class="v-tags">
+                        <span class="v-tag">Longevity</span>
+                        <span class="v-tag">K-Beauty</span>
+                        <span class="v-tag">Biotech</span>
+                    </div>
+                </div>
+                <div class="v-card">
+                    <div class="v-num">ii.</div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>AI-powered platforms transforming healthcare delivery, energy optimization, and consumer experiences. Investing in AI-driven industrial systems improving planetary efficiency at global scale.</p>
+                    <div class="v-tags">
+                        <span class="v-tag">Health AI</span>
+                        <span class="v-tag">Industrial AI</span>
+                        <span class="v-tag">Automation</span>
+                    </div>
+                </div>
+                <div class="v-card">
+                    <div class="v-num">iii.</div>
+                    <h3>Energy</h3>
+                    <p>Energy resilience infrastructure supporting sustainable mobility, grid independence, and the global transition to electrification. Building the green cities of the future.</p>
+                    <div class="v-tags">
+                        <span class="v-tag">Electrification</span>
+                        <span class="v-tag">Resilience</span>
+                        <span class="v-tag">Green Cities</span>
+                    </div>
+                </div>
+                <div class="v-card">
+                    <div class="v-num">iv.</div>
+                    <h3>Media</h3>
+                    <p>K-content and IP platforms shaping human wellbeing and identity through cultural exports. Korea's entertainment ecosystem has proven global resonance, creating platforms that define how the world experiences culture.</p>
+                    <div class="v-tags">
+                        <span class="v-tag">K-Content</span>
+                        <span class="v-tag">IP Licensing</span>
+                        <span class="v-tag">Digital Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="approach">
+        <div class="section-label">Our Approach</div>
+        <h2 class="section-title">Built for rapid value creation.</h2>
+        <p class="section-sub">Strategic acquisitions and equity positions with disciplined capital deployment.</p>
+        <div class="approach-grid">
+            <div class="a-card">
+                <div class="a-num">i.</div>
+                <h3>Platform Aggregation</h3>
+                <p>Building an integrated platform through strategic acquisitions and equity positions with immediate EBITDA contribution across three core verticals.</p>
+            </div>
+            <div class="a-card">
+                <div class="a-num">ii.</div>
+                <h3>Disciplined Deployment</h3>
+                <p>Capital raised at staged valuations as platform value grows. Each acquisition de-risks and increases platform value.</p>
+            </div>
+            <div class="a-card">
+                <div class="a-num">iii.</div>
+                <h3>Earnings-Driven</h3>
+                <p>Acquiring cash-generating businesses, not speculative startups. Operational improvements drive margin expansion with cross-selling synergies.</p>
+            </div>
+            <div class="a-card">
+                <div class="a-num">iv.</div>
+                <h3>Global Arbitrage</h3>
+                <p>Western companies undervalued relative to expansion potential. Deep relationships across UAE, Saudi, Korea, Europe, and emerging markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt expansion" id="expansion">
+        <div class="section-inner">
+            <div class="expansion-header">
+                <div class="section-label">Global Reach</div>
+                <h2 class="section-title">Strategic positioning across key markets.</h2>
+                <p class="section-sub">Deep relationships enabling strategic positioning and value creation across multiple geographies.</p>
+            </div>
+            <div class="expansion-grid">
+                <div class="e-card">
+                    <div class="e-label">Asia</div>
+                    <h4>Korea</h4>
+                    <p>Strategic LP partnership with Korea Development Bank and LG enabling deal flow and expansion.</p>
+                </div>
+                <div class="e-card">
+                    <div class="e-label">Americas</div>
+                    <h4>United States</h4>
+                    <p>NY Green Bank partnership supporting climate infrastructure and energy resilience investments.</p>
+                </div>
+                <div class="e-card">
+                    <div class="e-label">Middle East</div>
+                    <h4>Gulf</h4>
+                    <p>Deep regional relationships across UAE, Saudi, and emerging Middle East markets.</p>
+                </div>
+                <div class="e-card">
+                    <div class="e-label">Europe</div>
+                    <h4>Europe</h4>
+                    <p>Strategic positioning across key European markets for portfolio expansion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="thesis">
+        <div class="section-label">Our Thesis</div>
+        <h2 class="section-title">Why now is the moment.</h2>
+        <div class="thesis-content">
+            <div class="thesis-text">
+                <p>As AI automates cognitive work, demand for human performance and wellness increases. The traditional venture model—waiting 10+ years for exits—is fundamentally misaligned with investor needs. By bridging the gap through global markets arbitrage, our strategic and disciplined approach to accelerate portfolio company growth generates high alpha.</p>
+                <blockquote class="thesis-quote">"The future belongs to those optimizing both human potential and planetary health."</blockquote>
+            </div>
+            <div class="thesis-pillars">
+                <div class="t-pillar">
+                    <h4>Human Vitality</h4>
+                    <span>Performance · Longevity · Optimization</span>
+                </div>
+                <div class="t-pillar">
+                    <h4>Planetary Health</h4>
+                    <span>Regenerative Systems</span>
+                </div>
+                <div class="t-pillar">
+                    <h4>Systemic Impact</h4>
+                    <span>Measurable Outcomes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="cta-inner">
+            <div class="section-label">Get Started</div>
+            <h2 class="section-title">Ready to learn more?</h2>
+            <p class="section-sub">Request our diligence materials and schedule an investor call.</p>
+            <div class="cta-btns">
+                <button class="btn btn-primary" onclick="openModal('diligence')">Request Diligence</button>
+                <button class="btn btn-secondary" onclick="openModal('verify')">Verify Status</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <img src="https://i.postimg.cc/63kC0G1h/VC-Logo-White.png" alt="Vitality Capital" class="footer-logo">
+                <div class="footer-links">
+                    <a href="#verticals">Verticals</a>
+                    <a href="#approach">Approach</a>
+                    <a href="#expansion">Expansion</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><strong>ADGM Regulatory Status:</strong> Vitality Capital Ltd is registered in the Abu Dhabi Global Market (ADGM), Registration No. 000010238. This material has not been reviewed or approved by the ADGM Financial Services Regulatory Authority (FSRA).</p>
+                <p><strong>Not an Offer:</strong> This webpage is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. This communication is intended for Professional Clients and Market Counterparties only.</p>
+                <p><strong>Risk of Loss:</strong> Investment involves high risk including potential complete loss of capital. No guarantees of returns.</p>
+            </div>
+            <div class="footer-bottom">
+                © 2025 Vitality Capital Ltd (ADGM) · Life Fund I · Human & Planetary Optimization
+            </div>
+        </div>
+    </footer>
+
+    <!-- Diligence Modal -->
+    <div class="modal-overlay" id="modal-diligence">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('diligence')" aria-label="Close">×</button>
+            <h3>Request Diligence Materials</h3>
+            <form id="form-diligence" onsubmit="submitForm(event, 'diligence')">
+                <div class="form-group">
+                    <label for="d-name">Full Name *</label>
+                    <input type="text" id="d-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="d-email">Email Address *</label>
+                    <input type="email" id="d-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="d-company">Company / Family Office</label>
+                    <input type="text" id="d-company">
+                </div>
+                <div class="form-group">
+                    <label for="d-message">Message (Optional)</label>
+                    <textarea id="d-message"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Verify Modal -->
+    <div class="modal-overlay" id="modal-verify">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('verify')" aria-label="Close">×</button>
+            <h3>Verify Accredited Investor Status</h3>
+            <form id="form-verify" onsubmit="submitForm(event, 'verify')">
+                <div class="form-group">
+                    <label for="v-name">Full Name *</label>
+                    <input type="text" id="v-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-email">Email Address *</label>
+                    <input type="email" id="v-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-type">Investor Type *</label>
+                    <select id="v-type" required>
+                        <option value="">Select one...</option>
+                        <option value="individual">Individual Accredited Investor</option>
+                        <option value="entity">Accredited Entity / Institution</option>
+                        <option value="family">Family Office</option>
+                        <option value="qp">Qualified Purchaser</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="v-country">Country of Residence *</label>
+                    <input type="text" id="v-country" required>
+                </div>
+                <button type="submit" class="form-submit">Submit Verification</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="modal-success">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('success')" aria-label="Close">×</button>
+            <div class="modal-success">
+                <div class="modal-success-icon">✓</div>
+                <h3>Thank You</h3>
+                <p>Your submission has been received. Our team will be in touch shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById('modal-' + type).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            document.getElementById('modal-' + type).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function submitForm(e, type) {
+            e.preventDefault();
+            closeModal(type);
+            openModal('success');
+            e.target.reset();
+        }
+
+        // Close on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
