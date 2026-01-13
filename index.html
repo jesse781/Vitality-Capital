@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitality Capital | Life Fund I | Human & Planetary Optimization</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/qqf8jkr.css">
     <style>
         :root {
             --white: #ffffff;
@@ -20,22 +19,31 @@
             --gs-blue-pale: #eef3fb;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'futura-pt', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--white);
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
-            font-size: 13px;
         }
 
+        /* Subtle Background */
         .bg-gradient {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             background: 
                 radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 53, 127, 0.06) 0%, transparent 50%),
@@ -43,12 +51,12 @@
                 var(--white);
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
-            left: 24px; right: 24px;
-            width: auto;
-            padding: 16px 40px;
+            width: 100%;
+            padding: 24px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,47 +65,83 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
-            border-radius: 0 0 12px 12px;
         }
 
         nav.scrolled {
-            padding: 12px 40px;
+            padding: 16px 60px;
             border-bottom: 1px solid var(--mid-gray);
         }
 
-        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
 
-        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-mark svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
-            font-family: 'futura-pt', sans-serif;
             font-size: 12px;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             transition: color 0.3s ease;
         }
-        .nav-links a:hover { color: var(--gs-blue); }
+
+        .nav-links a:hover {
+            color: var(--gs-blue);
+        }
 
         .nav-cta {
-            padding: 10px 18px;
+            padding: 12px 24px;
             background: var(--gs-blue-light);
             border: none;
             border-radius: 8px;
             color: var(--white);
-            font-family: 'futura-pt', sans-serif;
-            font-size: 11px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        .nav-cta:hover { background: var(--gs-blue); transform: translateY(-2px); }
 
+        .nav-cta:hover {
+            background: var(--gs-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 180px 80px 100px;
+            padding: 140px 60px 100px;
             position: relative;
         }
 
@@ -111,7 +155,10 @@
             align-items: center;
         }
 
-        .hero-content { position: relative; z-index: 1; }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
         .hero-tag {
             display: inline-flex;
@@ -120,7 +167,7 @@
             padding: 8px 16px;
             background: var(--gs-blue-light);
             border-radius: 100px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--white);
             margin-bottom: 28px;
@@ -129,17 +176,21 @@
         }
 
         .tag-dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             background: var(--white);
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(38px, 5vw, 60px);
+            font-size: clamp(42px, 5vw, 68px);
             font-weight: 400;
             line-height: 1.15;
             letter-spacing: -0.5px;
@@ -148,11 +199,15 @@
             opacity: 0;
             color: var(--text-primary);
         }
-        .hero h1 em { font-style: italic; color: var(--gs-blue-light); }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gs-blue-light);
+        }
 
         .hero-description {
-            font-size: 13px;
-            color: var(--text-primary);
+            font-size: 17px;
+            color: var(--text-secondary);
             max-width: 480px;
             line-height: 1.7;
             margin-bottom: 40px;
@@ -171,96 +226,145 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 16px 32px;
             background: var(--gs-blue-light);
             border: none;
             border-radius: 10px;
             color: var(--white);
-            font-family: 'futura-pt', sans-serif;
-            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        .btn-primary:hover { background: var(--gs-blue); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(16, 53, 127, 0.25); }
+
+        .btn-primary:hover {
+            background: var(--gs-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 53, 127, 0.25);
+        }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 16px 32px;
             background: transparent;
             border: 1px solid var(--mid-gray);
             border-radius: 10px;
             color: var(--text-primary);
-            font-family: 'futura-pt', sans-serif;
-            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .btn-secondary:hover { border-color: var(--gs-blue); color: var(--gs-blue); }
 
+        .btn-secondary:hover {
+            border-color: var(--gs-blue);
+            color: var(--gs-blue);
+        }
+
+        /* Hero Visual */
         .hero-visual {
             position: relative;
-            height: 450px;
+            height: 500px;
             animation: fadeIn 1s ease 0.4s forwards;
             opacity: 0;
         }
 
-        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
         .stats-card {
             position: absolute;
             background: var(--white);
-            border-radius: 14px;
-            padding: 22px 26px;
+            border-radius: 16px;
+            padding: 28px 32px;
             box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
             border: 1px solid var(--light-gray);
         }
-        .stats-card-1 { top: 20px; left: 0; animation: float 6s ease-in-out infinite; }
-        .stats-card-2 { top: 150px; right: 0; animation: float 6s ease-in-out infinite 1s; }
-        .stats-card-3 { bottom: 60px; left: 40px; animation: float 6s ease-in-out infinite 2s; }
 
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .stats-card-1 {
+            top: 20px;
+            left: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stats-card-2 {
+            top: 160px;
+            right: 0;
+            animation: float 6s ease-in-out infinite 1s;
+        }
+
+        .stats-card-3 {
+            bottom: 60px;
+            left: 40px;
+            animation: float 6s ease-in-out infinite 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
         .stats-value {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 500;
             color: var(--text-primary);
             display: flex;
             align-items: baseline;
-            gap: 2px;
+            gap: 4px;
         }
-        .stats-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+        .stats-value .accent {
+            color: var(--gs-blue);
+        }
+
+        .stats-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
         .vitality-ring {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 260px; height: 260px;
+            width: 280px;
+            height: 280px;
             border: 2px solid var(--light-gray);
             border-radius: 50%;
         }
+
         .vitality-ring::before {
             content: '';
             position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
             border-radius: 50%;
             border: 2px solid transparent;
             border-top-color: var(--gs-blue);
             animation: spin 8s linear infinite;
         }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
         .ring-center {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 90px; height: 90px;
+            width: 100px;
+            height: 100px;
             background: var(--gs-blue-light);
             border-radius: 50%;
             display: flex;
@@ -271,274 +375,1660 @@
             transition: transform 0.3s ease;
             gap: 4px;
         }
-        .ring-center:hover { transform: translate(-50%, -50%) scale(1.05); }
-        .ring-center svg { width: 36px; height: 36px; stroke: white; stroke-width: 2; fill: none; }
-        .ring-center-text { font-family: 'futura-pt', sans-serif; font-size: 8px; font-weight: 600; color: white; letter-spacing: 1px; text-transform: uppercase; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .ring-center:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
 
-        section { padding: 100px 80px; position: relative; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 56px; }
-        .section-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gs-blue); margin-bottom: 12px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; letter-spacing: -0.3px; line-height: 1.2; color: var(--text-primary); }
-        .section-title em { font-style: italic; color: var(--gs-blue-light); }
-        .section-subtitle { font-size: 12px; color: var(--text-primary); max-width: 600px; margin: 14px auto 0; }
+        .ring-center svg {
+            width: 40px;
+            height: 40px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
 
-        .verticals { background: var(--off-white); }
-        .verticals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .ring-center-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections Common */
+        section {
+            padding: 120px 60px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gs-blue);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--gs-blue-light);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 16px auto 0;
+        }
+
+        /* Verticals Section */
+        .verticals {
+            background: var(--off-white);
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
         .vertical-card {
-            padding: 32px 24px;
+            padding: 36px 28px;
             background: var(--white);
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid var(--mid-gray);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             text-align: left;
         }
+
         .vertical-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
             background: linear-gradient(90deg, var(--gs-blue), var(--gs-blue-light));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.3s ease;
         }
-        .vertical-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: transparent; }
-        .vertical-card:hover::before { transform: scaleX(1); }
-        .vertical-icon { width: 42px; height: 42px; margin-bottom: 20px; display: flex; align-items: center; justify-content: flex-start; }
-        .vertical-icon svg { width: 100%; height: 100%; }
-        .vertical-card h3 { font-family: 'futura-pt', sans-serif; font-size: 16px; font-weight: 500; margin-bottom: 10px; color: var(--text-primary); }
-        .vertical-card p { font-size: 11px; color: var(--text-primary); line-height: 1.7; }
 
-        .about { background: var(--white); }
-        .about-intro { text-align: center; max-width: 700px; margin: 0 auto 56px; }
-        .about-intro p { font-size: 12px; color: var(--text-primary); line-height: 1.7; }
+        .vertical-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: transparent;
+        }
+
+        .vertical-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .vertical-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .vertical-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .vertical-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .vertical-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .about-intro p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .founder-section {
+            margin-bottom: 64px;
+        }
 
         .founder-block {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
+            gap: 60px;
             align-items: start;
-            padding: 40px;
+            padding: 48px;
             background: var(--off-white);
-            border-radius: 20px;
-            margin-bottom: 36px;
+            border-radius: 24px;
+            margin-bottom: 40px;
         }
-        .founder-block.reverse { grid-template-columns: 1.2fr 1fr; }
-        .founder-block.reverse .founder-images { order: 2; }
+
+        .founder-block.reverse {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .founder-block.reverse .founder-images {
+            order: 2;
+        }
 
         .founder-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 10px;
-            height: 360px;
+            gap: 12px;
+            height: 400px;
         }
-        .founder-img { border-radius: 10px; overflow: hidden; background: var(--mid-gray); }
-        .founder-img img { width: 100%; height: 100%; object-fit: cover; }
-        .founder-img.large { grid-row: span 2; }
 
-        .founder-info h3 { font-family: 'futura-pt', sans-serif; font-size: 22px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
-        .founder-role { font-size: 10px; color: var(--gs-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
-        .founder-bio { font-size: 11px; color: var(--text-primary); line-height: 1.7; margin-bottom: 14px; }
+        .founder-img {
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--mid-gray);
+        }
+
+        .founder-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-img.large {
+            grid-row: span 2;
+        }
+
+        .founder-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .founder-role {
+            font-size: 14px;
+            color: var(--gs-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .founder-bio {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
         .founder-quote {
             background: var(--white);
             border-left: 3px solid var(--gs-blue);
-            padding: 14px 18px;
-            margin: 18px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
             font-style: italic;
-            font-size: 11px;
+            font-size: 15px;
             line-height: 1.7;
-            color: var(--text-primary);
-            border-radius: 0 10px 10px 0;
+            color: var(--text-secondary);
+            border-radius: 0 12px 12px 0;
         }
-        .founder-highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-        .highlight-tag { padding: 5px 9px; background: var(--white); border: 1px solid var(--mid-gray); border-radius: 5px; font-size: 10px; font-weight: 500; color: var(--text-primary); }
-        .highlight-tag.accent { background: var(--gs-blue-light); border-color: var(--gs-blue-light); color: var(--white); }
 
-        .performance-box { background: var(--white); border-radius: 10px; padding: 16px; margin-top: 18px; border: 1px solid var(--mid-gray); }
-        .performance-header { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gs-blue); margin-bottom: 8px; }
-        .performance-stat { display: flex; align-items: baseline; gap: 8px; }
-        .performance-value { font-family: 'futura-pt', sans-serif; font-size: 28px; font-weight: 500; color: var(--gs-blue); }
-        .performance-label { font-size: 11px; color: var(--text-primary); }
-        .performance-context { font-size: 10px; color: var(--text-primary); margin-top: 6px; line-height: 1.5; }
+        .founder-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
 
+        .highlight-tag {
+            padding: 8px 14px;
+            background: var(--white);
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .highlight-tag.accent {
+            background: var(--gs-blue-light);
+            border-color: var(--gs-blue-light);
+            color: var(--white);
+        }
+
+        .performance-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .performance-header {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gs-blue);
+            margin-bottom: 12px;
+        }
+
+        .performance-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .performance-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--gs-blue);
+        }
+
+        .performance-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .performance-context {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        /* Principals */
         .principals-card {
             background: linear-gradient(135deg, rgba(16, 53, 127, 0.04) 0%, rgba(30, 90, 185, 0.04) 100%);
             border: 1px solid rgba(16, 53, 127, 0.1);
-            border-radius: 14px;
-            padding: 32px 40px;
+            border-radius: 16px;
+            padding: 36px 48px;
             text-align: center;
         }
-        .principals-card h4 { font-family: 'futura-pt', sans-serif; font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
-        .principals-card p { font-size: 11px; color: var(--text-primary); max-width: 700px; margin: 0 auto; }
-        .principals-card strong { color: var(--text-primary); }
 
-        .tools-section { padding: 100px 80px; background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%); }
-        .tools-content { max-width: 900px; margin: 0 auto; }
-        .tools-text { text-align: center; }
-        .tools-description { font-size: 12px; color: var(--text-primary); line-height: 1.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .tools-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; text-align: left; }
-        .tool-feature { background: var(--white); padding: 24px; border-radius: 14px; border: 1px solid var(--mid-gray); }
-        .tool-icon { width: 42px; height: 42px; background: var(--gs-blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-        .tool-icon svg { width: 22px; height: 22px; stroke: var(--gs-blue); }
-        .tool-feature h4 { font-family: 'futura-pt', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 5px; }
-        .tool-feature p { font-size: 10px; color: var(--text-primary); line-height: 1.6; }
+        .principals-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .principals-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .principals-card strong {
+            color: var(--text-primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 140px 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .cta-content h2 em {
+            font-style: italic;
+            color: var(--gs-blue);
+        }
+
+        .cta-content p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-description {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .contact-email {
+            font-size: 17px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-primary);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--gs-blue);
+            border-color: var(--gs-blue);
+        }
+
+        .contact-locations {
+            display: flex;
+            gap: 60px;
+        }
+
+        .location h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .location p {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Vitality Life Policy Section */
+        .vitality-life-section {
+            padding: 120px 60px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+        }
+
+        .vitality-life-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .vitality-life-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .vitality-lead {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .vitality-sublead {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .vitality-pillars {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .vitality-pillar {
+            text-align: center;
+            padding: 28px 20px;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            background: var(--gs-blue-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pillar-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gs-blue);
+        }
+
+        .vitality-pillar h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .vitality-pillar p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .vitality-truth {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 24px;
+            background: var(--gs-blue-pale);
+            border-radius: 12px;
+        }
+
+        .vitality-truth p {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: var(--gs-blue);
+            margin: 0;
+        }
+
+        .vitality-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .vitality-block {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .vitality-block.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .vitality-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .vitality-block h3 em {
+            font-style: italic;
+            color: var(--gs-blue);
+        }
+
+        .vitality-block p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .vitality-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+
+        .vitality-block ul li {
+            font-size: 15px;
+            color: var(--text-secondary);
+            padding: 8px 0 8px 24px;
+            position: relative;
+        }
+
+        .vitality-block ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gs-blue);
+        }
+
+        .vitality-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-style: italic;
+            color: var(--text-primary) !important;
+            padding-top: 8px;
+            border-top: 1px solid var(--mid-gray);
+            margin-bottom: 0 !important;
+        }
+
+        .investor-lead {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-primary) !important;
+        }
+
+        .investor-benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            padding: 16px;
+            background: var(--off-white);
+            border-radius: 12px;
+        }
+
+        .benefit-icon {
+            font-size: 20px;
+            color: var(--gs-blue);
+            font-weight: 600;
+        }
+
+        .benefit span:last-child {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .vitality-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: var(--gs-blue) !important;
+            text-align: center;
+            margin-bottom: 0 !important;
+        }
+
+        /* Tools/USP Section */
+        .tools-section {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+        }
+
+        .tools-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tools-text {
+            text-align: center;
+        }
+
+        .tools-description {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tools-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            text-align: left;
+        }
+
+        .tool-feature {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gs-blue-pale);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .tool-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gs-blue);
+        }
+
+        .tool-feature h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .tool-feature p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
 
         .tools-cta {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 16px 32px;
             background: var(--white);
             border: 2px solid var(--gs-blue);
             border-radius: 10px;
             color: var(--gs-blue);
-            font-family: 'futura-pt', sans-serif;
-            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        .tools-cta:hover { background: var(--gs-blue); color: var(--white); transform: translateY(-2px); }
 
-        .pipeline-section { padding: 80px 80px; background: var(--off-white); }
-        .pipeline-container { max-width: 900px; margin: 0 auto; text-align: center; }
-        .pipeline-lock { width: 56px; height: 56px; margin: 0 auto 20px; background: var(--gs-blue-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .pipeline-lock svg { width: 24px; height: 24px; stroke: var(--gs-blue); stroke-width: 2; fill: none; }
-        .pipeline-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 400; color: var(--text-primary); margin-bottom: 14px; }
-        .pipeline-title em { font-style: italic; color: var(--gs-blue); }
-        .pipeline-description { font-size: 11px; color: var(--text-primary); line-height: 1.7; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .tools-cta:hover {
+            background: var(--gs-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
 
-        .password-form { display: flex; gap: 12px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
-        .password-input { padding: 12px 18px; border: 2px solid var(--mid-gray); border-radius: 10px; font-family: 'futura-pt', sans-serif; font-size: 13px; width: 200px; transition: border-color 0.3s ease; }
-        .password-input:focus { outline: none; border-color: var(--gs-blue); }
-        .password-hint { font-size: 12px; color: var(--text-muted); }
-        .password-hint a { color: var(--gs-blue); text-decoration: none; }
-        .password-hint a:hover { text-decoration: underline; }
+        /* Pipeline Section */
+        .pipeline-section {
+            padding: 100px 60px;
+            background: var(--off-white);
+        }
+
+        .pipeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pipeline-lock {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--gs-blue-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pipeline-lock svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gs-blue);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .pipeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .pipeline-title em {
+            font-style: italic;
+            color: var(--gs-blue);
+        }
+
+        .pipeline-description {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pipeline-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .pipeline-cat {
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid var(--mid-gray);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
 
         .pipeline-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 16px 32px;
             background: var(--gs-blue);
             border: none;
             border-radius: 10px;
             color: var(--white);
-            font-family: 'futura-pt', sans-serif;
-            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        .pipeline-btn:hover { background: #4a7fc4; transform: translateY(-2px); }
-        .pipeline-btn svg { width: 16px; height: 16px; }
 
-        .pipeline-header-unlocked { margin-bottom: 40px; }
-        .portfolio-companies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; text-align: left; }
-        .portfolio-company-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--mid-gray); transition: all 0.3s ease; }
-        .portfolio-company-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); }
-        .company-image { height: 100px; display: flex; align-items: center; justify-content: center; }
-        .company-logo-placeholder { text-align: center; }
-        .company-info { padding: 18px; }
-        .company-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-        .company-info h3 { font-family: 'futura-pt', sans-serif; font-size: 15px; font-weight: 500; color: var(--text-primary); }
-        .company-flag { font-size: 14px; }
-        .company-category { font-size: 10px; color: var(--gs-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .company-description { font-size: 11px; color: var(--text-primary); line-height: 1.6; margin-bottom: 14px; }
-        .company-metrics { display: flex; gap: 14px; padding-top: 10px; border-top: 1px solid var(--light-gray); }
-        .metric { display: flex; flex-direction: column; gap: 2px; }
-        .metric-label { font-size: 9px; color: var(--text-muted); }
-        .metric-value { font-size: 13px; font-weight: 600; color: var(--text-primary); }
-        .pipeline-footer { text-align: center; }
-        .pipeline-footer p { font-size: 12px; color: var(--text-primary); margin-bottom: 16px; }
+        .pipeline-btn:hover {
+            background: #4a7fc4;
+            transform: translateY(-2px);
+        }
 
-        .contact-section { padding: 100px 80px; background: var(--white); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
-        .contact-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 46px); font-weight: 400; font-style: italic; color: var(--text-primary); margin-bottom: 18px; }
-        .contact-description { font-size: 11px; color: var(--text-primary); line-height: 1.7; margin-bottom: 28px; max-width: 400px; }
-        .contact-email { font-size: 13px; color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--text-primary); padding-bottom: 2px; transition: all 0.3s ease; }
-        .contact-email:hover { color: var(--gs-blue); border-color: var(--gs-blue); }
-        .contact-locations { display: flex; gap: 50px; }
-        .location h4 { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text-primary); margin-bottom: 12px; }
-        .location p { font-size: 11px; color: var(--text-primary); line-height: 1.8; margin: 0; }
+        .pipeline-btn svg {
+            width: 18px;
+            height: 18px;
+        }
 
-        footer { padding: 40px 80px; border-top: 1px solid var(--mid-gray); background: var(--white); }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .footer-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .footer-links { display: flex; gap: 28px; }
-        .footer-links a { color: var(--text-primary); text-decoration: none; font-family: 'futura-pt', sans-serif; font-size: 10px; font-weight: 500; transition: color 0.3s ease; }
-        .footer-links a:hover { color: var(--gs-blue); }
-        .footer-copyright { font-size: 11px; color: var(--text-muted); }
+        .password-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 43, 74, 0.6); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: var(--white); border-radius: 20px; padding: 40px; max-width: 520px; text-align: center; transform: translateY(20px); transition: transform 0.3s ease; }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
-        .modal-ecg { width: 100px; height: 50px; margin: 0 auto 20px; }
-        .modal-ecg svg { width: 100%; height: 100%; stroke: var(--gs-blue); stroke-width: 2; fill: none; }
-        .modal-quote { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; font-weight: 400; color: var(--text-primary); line-height: 1.5; margin-bottom: 20px; }
-        .modal-attribution { font-size: 12px; color: var(--text-muted); }
+        .password-input {
+            padding: 14px 20px;
+            border: 2px solid var(--mid-gray);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            width: 220px;
+            transition: border-color 0.3s ease;
+        }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .password-input:focus {
+            outline: none;
+            border-color: var(--gs-blue);
+        }
 
+        .password-hint {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .password-hint a {
+            color: var(--gs-blue);
+            text-decoration: none;
+        }
+
+        .password-hint a:hover {
+            text-decoration: underline;
+        }
+
+        .pipeline-header-unlocked {
+            margin-bottom: 48px;
+        }
+
+        .portfolio-companies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .portfolio-company-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--mid-gray);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-company-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-image {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-logo-placeholder {
+            text-align: center;
+        }
+
+        .company-info {
+            padding: 20px;
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .company-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .company-flag {
+            font-size: 16px;
+        }
+
+        .company-category {
+            font-size: 12px;
+            color: var(--gs-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .company-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .company-metrics {
+            display: flex;
+            gap: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .pipeline-footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid var(--mid-gray);
+        }
+
+        .pipeline-footer p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 60px;
+            border-top: 1px solid var(--mid-gray);
+            background: var(--white);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .footer-logo-mark {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gs-blue);
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--text-primary);
+        }
+
+        /* ECG Quote Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 43, 74, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 560px;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-ecg {
+            width: 120px;
+            height: 60px;
+            margin: 0 auto 24px;
+        }
+
+        .modal-ecg svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gs-blue);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .modal-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .modal-attribution {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--light-gray);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--mid-gray);
+        }
+
+        /* Responsive */
         @media (max-width: 1100px) {
-            .hero-container { grid-template-columns: 1fr; gap: 50px; }
-            .hero-visual { height: 380px; }
-            .verticals-grid { grid-template-columns: repeat(3, 1fr); }
-            .founder-block, .founder-block.reverse { grid-template-columns: 1fr; }
-            .founder-block.reverse .founder-images { order: 0; }
-            .founder-images { height: 280px; }
-            .portfolio-companies-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero-visual {
+                height: 400px;
+            }
+            
+            .verticals-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .founder-block,
+            .founder-block.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-block.reverse .founder-images {
+                order: 0;
+            }
+
+            .founder-images {
+                height: 320px;
+            }
+
+            .tools-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 900px) {
-            nav { padding: 14px 20px; left: 16px; right: 16px; }
-            .nav-links { display: none; }
-            .hero { padding: 140px 20px 60px; }
-            .hero h1 { font-size: 32px; }
-            section { padding: 60px 20px; }
-            .verticals-grid { grid-template-columns: 1fr; gap: 14px; }
-            .founder-block { padding: 24px; gap: 28px; }
-            .founder-images { height: 260px; }
-            .hero-cta-group { flex-direction: column; }
-            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-            .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-            .contact-locations { flex-direction: column; gap: 24px; }
-            .tools-features { grid-template-columns: 1fr; gap: 14px; }
-            .tools-section, .pipeline-section { padding: 60px 20px; }
-            .password-form { flex-direction: column; align-items: center; }
-            .password-input { width: 100%; max-width: 260px; }
-            .portfolio-companies-grid { grid-template-columns: 1fr; gap: 14px; }
-            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
-            footer { padding: 28px 20px; }
+            nav {
+                padding: 16px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                line-height: 1.2;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-visual {
+                height: 320px;
+            }
+
+            .stats-card {
+                padding: 16px 20px;
+            }
+
+            .stats-value {
+                font-size: 24px;
+            }
+
+            .stats-label {
+                font-size: 10px;
+            }
+
+            .vitality-ring {
+                width: 200px;
+                height: 200px;
+            }
+
+            .ring-center {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ring-center svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .ring-center-text {
+                font-size: 8px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .verticals-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .vertical-card {
+                padding: 24px 20px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .section-subtitle {
+                font-size: 15px;
+            }
+
+            .founder-block {
+                padding: 20px;
+                gap: 24px;
+            }
+
+            .founder-images {
+                height: auto;
+                min-height: 280px;
+                gap: 8px;
+            }
+
+            .founder-img.large {
+                min-height: 240px;
+            }
+
+            .founder-info h3 {
+                font-size: 24px;
+            }
+
+            .founder-role {
+                font-size: 12px;
+            }
+
+            .founder-bio {
+                font-size: 14px;
+            }
+
+            .founder-quote {
+                font-size: 13px;
+                padding: 16px 18px;
+            }
+
+            .highlight-tag {
+                font-size: 10px;
+                padding: 6px 10px;
+            }
+
+            .performance-box {
+                padding: 20px;
+            }
+
+            .performance-value {
+                font-size: 36px;
+            }
+
+            .principals-card {
+                padding: 24px 20px;
+            }
+
+            .principals-card h4 {
+                font-size: 18px;
+            }
+
+            .principals-card p {
+                font-size: 14px;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .tools-section {
+                padding: 60px 20px;
+            }
+
+            .vitality-life-section {
+                padding: 60px 20px;
+            }
+
+            .vitality-lead {
+                font-size: 20px;
+            }
+
+            .vitality-sublead {
+                font-size: 15px;
+            }
+
+            .vitality-pillars {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .vitality-pillar {
+                padding: 20px 16px;
+            }
+
+            .vitality-truth p {
+                font-size: 17px;
+            }
+
+            .vitality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vitality-block {
+                padding: 24px;
+            }
+
+            .vitality-block h3 {
+                font-size: 20px;
+            }
+
+            .investor-benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tools-features {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .tools-description {
+                font-size: 16px;
+            }
+
+            .tool-feature {
+                padding: 20px;
+            }
+
+            .tool-feature h4 {
+                font-size: 16px;
+            }
+
+            .tools-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pipeline-section {
+                padding: 60px 20px;
+            }
+
+            .pipeline-title {
+                font-size: 28px;
+            }
+
+            .pipeline-description {
+                font-size: 15px;
+            }
+
+            .pipeline-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .password-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .password-input {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .portfolio-companies-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .company-image {
+                height: 100px;
+            }
+
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-title {
+                font-size: 28px;
+            }
+
+            .contact-description {
+                font-size: 15px;
+            }
+
+            .contact-locations {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .location h4 {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .location p {
+                font-size: 14px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            footer {
+                padding: 32px 20px;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 32px 24px;
+            }
+
+            .modal-quote {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 90px 16px 50px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-tag {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .hero-visual {
+                height: 280px;
+            }
+
+            .stats-card {
+                padding: 14px 16px;
+            }
+
+            .stats-card-1 {
+                top: 5px;
+                left: 0;
+            }
+
+            .stats-card-2 {
+                top: 100px;
+                right: 0;
+            }
+
+            .stats-card-3 {
+                bottom: 30px;
+                left: 10px;
+            }
+
+            .stats-value {
+                font-size: 20px;
+            }
+
+            .stats-label {
+                font-size: 9px;
+            }
+
+            .vitality-ring {
+                width: 160px;
+                height: 160px;
+            }
+
+            .ring-center {
+                width: 64px;
+                height: 64px;
+            }
+
+            .ring-center svg {
+                width: 26px;
+                height: 26px;
+            }
+
+            section {
+                padding: 50px 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .founder-block {
+                padding: 16px;
+            }
+
+            .founder-images {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .founder-img.large {
+                grid-row: auto;
+                min-height: 260px;
+            }
+
+            .founder-img:not(.large) {
+                min-height: 80px;
+            }
+
+            .founder-info h3 {
+                font-size: 22px;
+            }
+
+            .founder-quote {
+                font-size: 12px;
+                padding: 14px 16px;
+            }
+
+            .highlight-tag {
+                font-size: 9px;
+                padding: 5px 8px;
+            }
+
+            .about-intro p {
+                font-size: 15px;
+            }
+
+            .tool-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tool-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .pipeline-lock {
+                width: 56px;
+                height: 56px;
+            }
+
+            .pipeline-lock svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contact-title {
+                font-size: 26px;
+            }
+
+            .footer-links {
+                gap: 12px;
+            }
+
+            .footer-links a {
+                font-size: 13px;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <div class="bg-gradient"></div>
 
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="logo" onclick="openModal()">
-            <img src="https://i.ibb.co/TqF91rX1/vc-logo.png" alt="Vitality Capital" style="height: 72px; width: auto;">
+            <div class="logo-mark">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#navGrad)" stroke-width="2"/>
+                    <path d="M10 20 L15 20 L18 13 L22 27 L25 20 L30 20" stroke="url(#navGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#5a8fd4"/>
+                            <stop offset="100%" stop-color="#5a8fd4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="logo-text">Vitality Capital</span>
         </div>
         <ul class="nav-links">
             <li><a href="#verticals">Verticals</a></li>
             <li><a href="#about">Leadership</a></li>
-            <li><a href="#pipeline">Pipeline</a></li>
+            <li><a href="#vitality-life">Our Manifesto</a></li>
         </ul>
         <a href="mailto:am@vitality.capital" class="nav-cta">Investor Relations</a>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
@@ -546,28 +2036,39 @@
                     <span class="tag-dot"></span>
                     Life Fund I
                 </div>
-                <h1>Building for <em>human</em> and<br><em>planetary</em> optimization.</h1>
-                <p class="hero-description">Investing in AI-first growth stage businesses across healthcare, energy, and media through disciplined capital deployment and global markets arbitrage.</p>
+                <h1>
+                    Building for <em>human</em> and<br>
+                    <em>planetary</em> optimization.
+                </h1>
+                <p class="hero-description">
+                    Investing in AI-first growth stage businesses across healthcare, energy, and media through disciplined capital deployment and global markets arbitrage.
+                </p>
                 <div class="hero-cta-group">
                     <a href="mailto:am@vitality.capital" class="btn-primary">
                         Partner With Us
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
-                    <button class="btn-secondary">Learn More</button>
+                    <button class="btn-secondary">
+                        Learn More
+                    </button>
                 </div>
             </div>
             
             <div class="hero-visual">
                 <div class="vitality-ring">
                     <div class="ring-center" onclick="openModal()">
-                        <svg viewBox="0 0 32 32"><path d="M4 16 L10 16 L13 8 L19 24 L22 16 L28 16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 32 32">
+                            <path d="M4 16 L10 16 L13 8 L19 24 L22 16 L28 16" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                         <span class="ring-center-text">AI-First</span>
                     </div>
                 </div>
                 
                 <div class="stats-card stats-card-1">
-                    <div class="stats-value">$300<span style="color: var(--text-primary);">M</span></div>
-                    <div class="stats-label">Target AUM</div>
+                    <div class="stats-value">$300<span class="accent">M+</span></div>
+                    <div class="stats-label">Assets Under Management</div>
                 </div>
                 
                 <div class="stats-card stats-card-2">
@@ -576,13 +2077,14 @@
                 </div>
                 
                 <div class="stats-card stats-card-3">
-                    <div class="stats-value">100<span style="color: var(--text-primary);">%</span></div>
+                    <div class="stats-value">100<span class="accent">%</span></div>
                     <div class="stats-label">Growth-Focused</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Verticals Section -->
     <section class="verticals" id="verticals">
         <div class="section-container">
             <div class="section-header reveal">
@@ -593,21 +2095,28 @@
             <div class="verticals-grid">
                 <div class="vertical-card reveal">
                     <div class="vertical-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24h10l4-10 6 20 4-10h16"/></svg>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 24h10l4-10 6 20 4-10h16"/>
+                        </svg>
                     </div>
                     <h3>Healthcare</h3>
                     <p>Health intelligence platforms, consumer longevity products, and wellness infrastructure optimizing human performance. Investing in K-beauty, beauty-tech, and biotech leaders advancing biological and cognitive optimization.</p>
                 </div>
                 <div class="vertical-card reveal">
                     <div class="vertical-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M26 4L10 28h14l-4 16 20-28H26l4-12z"/></svg>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M26 4L10 28h14l-4 16 20-28H26l4-12z"/>
+                        </svg>
                     </div>
                     <h3>Energy</h3>
                     <p>Energy resilience infrastructure supporting sustainable mobility, grid independence, and the global transition to electrification. Building the green cities of the future.</p>
                 </div>
                 <div class="vertical-card reveal">
                     <div class="vertical-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="28" height="20" rx="2"/><path d="M32 18l12-6v24l-12-6"/></svg>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="12" width="28" height="20" rx="2"/>
+                            <path d="M32 18l12-6v24l-12-6"/>
+                        </svg>
                     </div>
                     <h3>Media</h3>
                     <p>Content and IP platforms shaping human wellbeing through cultural exports. With deep access to LA and K-media, we're connected to the influencers shaping our future.</p>
@@ -616,6 +2125,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="section-container">
             <div class="section-header reveal">
@@ -627,14 +2137,15 @@
                 <p>A team of operators, investors and macro-strategists powered by a vision for a thriving humanity and planet.</p>
             </div>
 
-            <div class="founder-block reveal" style="align-items: start; grid-template-columns: 0.5fr 1.5fr; gap: 20px;">
-                <div class="founder-images" style="display: flex; flex-direction: column; height: auto; gap: 8px; justify-content: flex-start; max-width: 260px;">
-                    <a href="https://www.youtube.com/watch?v=D1icFFaMKsU" target="_blank" style="display: block; border-radius: 8px; overflow: hidden;">
-                        <img src="https://i.ibb.co/XxXV0XfK/Whats-App-Image-2026-01-11-at-20-35-23.jpg" alt="Shark Tank Pakistan" style="width: 100%; height: auto; object-fit: cover;">
-                    </a>
-                    <a href="https://news.sky.com/video/first-ever-modest-fashion-show-10773787" target="_blank" style="display: block; border-radius: 8px; overflow: hidden;">
-                        <img src="https://i.ibb.co/ccmkM0cp/Whats-App-Image-2026-01-11-at-20-34-30.jpg" alt="Sky News" style="width: 100%; height: auto; object-fit: cover;">
-                    </a>
+            <!-- Rummana -->
+            <div class="founder-block reveal">
+                <div class="founder-images" style="display: flex; flex-direction: column; gap: 12px; height: auto;">
+                    <div class="founder-img" style="flex: 1; min-height: 220px; border-radius: 12px; overflow: hidden;">
+                        <img src="https://i.ibb.co/XxXV0XfK/Whats-App-Image-2026-01-11-at-20-35-23.jpg" alt="Rummana Dada" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="founder-img" style="flex: 1; min-height: 220px; border-radius: 12px; overflow: hidden;">
+                        <img src="https://i.ibb.co/ccmkM0cp/Whats-App-Image-2026-01-11-at-20-34-30.jpg" alt="Rummana Dada" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                 </div>
                 <div class="founder-info">
                     <h3>Rummana Dada</h3>
@@ -659,6 +2170,7 @@
                 </div>
             </div>
 
+            <!-- Maha -->
             <div class="founder-block reverse reveal">
                 <div class="founder-info">
                     <h3>Maha Al-Fahim</h3>
@@ -674,35 +2186,56 @@
                         <p class="performance-context">2.8x cash-on-cash return in 1Y 8M — vs. 8-12% public equities, 20-25% top-quartile VC, 25-35% strong PE</p>
                     </div>
                     
-                    <p class="founder-bio" style="margin-top: 18px;">A 2.8x cash-on-cash return in under two years combines both magnitude and speed of realization—demonstrating capital discipline, precise execution, and the ability to convert conviction into cash. This is not a paper gain; it is a <em>realized exit</em>.</p>
+                    <p class="founder-bio" style="margin-top: 20px;">A 2.8x cash-on-cash return in under two years combines both magnitude and speed of realization—demonstrating capital discipline, precise execution, and the ability to convert conviction into cash. This is not a paper gain; it is a <em>realized exit</em>.</p>
                     
-                    <blockquote class="founder-quote">"I'm excited to apply this same rigor at Vitality Capital as we continue building a platform focused on generating outsized, repeatable returns while investing in solutions that advance a thriving humanity and planet."</blockquote>
+                    <blockquote class="founder-quote">
+                        "I'm excited to apply this same rigor at Vitality Capital as we continue building a platform focused on generating outsized, repeatable returns while investing in solutions that advance a thriving humanity and planet."
+                    </blockquote>
                 </div>
                 <div class="founder-images">
-                    <div class="founder-img large" style="background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%); padding: 20px; display: flex; flex-direction: column;">
-                        <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; font-weight: 500; color: var(--gs-blue); margin-bottom: 4px;">Highwater Portfolio</div>
-                        <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 14px;">From AI to space, materials, fintech & health</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1;">
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">Epic Padel</div><div style="font-size: 9px; color: #999;">Sports & Lifestyle</div></div>
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">Synfini</div><div style="font-size: 9px; color: #999;">AI Drug Discovery</div></div>
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">SeniorLife.AI</div><div style="font-size: 9px; color: #999;">Elder Care AI</div></div>
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">Apex</div><div style="font-size: 9px; color: #999;">Aerospace Infrastructure</div></div>
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">Food is Good</div><div style="font-size: 9px; color: #999;">Biotech & Agtech</div></div>
-                            <div style="background: white; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;"><div style="font-size: 11px; font-weight: 600; color: #1a1a1a;">Loyal</div><div style="font-size: 9px; color: #999;">Pet Health</div></div>
+                    <div class="founder-img large" style="background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%); padding: 24px; display: flex; flex-direction: column;">
+                        <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; font-weight: 500; color: var(--gs-blue); margin-bottom: 4px;">Highwater Portfolio</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">From AI to space, materials, fintech & health</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1;">
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">Epic Padel</div>
+                                <div style="font-size: 10px; color: #999;">Sports & Lifestyle</div>
+                            </div>
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">Synfini</div>
+                                <div style="font-size: 10px; color: #999;">AI Drug Discovery</div>
+                            </div>
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">SeniorLife.AI</div>
+                                <div style="font-size: 10px; color: #999;">Elder Care AI</div>
+                            </div>
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">Apex</div>
+                                <div style="font-size: 10px; color: #999;">Aerospace Infrastructure</div>
+                            </div>
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">Food is Good</div>
+                                <div style="font-size: 10px; color: #999;">Biotech & Agtech</div>
+                            </div>
+                            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #e8ecf2;">
+                                <div style="font-size: 13px; font-weight: 600; color: #1a1a1a;">Loyal</div>
+                                <div style="font-size: 10px; color: #999;">Pet Health</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="founder-img" style="background: linear-gradient(135deg, #e8f4fc 0%, #f0f7ff 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px;">
-                        <div style="font-size: 28px; font-weight: 700; color: var(--gs-blue);">2.8x</div>
-                        <div style="font-size: 10px; color: var(--text-muted);">in ~18 months</div>
-                        <div style="font-size: 9px; color: var(--gs-blue); font-weight: 600; margin-top: 4px;">REALISED EXIT</div>
+                    <div class="founder-img" style="background: linear-gradient(135deg, #e8f4fc 0%, #f0f7ff 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; position: relative;">
+                        <div style="font-size: 32px; font-weight: 700; color: var(--gs-blue);">2.8x</div>
+                        <div style="font-size: 11px; color: var(--text-secondary);">in ~18 months</div>
+                        <div style="font-size: 10px; color: var(--gs-blue); font-weight: 600; margin-top: 4px;">REALISED EXIT</div>
                     </div>
-                    <div class="founder-img" style="background: linear-gradient(135deg, #5a8fd4 0%, #7aa8e0 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px;">
-                        <div style="font-size: 24px; font-weight: 700; color: white;">~90%</div>
-                        <div style="font-size: 9px; color: rgba(255,255,255,0.8);">Annualized IRR</div>
+                    <div class="founder-img" style="background: linear-gradient(135deg, #5a8fd4 0%, #7aa8e0 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; position: relative;">
+                        <div style="font-size: 28px; font-weight: 700; color: white;">~90%</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.8);">Annualized IRR</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Principals -->
             <div class="principals-card reveal">
                 <h4>Our Principals</h4>
                 <p>Joining us are leaders in <strong>health-innovation</strong>, <strong>climate-tech</strong>, <strong>real-estate</strong>, <strong>sustainability</strong>, and <strong>applied wellness</strong> from the world's largest brands.</p>
@@ -710,6 +2243,117 @@
         </div>
     </section>
 
+    <!-- Vitality Life Policy Section -->
+    <section class="vitality-life-section" id="vitality-life">
+        <div class="section-container">
+            <div class="vitality-life-content reveal">
+                <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                    <span class="section-tag">Our Philosophy</span>
+                    <h2 class="section-title">The Vitality Life™ <em>Policy</em></h2>
+                </div>
+                
+                <div class="vitality-life-intro">
+                    <p class="vitality-lead">At Vitality Capital, we believe the future belongs to leaders who can sustain clarity, energy, and purpose over decades—not quarters.</p>
+                    <p class="vitality-sublead">The Vitality Life™ Policy is our proprietary framework that aligns human vitality with ownership and long-term value creation.</p>
+                </div>
+
+                <div class="vitality-pillars">
+                    <div class="vitality-pillar">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </div>
+                        <h4>Sleep</h4>
+                        <p>Consistent, high-quality rest</p>
+                    </div>
+                    <div class="vitality-pillar">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                <line x1="6" y1="1" x2="6" y2="4"/>
+                                <line x1="10" y1="1" x2="10" y2="4"/>
+                                <line x1="14" y1="1" x2="14" y2="4"/>
+                            </svg>
+                        </div>
+                        <h4>Nutrition</h4>
+                        <p>Clean, nourishing fuel</p>
+                    </div>
+                    <div class="vitality-pillar">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h4>Movement</h4>
+                        <p>Daily activity & recovery</p>
+                    </div>
+                    <div class="vitality-pillar">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h4>Discipline</h4>
+                        <p>Mental & spiritual practice</p>
+                    </div>
+                </div>
+
+                <div class="vitality-truth">
+                    <p>Because exhausted founders don't build enduring companies.</p>
+                </div>
+
+                <div class="vitality-grid">
+                    <div class="vitality-block">
+                        <h3>A New Model of <em>Incentives</em></h3>
+                        <p>Vitality Life™ goes beyond perks and wellness programs. Where appropriate, we reward sustained vitality with economic upside—including:</p>
+                        <ul>
+                            <li>Performance-based equity participation</li>
+                            <li>Enhanced long-term incentives</li>
+                            <li>Leadership recognition tied to consistency, not burnout</li>
+                        </ul>
+                        <p class="vitality-highlight">Healthy leaders compound. Burnt-out ones don't.</p>
+                    </div>
+
+                    <div class="vitality-block">
+                        <h3>Built for <em>Performance</em></h3>
+                        <p>Participation in Vitality Life™ is voluntary, non-medical, and privacy-respecting.</p>
+                        <p>Our focus is not control—it's alignment. Not intensity—but consistency. Not short-term output—but long-term greatness.</p>
+                    </div>
+
+                    <div class="vitality-block full-width">
+                        <h3>Why It Matters to <em>Investors</em></h3>
+                        <p class="investor-lead">Human capital is the most underwritten risk in investing.</p>
+                        <div class="investor-benefits">
+                            <div class="benefit">
+                                <span class="benefit-icon">↓</span>
+                                <span>Reduce founder fatigue and key-person risk</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">↑</span>
+                                <span>Improve decision-making under pressure</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">→</span>
+                                <span>Extend leadership longevity</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span>Protect long-term shareholder value</span>
+                            </div>
+                        </div>
+                        <p class="vitality-tagline">This is how capital evolves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP Section - Our Tools -->
     <section class="tools-section" id="tools">
         <div class="section-container">
             <div class="tools-content reveal">
@@ -719,37 +2363,85 @@
                     <p class="tools-description">End-to-end due diligence and portfolio management platforms — built in-house, by us, for us and our network.</p>
                     <div class="tools-features">
                         <div class="tool-feature">
-                            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-                            <div><h4>Due Diligence Engine</h4><p>AI-powered analysis and scoring across financials, market positioning, and operational metrics.</p></div>
+                            <div class="tool-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Due Diligence Engine</h4>
+                                <p>AI-powered analysis and scoring across financials, market positioning, and operational metrics.</p>
+                            </div>
                         </div>
                         <div class="tool-feature">
-                            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-                            <div><h4>Portfolio Command</h4><p>Real-time performance tracking, reporting automation, and strategic decision support.</p></div>
+                            <div class="tool-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10"/>
+                                    <line x1="12" y1="20" x2="12" y2="4"/>
+                                    <line x1="6" y1="20" x2="6" y2="14"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Portfolio Command</h4>
+                                <p>Real-time performance tracking, reporting automation, and strategic decision support.</p>
+                            </div>
                         </div>
                         <div class="tool-feature">
-                            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                            <div><h4>Network Intelligence</h4><p>Proprietary deal flow and relationship mapping across our global ecosystem.</p></div>
+                            <div class="tool-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Network Intelligence</h4>
+                                <p>Proprietary deal flow and relationship mapping across our global ecosystem.</p>
+                            </div>
                         </div>
                     </div>
-                    <a href="mailto:am@vitality.capital?subject=Solutions Team Inquiry" class="tools-cta">Connect with our Solutions Team<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <a href="mailto:am@vitality.capital?subject=Solutions Team Inquiry" class="tools-cta">
+                        Connect with our Solutions Team
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Pipeline Section -->
     <section class="pipeline-section" id="pipeline">
         <div class="pipeline-container reveal">
+            <!-- Locked State -->
             <div id="pipeline-locked">
-                <div class="pipeline-lock"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div class="pipeline-lock">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
                 <h2 class="pipeline-title">Target <em>Pipeline</em></h2>
                 <p class="pipeline-description">Access our curated pipeline we've been building across healthcare, energy, and media verticals.</p>
                 <div class="password-form">
                     <input type="password" id="pipeline-password" placeholder="Enter access code" class="password-input">
-                    <button onclick="checkPassword()" class="pipeline-btn">Request Access<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></button>
+                    <button onclick="checkPassword()" class="pipeline-btn">
+                        Request Access
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </button>
                 </div>
                 <p class="password-hint">Don't have access? <a href="mailto:am@vitality.capital?subject=Pipeline Access Request">Request credentials</a></p>
             </div>
 
+            <!-- Unlocked State - Portfolio Companies -->
             <div id="pipeline-unlocked" style="display: none;">
                 <div class="pipeline-header-unlocked">
                     <h2 class="pipeline-title">Target <em>Pipeline</em></h2>
@@ -757,100 +2449,313 @@
                 </div>
                 
                 <div class="portfolio-companies-grid">
+                    <!-- Barriere -->
                     <div class="portfolio-company-card">
-                        <div class="company-image" style="background: linear-gradient(135deg, #f8e8e8 0%, #fdf5f5 100%);"><div class="company-logo-placeholder"><span style="font-size: 20px; font-weight: 700; color: #1a1a1a;">barrière</span></div></div>
+                        <div class="company-image" style="background: linear-gradient(135deg, #f8e8e8 0%, #fdf5f5 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 24px; font-weight: 700; color: #1a1a1a;">barrière</span>
+                            </div>
+                        </div>
                         <div class="company-info">
-                            <div class="company-header"><h3>Barrière</h3><span class="company-flag">🇺🇸</span></div>
+                            <div class="company-header">
+                                <h3>Barrière</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
                             <p class="company-category">Transdermal Wellness</p>
-                            <p class="company-description">Plant-powered vitamin patches with clinically-tested transdermal delivery. Featured in Elle, Marie Claire.</p>
-                            <div class="company-metrics"><div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$5M</span></div><div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">40%</span></div></div>
+                            <p class="company-description">Plant-powered vitamin patches with clinically-tested transdermal delivery. Featured in Elle, Marie Claire. Reduced vitamin D deficiency from 23% to 0% in trials.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$10M</span></div>
+                                <div class="metric"><span class="metric-label">Valuation</span><span class="metric-value">$10M</span></div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Affinity Labs -->
                     <div class="portfolio-company-card">
-                        <div class="company-image" style="background: linear-gradient(135deg, #e8f4f0 0%, #f5faf8 100%);"><div class="company-logo-placeholder"><span style="font-size: 16px; font-weight: 700; color: #22543d;">EV NEO</span></div></div>
+                        <div class="company-image" style="background: linear-gradient(135deg, #e8f4f8 0%, #f5fafc 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 20px; font-weight: 600; color: #2c5282;">Affinity Labs</span>
+                            </div>
+                        </div>
                         <div class="company-info">
-                            <div class="company-header"><h3>Neo Mobility</h3><span class="company-flag">🇦🇪</span></div>
+                            <div class="company-header">
+                                <h3>Affinity Labs</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
+                            <p class="company-category">Biomarker Diagnostics</p>
+                            <p class="company-description">Pioneer in breath-based biomarker diagnostics with 700+ biomarkers. Core supplier to leading DTC wellness brands. Next-gen diagnostics platform.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">25%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bodyo -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #e8eaf8 0%, #f5f6fc 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 22px; font-weight: 700; color: #4a5568;">BODYO</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Bodyo</h3>
+                                <span class="company-flag">🇫🇷</span>
+                            </div>
+                            <p class="company-category">AI Health Infrastructure</p>
+                            <p class="company-description">AI-powered health and wellness infrastructure deployed across community and corporate sites. Integrates personalized AI synthesis, diagnostics, and health guidance.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">65%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Elixir MD -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #e8f8f4 0%, #f5fcfa 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 20px; font-weight: 600; color: #276749;">ELIXIR MD</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Elixir MD</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
+                            <p class="company-category">Post-Operative Care</p>
+                            <p class="company-description">Advanced post-operative recovery and regenerative care platform. Tech-enabled post-care solutions reducing post-op care time by 50%.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$25M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">66%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ozlo -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #f0e8f8 0%, #f9f5fc 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 24px; font-weight: 700; color: #553c9a;">ozlo</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Ozlo</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
+                            <p class="company-category">Sleep Technology</p>
+                            <p class="company-description">Boston-based sleep tech from original Bose Sleep team. Science-backed sleepbuds with multi-year Calm partnership. Expanding into retail and clinical wellness.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$45-50M</span></div>
+                                <div class="metric"><span class="metric-label">Valuation</span><span class="metric-value">$150M</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gympa -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #f8f0e8 0%, #fcf8f5 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 22px; font-weight: 700; color: #c05621;">GYMPA</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Gympa</h3>
+                                <span class="company-flag">🇩🇪</span>
+                            </div>
+                            <p class="company-category">Workplace Wellness</p>
+                            <p class="company-description">AI-driven health and performance platform integrating biomechanical sensors, digital coaching, and analytics for precision training and workplace wellness.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$5M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">75%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SparkCharge -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #e8f0f8 0%, #f5f8fc 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 18px; font-weight: 700; color: #2b6cb0;">SPARK CHARGE</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>SparkCharge</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
+                            <p class="company-category">EV Infrastructure</p>
+                            <p class="company-description">Revolutionizing electric mobility with on-demand EV charging infrastructure. Making clean energy access faster, simpler, and more scalable.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$60M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">60%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- London Nootropics -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #1a365d 0%, #2d4a6f 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 16px; font-weight: 600; color: white; text-align: center; line-height: 1.3;">LONDON<br>NOOTROPICS</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>London Nootropics</h3>
+                                <span class="company-flag">🇬🇧</span>
+                            </div>
+                            <p class="company-category">Functional Beverages</p>
+                            <p class="company-description">Functional mushroom and adaptogen coffee blends for focus, calm, and energy. Fast-growing DTC brand at the intersection of biohacking and premium lifestyle.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$15M+</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">60%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Remedy Place -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #f5f0e8 0%, #faf8f5 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 18px; font-weight: 600; color: #744210;">REMEDY PLACE</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Remedy Place</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
+                            <p class="company-category">Social Wellness</p>
+                            <p class="company-description">Luxury social wellness ecosystem redefining holistic health through community, recovery, and human connection. Premium hospitality meets longevity.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">20%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neo Mobility -->
+                    <div class="portfolio-company-card">
+                        <div class="company-image" style="background: linear-gradient(135deg, #e8f4f0 0%, #f5faf8 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 18px; font-weight: 700; color: #22543d;">EV NEO</span>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="company-header">
+                                <h3>Neo Mobility</h3>
+                                <span class="company-flag">🇦🇪</span>
+                            </div>
                             <p class="company-category">Electric Transport</p>
-                            <p class="company-description">Accelerating the shift to electric transport in emerging markets through fleet electrification and charging infrastructure.</p>
-                            <div class="company-metrics"><div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$25M</span></div><div class="metric"><span class="metric-label">Valuation</span><span class="metric-value">$20M</span></div></div>
+                            <p class="company-description">Accelerating the shift to electric transport in emerging markets through fleet electrification, charging infrastructure, and financing models.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$25M</span></div>
+                                <div class="metric"><span class="metric-label">Valuation</span><span class="metric-value">$20M</span></div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Shiza AI -->
                     <div class="portfolio-company-card">
-                        <div class="company-image" style="background: linear-gradient(135deg, #5a8fd4 0%, #7aa8e0 100%);"><div class="company-logo-placeholder"><span style="font-size: 18px; font-weight: 700; color: white;">SHIZA AI</span></div></div>
+                        <div class="company-image" style="background: linear-gradient(135deg, #5a8fd4 0%, #7aa8e0 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 22px; font-weight: 700; color: white;">SHIZA AI</span>
+                            </div>
+                        </div>
                         <div class="company-info">
-                            <div class="company-header"><h3>Shiza AI</h3><span class="company-flag">🇺🇸</span></div>
+                            <div class="company-header">
+                                <h3>Shiza AI</h3>
+                                <span class="company-flag">🇺🇸</span>
+                            </div>
                             <p class="company-category">Enterprise AI</p>
-                            <p class="company-description">Empowering the next generation of enterprises with AI that co-creates outcomes seamlessly and at scale.</p>
-                            <div class="company-metrics"><div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$50M</span></div><div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">80%+</span></div></div>
+                            <p class="company-description">Empowering the next generation of enterprises with intelligence that amplifies human decision-making. AI that co-creates outcomes seamlessly and at scale.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$50M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">80%+</span></div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Mbay Mobility -->
                     <div class="portfolio-company-card">
-                        <div class="company-image" style="background: linear-gradient(135deg, #276749 0%, #38a169 100%);"><div class="company-logo-placeholder"><span style="font-size: 16px; font-weight: 700; color: white;">MBAY</span></div></div>
+                        <div class="company-image" style="background: linear-gradient(135deg, #276749 0%, #38a169 100%);">
+                            <div class="company-logo-placeholder">
+                                <span style="font-size: 18px; font-weight: 700; color: white;">MBAY</span>
+                            </div>
+                        </div>
                         <div class="company-info">
-                            <div class="company-header"><h3>Mbay Mobility</h3><span class="company-flag">🇸🇳</span></div>
+                            <div class="company-header">
+                                <h3>Mbay Mobility</h3>
+                                <span class="company-flag">🇸🇳</span>
+                            </div>
                             <p class="company-category">African Fintech</p>
-                            <p class="company-description">Accelerating clean mobility and financial inclusion in Francophone Africa. Financing EV ownership for unbanked populations.</p>
-                            <div class="company-metrics"><div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div><div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">50%</span></div></div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-company-card">
-                        <div class="company-image" style="background: linear-gradient(135deg, #f5e6d3 0%, #faf3eb 100%);"><div class="company-logo-placeholder"><span style="font-size: 18px; font-weight: 700; color: #8b6914;">REVIVV</span></div></div>
-                        <div class="company-info">
-                            <div class="company-header"><h3>Revivv</h3><span class="company-flag">🇺🇸</span></div>
-                            <p class="company-category">Longevity Hospitality</p>
-                            <p class="company-description">Premium hospitality meets longevity. Wellness retreats and recovery centers for high-performance individuals.</p>
-                            <div class="company-metrics"><div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div><div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">20%</span></div></div>
+                            <p class="company-description">Accelerating clean mobility and financial inclusion in Francophone Africa. Financing EV ownership and unlocking new credit ecosystems for unbanked populations.</p>
+                            <div class="company-metrics">
+                                <div class="metric"><span class="metric-label">2026 ARR</span><span class="metric-value">$20M</span></div>
+                                <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">50%</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="pipeline-footer">
                     <p>Interested in co-investing or learning more?</p>
-                    <a href="mailto:am@vitality.capital?subject=Pipeline Co-Investment Inquiry" class="pipeline-btn">Get in Touch<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <a href="mailto:am@vitality.capital?subject=Pipeline Co-Investment Inquiry" class="pipeline-btn">
+                        Get in Touch
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Get in Touch Section -->
     <section class="contact-section" id="contact">
         <div class="section-container">
             <div class="contact-grid">
                 <div class="contact-info reveal">
                     <h2 class="contact-title">Get in Touch</h2>
                     <p class="contact-description">We welcome conversations with exceptional operators, founders, and investors aligned with our long-term approach to value creation.</p>
-                    <a href="mailto:hello@vitality.capital" class="contact-email">hello@vitality.capital</a>
+                    <a href="mailto:am@vitality.capital" class="contact-email">hello@vitality.capital</a>
                 </div>
                 <div class="contact-locations reveal">
                     <div class="location">
                         <h4>NEW YORK</h4>
-                        <p>445 Park Ave Suite 15F<br>New York<br>NY 10022</p>
+                        <p>445 Park Ave, Suite 15F<br>New York, NY 10022</p>
                     </div>
                     <div class="location">
                         <h4>ABU DHABI</h4>
-                        <p>Al Khatem Tower 14th Floor<br>ADGM Al Maryah Island<br>Abu Dhabi</p>
+                        <p>Al Khatem Tower, 14th Floor<br>ADGM, Al Maryah Island, Abu Dhabi</p>
                     </div>
                     <div class="location">
                         <h4>SILICON VALLEY</h4>
-                        <p>149 Commonwealth Dr<br>Menlo Park<br>CA 94306</p>
+                        <p>149 Commonwealth Dr.<br>Menlo Park, CA 94306</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo" onclick="openModal()">
-                <img src="https://i.ibb.co/TqF91rX1/vc-logo.png" alt="Vitality Capital" style="height: 48px; width: auto;">
+                <svg class="footer-logo-mark" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="12" stroke="#5a8fd4" stroke-width="1.5"/>
+                    <path d="M7 14 L10 14 L12 9 L16 19 L18 14 L21 14" stroke="#5a8fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="footer-logo-text">Vitality Capital</span>
             </div>
             <div class="footer-links">
                 <a href="#verticals">Verticals</a>
                 <a href="#about">Leadership</a>
-                <a href="#pipeline">Pipeline</a>
+                <a href="#vitality-life">Our Manifesto</a>
                 <a href="#contact">Contact</a>
                 <a href="https://www.linkedin.com/company/vitality-capital" target="_blank">LinkedIn</a>
             </div>
@@ -858,49 +2763,102 @@
         </div>
     </footer>
 
+    <!-- ECG Quote Modal -->
     <div class="modal-overlay" id="ecgModal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-ecg"><svg viewBox="0 0 120 60"><path d="M0 30 L30 30 L40 30 L50 10 L60 50 L70 20 L80 40 L90 30 L120 30" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="modal-quote">"Life is like an ECG. The flatline is the end only. Life's goal should be simple, more highs than lows - the math of living."</p>
+            <div class="modal-ecg">
+                <svg viewBox="0 0 120 60">
+                    <path d="M0 30 L30 30 L40 30 L50 10 L60 50 L70 20 L80 40 L90 30 L120 30" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <p class="modal-quote">"Life is like an ECG—it's up and down. The static line is only for when we're no longer. The key is more highs than lows. Simple math of life."</p>
             <p class="modal-attribution">— A reflection Rummana once heard</p>
         </div>
     </div>
 
     <script>
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
+        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
+        
         function revealOnScroll() {
-            reveals.forEach((el, i) => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-                    setTimeout(() => el.classList.add('active'), i * 50);
+            reveals.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 80) {
+                    setTimeout(() => {
+                        element.classList.add('active');
+                    }, index * 50);
                 }
             });
         }
+
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        function openModal() { document.getElementById('ecgModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeModal(e) { if (e.target === document.getElementById('ecgModal')) { document.getElementById('ecgModal').classList.remove('active'); document.body.style.overflow = ''; } }
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.getElementById('ecgModal').classList.remove('active'); document.body.style.overflow = ''; } });
+        // Modal functions
+        function openModal() {
+            document.getElementById('ecgModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
+        function closeModal(event) {
+            if (event.target === document.getElementById('ecgModal')) {
+                document.getElementById('ecgModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('ecgModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Password protection for pipeline
         function checkPassword() {
-            if (document.getElementById('pipeline-password').value === 'vitality2026') {
+            const password = document.getElementById('pipeline-password').value;
+            // Password: vitality2026
+            if (password === 'vitality2026') {
                 document.getElementById('pipeline-locked').style.display = 'none';
                 document.getElementById('pipeline-unlocked').style.display = 'block';
             } else {
                 alert('Incorrect access code. Please contact am@vitality.capital for access.');
             }
         }
-        document.getElementById('pipeline-password').addEventListener('keypress', function(e) { if (e.key === 'Enter') checkPassword(); });
+
+        // Allow Enter key to submit password
+        document.getElementById('pipeline-password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
     </script>
 </body>
 </html>
