@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality Capital × NY Green Bank | Strategic Partnership Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #0f2920;
+            --green: #00c96f;
+            --green-light: #e8f8f0;
+            --gold: #c9a227;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background: var(--forest);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .header-date {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--forest);
+            padding: 60px 0 100px;
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--white);
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--green);
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        /* Tabs */
+        .tabs-wrapper {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tab-nav {
+            display: flex;
+            background: var(--white);
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 20px 32px;
+            background: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn:hover {
+            background: var(--gray-50);
+        }
+
+        .tab-btn.active {
+            color: var(--forest);
+            border-bottom: 2px solid var(--green);
+            background: var(--white);
+        }
+
+        .tab-btn .tier {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-400);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .tab-btn.active .tier {
+            color: var(--green);
+        }
+
+        /* Content */
+        .tab-panel {
+            background: var(--white);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            padding: 48px;
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--forest);
+            border-radius: 10px;
+            padding: 32px 40px;
+            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .stat {
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-value span {
+            font-size: 20px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--green);
+            margin-bottom: 8px;
+            padding-left: 12px;
+            border-left: 3px solid var(--green);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 15px;
+            color: var(--gray-600);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--green);
+            box-shadow: 0 4px 12px rgba(0, 201, 111, 0.1);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--white);
+        }
+
+        .card-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .card-content p {
+            font-size: 13px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--green-light);
+            border-left: 3px solid var(--green);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 24px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* Investment Targets Grid */
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .target-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .target-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .target-label {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .portfolio-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 24px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 201, 111, 0.1);
+        }
+
+        .portfolio-tag {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .portfolio-desc {
+            font-size: 13px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .team-card {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .team-card:hover {
+            border-color: var(--green);
+            background: var(--white);
+        }
+
+        .team-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .team-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .team-info .role {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 6px;
+        }
+
+        .team-info p {
+            font-size: 12px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Flywheel */
+        .flywheel {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 32px;
+            margin-top: 24px;
+        }
+
+        .flywheel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .flywheel-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flywheel-step {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+        }
+
+        .flywheel-step span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .flywheel-arrow {
+            color: var(--green);
+            font-size: 18px;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--forest);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 24px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--green);
+            color: var(--forest);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero { padding: 40px 0 80px; }
+            .hero h1 { font-size: 32px; }
+            .hero-subtitle { font-size: 15px; }
+            .tabs-wrapper { margin-top: -40px; }
+            .tab-nav { flex-direction: column; border-radius: 10px 10px 0 0; }
+            .tab-btn { padding: 16px 20px; border-bottom: 1px solid var(--gray-200); border-left: 3px solid transparent; }
+            .tab-btn.active { border-bottom: 1px solid var(--gray-200); border-left: 3px solid var(--green); }
+            .tab-btn:last-child { border-bottom: none; }
+            .tab-panel { padding: 24px 20px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 24px; gap: 20px; }
+            .stat { border-right: none; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .stat:nth-child(2), .stat:nth-child(4) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+            .stat-value { font-size: 28px; }
+            .section-title { font-size: 24px; }
+            .cards-grid, .team-grid, .two-col { grid-template-columns: 1fr; }
+            .targets-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .target-item { padding: 16px 12px; }
+            .target-value { font-size: 22px; }
+            .portfolio-grid, .portfolio-4 { grid-template-columns: 1fr; }
+            .flywheel-steps { flex-direction: column; gap: 12px; }
+            .flywheel-arrow { transform: rotate(90deg); }
+            .pipeline-flow { flex-direction: column; }
+            .pipeline-arrow { transform: rotate(90deg); }
+            .fund-header { flex-direction: column; gap: 16px; }
+            .fund-amount { text-align: left; }
+            .fund-features { grid-template-columns: 1fr; gap: 16px; }
+            .fund-card > div:last-child > div:last-child { grid-template-columns: 1fr; }
+            .cta { padding: 28px 20px; }
+            .cta h3 { font-size: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .stats-bar { grid-template-columns: 1fr; }
+            .stat { border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .stat:last-child { border-bottom: none; }
+            .targets-grid { grid-template-columns: 1fr; }
+            .card { flex-direction: column; gap: 12px; }
+            .team-card { flex-direction: column; text-align: center; }
+            .team-avatar { margin: 0 auto; }
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 24px;
+        }
+
+        /* Tier 2 Portfolio */
+        .portfolio-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .portfolio-4 .portfolio-card.featured {
+            background: rgba(201, 162, 39, 0.08);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .portfolio-4 .portfolio-card.featured .portfolio-tag {
+            color: var(--gold);
+        }
+
+        /* Pipeline */
+        .pipeline {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .pipeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .pipeline-title em {
+            font-style: italic;
+            color: var(--green);
+        }
+
+        .pipeline-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+
+        .pipeline-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pipeline-stage {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 14px 20px;
+        }
+
+        .pipeline-stage span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .pipeline-arrow {
+            color: var(--green);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Fund Card */
+        .fund-card {
+            background: var(--forest);
+            border-radius: 10px;
+            padding: 32px;
+            margin-top: 24px;
+        }
+
+        .fund-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .fund-title h4 {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .fund-title h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .fund-amount {
+            text-align: right;
+        }
+
+        .fund-amount .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--green);
+        }
+
+        .fund-amount .label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fund-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fund-feature h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .fund-feature p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+
+        /* Focus Areas Card */
+        .focus-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .focus-card-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--green);
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 3px solid var(--green);
+        }
+
+        .focus-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .focus-item {
+            display: flex;
+            gap: 14px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .focus-item:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .focus-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .focus-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        .focus-text h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .focus-text p {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-badge">NY Green Bank Partnership Proposal</div>
+                <div class="header-date">Confidential · January 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-tag">Vitality Capital × NY Green Bank</div>
+            <h1>Building <em>Climate Infrastructure</em> at Scale</h1>
+            <p class="hero-subtitle">A strategic partnership to consolidate fragmented green services into institutional-grade platforms aligned with NY State's decarbonization mandate.</p>
+        </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="tabs-wrapper">
+        <div class="container">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="showTab('tier1')">
+                    <span class="tier">Phase 1</span>
+                    Vitality Capital Life Fund I
+                </button>
+                <button class="tab-btn" onclick="showTab('tier2')">
+                    <span class="tier">Phase 2</span>
+                    NYC Green Venture Studio
+                </button>
+            </div>
+
+            <!-- TIER 1 -->
+            <div class="tab-panel active" id="tier1">
+                <div class="stats-bar">
+                    <div class="stat">
+                        <div class="stat-value">85<span>%</span></div>
+                        <div class="stat-label">Emissions Cut by 2050</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">70<span>%</span></div>
+                        <div class="stat-label">Renewable by 2030</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">48.9<span>M</span></div>
+                        <div class="stat-label">Tons CO₂ Avoided</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">40<span>%</span></div>
+                        <div class="stat-label">Benefits to DACs</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Opportunity</div>
+                    <div class="section-title">Doubling Capital Deployment for a Green New York</div>
+                    <p class="section-desc">NY Green Bank has deployed $2.5B+ into clean energy—but billions more sit waiting for the right partners. The challenge? A market filled with subscale operators too small to absorb institutional capital efficiently.</p>
+                    <p class="section-desc" style="margin-top: 12px;"><strong>The gap:</strong> NYGB's ratepayer-funded mandate demands proven, cash-generating platforms. The reality: fragmented climate businesses that can't meet their deployment thresholds.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>The opportunity:</strong> Korea Development Bank will match any investment from NY Green Bank dollar-for-dollar with a 7% first-loss tranche—immediately doubling capital deployment up to $150M for a Green New York.</p>
+                    </div>
+
+                    <p class="section-desc" style="margin-top: 20px;"><strong>Vitality Capital bridges this gap</strong> by acquiring, consolidating, and professionalizing fragmented operators—transforming subscale businesses into institutional-grade platforms purpose-built for NYGB's capital deployment.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Investment Discipline</div>
+                    <div class="section-title">Exit Strategy & Risk Mitigation</div>
+                    <div class="two-col" style="margin-top: 20px; gap: 24px;">
+                        <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 24px;">
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--gray-900); margin-bottom: 12px;">Accelerated Exit Timeline</h4>
+                            <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Our portfolio discipline and private equity approach drives companies to consolidate, merge, and explore acquisitions quickly. <strong>Target: 2-year max hold</strong> for each company—driving high alpha returns for investors through rapid value creation and strategic exits.</p>
+                        </div>
+                        <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 24px;">
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--gray-900); margin-bottom: 12px;">First-Loss Protection</h4>
+                            <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;"><strong>Korea Development Bank provides a 7% first-loss tranche</strong> on all matched capital—protecting NYGB's ratepayer-funded investment with institutional-grade downside protection while maintaining full upside participation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">NYGB Investment Targets</div>
+                    <div class="section-title">Capital Deployment Commitments</div>
+                    <div class="targets-grid">
+                        <div class="target-item">
+                            <div class="target-value">$200M</div>
+                            <div class="target-label">Energy Storage by 2025</div>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-value">$150M</div>
+                            <div class="target-label">Green Affordable Housing</div>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-value">$100M</div>
+                            <div class="target-label">Building Decarb in DACs</div>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-value">$100M</div>
+                            <div class="target-label">Clean Transportation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Phase 1 Target Sectors</div>
+                    <div class="section-title">Climate Services Consolidation</div>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>EV Charging Infrastructure</h4>
+                                <p>Parking lot acquisitions converted to urban charging hubs</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"/><path d="M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Electric Mobility as a Service</h4>
+                                <p>E-scooter subscriptions for gig workers—no ownership required</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Battery Storage</h4>
+                                <p>Grid-scale storage for resilience and renewable integration</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Building Electrification & Housing</h4>
+                                <p>Property retrofits and micro housing (&lt;$1K/mo) for DACs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Portfolio Companies</div>
+                    <div class="section-title">Proven Track Record in Climate & Mobility</div>
+                    <div class="portfolio-grid">
+                        <a href="https://www.sparkcharge.io/" target="_blank" class="portfolio-card" style="text-decoration: none;">
+                            <div class="portfolio-tag">EV Infrastructure</div>
+                            <div class="portfolio-name">SparkCharge</div>
+                            <p class="portfolio-desc">Mobile EV charging network—portable solutions eliminating range anxiety</p>
+                        </a>
+                        <a href="https://weareneo.co/" target="_blank" class="portfolio-card" style="text-decoration: none;">
+                            <div class="portfolio-tag">Electric Mobility</div>
+                            <div class="portfolio-name">Neo Mobility</div>
+                            <p class="portfolio-desc">MENA's leading B2B EV-as-a-Service platform—fleet services, taxi mobility, and charging infrastructure</p>
+                        </a>
+                        <a href="https://contigomobility.com/" target="_blank" class="portfolio-card" style="text-decoration: none;">
+                            <div class="portfolio-tag">UK/EU Expansion</div>
+                            <div class="portfolio-name">Comoto</div>
+                            <p class="portfolio-desc">E-scooter subscription platform for gig economy workers across European markets</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Leadership</div>
+                    <div class="section-title">Experienced Team Driving Climate Transition</div>
+                    <div class="team-grid">
+                        <a href="https://www.linkedin.com/in/rummana-dada/" target="_blank" class="team-card">
+                            <div class="team-avatar">RD</div>
+                            <div class="team-info">
+                                <h4>Rummana Dada</h4>
+                                <div class="role">General Partner</div>
+                                <p>Investor in SparkCharge, Neo Mobility, Comoto. Multi-exited entrepreneur, most recently a shark on Shark Tank. Leading innovation and ecosystem advisor to sovereign governments across the GCC.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maha-al-fahim/" target="_blank" class="team-card">
+                            <div class="team-avatar">MA</div>
+                            <div class="team-info">
+                                <h4>Maha Al Fahim</h4>
+                                <div class="role">General Partner</div>
+                                <p>Top fund returns in Fund I. Macro Strategist at Abu Dhabi Investment Authority since 2013. Board Director at Eshraq Investments and Salama Insurance with a significant real estate and agriculture portfolio.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alidiallo/" target="_blank" class="team-card">
+                            <div class="team-avatar">AD</div>
+                            <div class="team-info">
+                                <h4>Ali Diallo</h4>
+                                <div class="role">Investment Committee</div>
+                                <p>White House Presidential Innovation Fellow. MD at LG NOVA Prime Ventures. Founder of Aurion Capital. Forbes Council Member, MIT Lecturer. Serial entrepreneur (10 startups, 2 exits).</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joshsim/" target="_blank" class="team-card">
+                            <div class="team-avatar">JS</div>
+                            <div class="team-info">
+                                <h4>Josh Sim</h4>
+                                <div class="role">Investment Committee</div>
+                                <p>Head of Investments at LG. Exited entrepreneur (autonomous vehicles). Partner in multiple funds with deep expertise in climate tech and mobility.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/david-scharf-628ba66b/" target="_blank" class="team-card">
+                            <div class="team-avatar">DS</div>
+                            <div class="team-info">
+                                <h4>David Scharf</h4>
+                                <div class="role">Partner, Real Estate</div>
+                                <p>Founder & Managing Partner of Esplanade Capital. Former Credit Suisse First Boston. NYU Stern MBA, 50+ years combined RE experience.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mauricio-serna/" target="_blank" class="team-card">
+                            <div class="team-avatar">MS</div>
+                            <div class="team-info">
+                                <h4>Mauricio Serna</h4>
+                                <div class="role">Partner, ESG</div>
+                                <p>SVP & Global Head of ESG at Starwood Capital Group. Former Goldman Sachs (Natural Resources IB, Renewable Energy M&A). Harvard MBA. UNPRI Real Estate Advisory Committee.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/javadmushtaq/" target="_blank" class="team-card">
+                            <div class="team-avatar">JM</div>
+                            <div class="team-info">
+                                <h4>Javad Mushtaq</h4>
+                                <div class="role">Principal, Impact Investment</div>
+                                <p>Multi-award winning impact investor & WEF Global Shaper. Deputy CEO of EAT. Norway's Top 35 Under 35 (3x).</p>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="team-card">
+                            <div class="team-avatar">AM</div>
+                            <div class="team-info">
+                                <h4>Alexis Morgan</h4>
+                                <div class="role">Investor Relations</div>
+                                <p>Built and managed 2 debt real estate funds before age 22, delivering positive returns to investors. Deep expertise in capital raising and LP relations.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cta">
+                    <h3>Let's Build New York's Climate Future</h3>
+                    <p>Partner with Vitality Capital to transform fragmented climate services into scaled, investable platforms.</p>
+                    <a href="mailto:am@vitality.capital" class="cta-btn">Schedule a Discussion →</a>
+                </div>
+            </div>
+
+            <!-- TIER 2 -->
+            <div class="tab-panel" id="tier2">
+                <div class="section">
+                    <div class="section-label">NYC Green Venture Studio</div>
+                    <div class="section-title" style="font-size: 36px;">Making New York the <em style="color: var(--green); font-style: italic;">#1 Green City</em> in the World</div>
+                    <p class="section-desc">A $50M venture studio dedicated to building and investing in early-stage climate solutions that accelerate NYC's clean energy transition.</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat">
+                        <div class="stat-value">$50<span>M</span></div>
+                        <div class="stat-label">Target Fund Size</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2.1<span>x</span></div>
+                        <div class="stat-label">Valuation Return</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">18<span>mo</span></div>
+                        <div class="stat-label">Track Record</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Portfolio Companies</div>
+                    </div>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <div class="section-label">A New Model for Climate Innovation</div>
+                        <div class="section-title">Inspired by LG NOVA</div>
+                        <p class="section-desc" style="max-width: none;">The NYC Green Venture Studio combines venture-building expertise with a focused mandate: accelerate the solutions that matter most for NYC's decarbonization journey.</p>
+                        <p class="section-desc" style="max-width: none; margin-top: 16px;">We don't just invest—we build. Our approach identifies gaps in the climate ecosystem, recruits exceptional founders, and provides the capital, expertise, and network to scale transformative solutions.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Our Mission:</strong> Creating a debt and private capital pipeline for NYC green disruption—powering the city's transition to a sustainable future.</p>
+                        </div>
+                    </div>
+
+                    <div class="focus-card">
+                        <div class="focus-card-title">Strategic Focus Areas</div>
+                        <div class="focus-list">
+                            <div class="focus-item">
+                                <div class="focus-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                </div>
+                                <div class="focus-text">
+                                    <h5>Clean Energy Infrastructure</h5>
+                                    <p>Grid modernization and distributed energy</p>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <div class="focus-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+                                </div>
+                                <div class="focus-text">
+                                    <h5>Building Decarbonization</h5>
+                                    <p>AI-powered efficiency and retrofits</p>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <div class="focus-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg>
+                                </div>
+                                <div class="focus-text">
+                                    <h5>Sustainable Mobility</h5>
+                                    <p>EV infrastructure and fleet electrification</p>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <div class="focus-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/></svg>
+                                </div>
+                                <div class="focus-text">
+                                    <h5>Climate Resilience</h5>
+                                    <p>Flood mitigation and urban cooling</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+                        <div>
+                            <div class="section-label">Portfolio Companies</div>
+                            <div class="section-title" style="margin-bottom: 0;">Proven Track Record</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold);">2.1x</div>
+                            <div style="font-size: 11px; color: var(--gray-600); text-transform: uppercase; letter-spacing: 1px;">Valuation in 18 Months</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-4">
+                        <div class="portfolio-card">
+                            <div class="portfolio-tag">AI / Healthcare</div>
+                            <div class="portfolio-name">PadoAI</div>
+                            <p class="portfolio-desc">Clinical documentation and workflow automation</p>
+                        </div>
+                        <div class="portfolio-card">
+                            <div class="portfolio-tag">AI / Mental Health</div>
+                            <div class="portfolio-name">ReliefAI</div>
+                            <p class="portfolio-desc">Intelligent mental health support platform</p>
+                        </div>
+                        <div class="portfolio-card">
+                            <div class="portfolio-tag">Healthcare / Vision</div>
+                            <div class="portfolio-name">PrimeFocus Health</div>
+                            <p class="portfolio-desc">Next-gen ophthalmic technology solutions</p>
+                        </div>
+                        <div class="portfolio-card featured">
+                            <div class="portfolio-tag">NYC Green Studio</div>
+                            <div class="portfolio-name">Future Builds</div>
+                            <p class="portfolio-desc">Climate-first companies built from the ground up</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline">
+                    <div class="pipeline-title">Creating the <em>Capital Pipeline</em> for NYC Green Disruption</div>
+                    <p class="pipeline-desc">Bridging early-stage innovation and NY Green Bank's $2.5B+ deployment capacity.</p>
+                    <div class="pipeline-flow">
+                        <div class="pipeline-stage"><span>Studio Build</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage"><span>Seed Investment</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage"><span>Growth Equity</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage"><span>NYGB Debt</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage"><span>Scale Impact</span></div>
+                    </div>
+                </div>
+
+                <div class="fund-card">
+                    <div class="fund-header">
+                        <div class="fund-title">
+                            <h4>Investment Vehicle</h4>
+                            <h3>NYC Green Venture Studio Fund I</h3>
+                        </div>
+                        <div class="fund-amount">
+                            <div class="value">$50M</div>
+                            <div class="label">Target Size · $25M NYGB Anchor</div>
+                        </div>
+                    </div>
+                    <div class="fund-features">
+                        <div class="fund-feature">
+                            <h5>AI-First Venture Building</h5>
+                            <p>Leveraging deep expertise across deal sourcing, due diligence, and portfolio operations.</p>
+                        </div>
+                        <div class="fund-feature">
+                            <h5>Strategic NYGB Alignment</h5>
+                            <p>Direct pipeline to NY Green Bank's $2.5B+ deployment capacity.</p>
+                        </div>
+                        <div class="fund-feature">
+                            <h5>NYC-Focused Impact</h5>
+                            <p>Every investment targets measurable decarbonization outcomes for New York City.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--green); margin-bottom: 16px;">Precedent: LG NOVA Fund Structure</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 12px;"><strong style="color: var(--green);">$30M commitment</strong> from LG Electronics as anchor investor.</p>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 12px;"><strong style="color: var(--green);">Full capital match</strong> from Korea Development Bank (KDB) with 7% first-loss tranche.</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 8px;"><strong style="color: white;">Up to 40% Korean nexus allocation:</strong></p>
+                                <ul style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-left: 16px;">
+                                    <li>Korean founders or founding teams</li>
+                                    <li>Core Korean technology, IP, or R&D</li>
+                                    <li>Korean-origin platforms scaled internationally</li>
+                                    <li>Meaningful Korean component in talent or supply chain</li>
+                                </ul>
+                                <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 10px; font-style: italic;">Remaining allocation discretionary based on performance targets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta">
+                    <h3>Join the Wave</h3>
+                    <p>Partner with us to build the next generation of climate solutions for NYC.</p>
+                    <a href="mailto:am@vitality.capital" class="cta-btn">Request Fund Documents →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            
+            event.target.closest('.tab-btn').classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
