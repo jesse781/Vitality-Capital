@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vitality Capital — Space Fund I</title>
-<link rel="icon" type="image/x-icon" href="https://i.postimg.cc/3RFggsnC/fav.jpg">
+<link rel="icon" type="image/png" href="https://i.postimg.cc/wj47bvDq/image.png">
 <style>
   :root {
     --blue: #7BA3BE;
@@ -17,451 +17,263 @@
     --accent: #E8B86D;
     --accent-light: #F4D9A0;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--navy) 0%, #0D1F33 40%, var(--navy-light) 100%);
-    color: var(--white);
-    font-family: 'Century Gothic', 'Avenir', -apple-system, sans-serif;
-    position: relative;
-    overflow-x: hidden;
+    min-height:100vh;
+    background:linear-gradient(135deg, var(--navy) 0%, #0D1F33 40%, var(--navy-light) 100%);
+    color:var(--white);
+    font-family:'Century Gothic','Avenir',-apple-system,sans-serif;
+    position:relative; overflow-x:hidden;
   }
-
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(1deg); }
-  }
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
-  }
-  @keyframes scan-line {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100vh); }
-  }
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
+  @keyframes fade-in-up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-8px) rotate(1deg)} }
+  @keyframes pulse-glow { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:.7;transform:scale(1.05)} }
+  @keyframes scan-line { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
+  @keyframes twinkle { 0%,100%{opacity:.3} 50%{opacity:1} }
 
   .star-field {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0;
+    position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;
     background:
-      radial-gradient(1px 1px at 10% 20%, var(--white), transparent),
-      radial-gradient(1.5px 1.5px at 20% 50%, var(--blue-pale), transparent),
-      radial-gradient(1px 1px at 30% 10%, var(--white), transparent),
-      radial-gradient(1px 1px at 40% 80%, var(--blue-light), transparent),
-      radial-gradient(1.5px 1.5px at 50% 30%, var(--white), transparent),
-      radial-gradient(1px 1px at 60% 60%, var(--blue-pale), transparent),
-      radial-gradient(1px 1px at 70% 15%, var(--white), transparent),
-      radial-gradient(1.5px 1.5px at 80% 45%, var(--blue-light), transparent),
-      radial-gradient(1px 1px at 90% 75%, var(--white), transparent),
-      radial-gradient(1px 1px at 15% 85%, var(--blue-pale), transparent),
-      radial-gradient(1px 1px at 85% 25%, var(--white), transparent),
-      radial-gradient(2px 2px at 95% 5%, var(--accent), transparent);
-    animation: twinkle 4s ease-in-out infinite;
+      radial-gradient(1px 1px at 10% 20%,var(--white),transparent),
+      radial-gradient(1.5px 1.5px at 20% 50%,var(--blue-pale),transparent),
+      radial-gradient(1px 1px at 30% 10%,var(--white),transparent),
+      radial-gradient(1px 1px at 40% 80%,var(--blue-light),transparent),
+      radial-gradient(1.5px 1.5px at 50% 30%,var(--white),transparent),
+      radial-gradient(1px 1px at 60% 60%,var(--blue-pale),transparent),
+      radial-gradient(1px 1px at 70% 15%,var(--white),transparent),
+      radial-gradient(1.5px 1.5px at 80% 45%,var(--blue-light),transparent),
+      radial-gradient(1px 1px at 90% 75%,var(--white),transparent),
+      radial-gradient(1px 1px at 15% 85%,var(--blue-pale),transparent),
+      radial-gradient(1px 1px at 85% 25%,var(--white),transparent),
+      radial-gradient(2px 2px at 95% 5%,var(--accent),transparent);
+    animation:twinkle 4s ease-in-out infinite;
   }
-
   .mouse-orb {
-    position: fixed; width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(123,163,190,0.08) 0%, transparent 70%);
-    pointer-events: none; z-index: 1; transition: left 0.3s ease-out, top 0.3s ease-out;
+    position:fixed;width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(123,163,190,0.08) 0%,transparent 70%);
+    pointer-events:none;z-index:1;transition:left .3s ease-out,top .3s ease-out;
   }
-
+  @media(hover:none){.mouse-orb{display:none}}
   .scan-line {
-    position: fixed; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(123,163,190,0.19), transparent);
-    animation: scan-line 8s linear infinite; pointer-events: none; z-index: 2;
+    position:fixed;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,rgba(123,163,190,0.19),transparent);
+    animation:scan-line 8s linear infinite;pointer-events:none;z-index:2;
   }
 
   header {
-    position: relative; z-index: 10;
-    padding: clamp(16px, 4vw, 32px) clamp(20px, 5vw, 60px);
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid rgba(123,163,190,0.125);
-    backdrop-filter: blur(10px); background: rgba(11,25,41,0.5);
+    position:relative;z-index:10;
+    padding:clamp(10px,2.5vw,28px) clamp(16px,4vw,50px);
+    display:flex;justify-content:space-between;align-items:center;
+    border-bottom:1px solid rgba(123,163,190,0.125);
+    backdrop-filter:blur(10px);background:rgba(11,25,41,0.5);
   }
-  .header-left { display: flex; align-items: center; gap: clamp(12px, 3vw, 24px); }
-  .header-left svg { min-width: 48px; border-radius: 4px; box-shadow: 0 0 30px rgba(123,163,190,0.25); }
-  .header-label { font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(2px, 0.5vw, 4px); color: var(--blue); margin-bottom: 4px; font-weight: 500; }
-  .header-title { font-size: clamp(18px, 4vw, 24px); font-weight: 500; color: var(--white); letter-spacing: 1px; }
-
-  .orbital-el { position: relative; width: 40px; height: 40px; }
-  .orbital-dot { position: absolute; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; top: 16px; left: 16px; box-shadow: 0 0 20px var(--accent); }
-  .orbital-ring { position: absolute; width: 40px; height: 40px; border: 1px solid rgba(123,163,190,0.25); border-radius: 50%; animation: pulse-glow 3s ease-in-out infinite; }
+  .header-left{display:flex;align-items:center;gap:clamp(8px,2vw,20px)}
+  .header-left img{min-width:34px;width:clamp(34px,7vw,42px);height:auto;border-radius:4px;box-shadow:0 0 30px rgba(123,163,190,0.25);flex-shrink:0}
+  .header-label{font-size:clamp(7px,1.5vw,9px);letter-spacing:clamp(1.5px,.4vw,3.5px);color:var(--blue);margin-bottom:3px;font-weight:500}
+  .header-title{font-size:clamp(14px,3.2vw,20px);font-weight:500;color:var(--white);letter-spacing:.5px}
+  .orbital-el{position:relative;width:32px;height:32px}
+  .orbital-dot{position:absolute;width:6px;height:6px;background:var(--accent);border-radius:50%;top:13px;left:13px;box-shadow:0 0 20px var(--accent)}
+  .orbital-ring{position:absolute;width:32px;height:32px;border:1px solid rgba(123,163,190,0.25);border-radius:50%;animation:pulse-glow 3s ease-in-out infinite}
 
   nav {
-    position: relative; z-index: 10; display: flex; justify-content: flex-start; gap: 8px;
-    padding: clamp(12px, 3vw, 24px) clamp(20px, 5vw, 60px);
-    background: rgba(11,25,41,0.37); backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(123,163,190,0.09);
-    overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    position:relative;z-index:10;display:flex;justify-content:flex-start;gap:6px;
+    padding:clamp(8px,2vw,20px) clamp(16px,4vw,50px);
+    background:rgba(11,25,41,0.37);backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(123,163,190,0.09);
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
   }
-  nav::-webkit-scrollbar { display: none; }
+  nav::-webkit-scrollbar{display:none}
   .nav-btn {
-    padding: clamp(10px, 2vw, 14px) clamp(16px, 3vw, 32px);
-    background: transparent; border: 1px solid rgba(123,163,190,0.25);
-    border-radius: 4px; color: var(--blue-light); cursor: pointer;
-    transition: all 0.3s ease; font-size: clamp(9px, 2vw, 11px);
-    font-weight: 500; letter-spacing: clamp(1px, 0.3vw, 3px);
-    text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
-    font-family: inherit;
+    padding:clamp(8px,1.8vw,12px) clamp(12px,2.2vw,28px);
+    background:transparent;border:1px solid rgba(123,163,190,0.25);
+    border-radius:4px;color:var(--blue-light);cursor:pointer;
+    transition:all .3s ease;font-size:clamp(8px,1.7vw,9.5px);
+    font-weight:500;letter-spacing:clamp(1px,.3vw,2.5px);
+    text-transform:uppercase;white-space:nowrap;flex-shrink:0;
+    font-family:inherit;
   }
-  .nav-btn.active {
-    background: linear-gradient(135deg, var(--blue), var(--blue-light));
-    border-color: var(--blue); color: var(--navy);
-    box-shadow: 0 0 30px rgba(123,163,190,0.19);
-  }
+  .nav-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue-light));border-color:var(--blue);color:var(--navy);box-shadow:0 0 30px rgba(123,163,190,0.19)}
 
-  main { position: relative; z-index: 10; padding: clamp(24px, 5vw, 60px); }
-  .section { display: none; animation: fade-in-up 0.8s ease-out; }
-  .section.active { display: block; }
+  main{position:relative;z-index:10;padding:clamp(20px,4vw,50px)}
+  .section{display:none;animation:fade-in-up .8s ease-out}
+  .section.active{display:block}
 
-  .section-label {
-    font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(3px, 1vw, 6px);
-    color: var(--accent); margin-bottom: 16px; font-weight: 500; text-align: center;
-  }
-  .section-heading {
-    font-size: clamp(28px, 6vw, 44px); font-weight: 500; text-align: center;
-    background: linear-gradient(180deg, var(--white) 0%, var(--blue-light) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text; margin-bottom: 16px;
-  }
-  .section-sub { font-size: clamp(14px, 3vw, 18px); color: var(--blue-pale); max-width: 600px; margin: 0 auto; padding: 0 10px; text-align: center; }
+  .section-label{font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.7vw,5px);color:var(--accent);margin-bottom:14px;font-weight:500;text-align:center}
+  .section-heading{font-size:clamp(22px,5vw,36px);font-weight:500;text-align:center;background:linear-gradient(180deg,var(--white) 0%,var(--blue-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+  .section-sub{font-size:clamp(11px,2.5vw,15px);color:var(--blue-pale);max-width:600px;margin:0 auto;padding:0 10px;text-align:center}
 
-  /* Thesis */
-  .thesis-hero { max-width: 950px; margin: 0 auto clamp(30px, 6vw, 60px); text-align: center; }
-  .thesis-hero h1 {
-    font-size: clamp(28px, 7vw, 58px); font-weight: 500; line-height: 1.15;
-    margin-bottom: clamp(24px, 5vw, 48px); letter-spacing: 0.5px;
-    background: linear-gradient(180deg, var(--white) 0%, var(--blue-light) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .thesis-hero .lead {
-    font-size: clamp(15px, 3.5vw, 21px); color: var(--blue-pale); font-weight: 400;
-    max-width: 800px; margin: 0 auto clamp(24px, 5vw, 50px); line-height: 1.8; padding: 0 10px;
-  }
-  .thesis-callout {
-    display: inline-block; padding: clamp(14px, 3vw, 20px) clamp(20px, 4vw, 40px);
-    background: linear-gradient(135deg, rgba(123,163,190,0.09), rgba(232,184,109,0.06));
-    border: 1px solid rgba(123,163,190,0.19); border-radius: 8px;
-    margin-bottom: clamp(30px, 6vw, 60px);
-  }
-  .thesis-callout p { font-size: clamp(14px, 3vw, 17px); color: var(--accent); font-weight: 400; font-style: italic; line-height: 1.6; }
-  .thesis-bottom { font-size: clamp(14px, 3vw, 18px); color: var(--blue); font-weight: 400; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+  .thesis-hero{max-width:950px;margin:0 auto clamp(24px,5vw,50px);text-align:center}
+  .thesis-hero h1{font-size:clamp(22px,5.5vw,46px);font-weight:500;line-height:1.15;margin-bottom:clamp(20px,4vw,40px);letter-spacing:.5px;background:linear-gradient(180deg,var(--white) 0%,var(--blue-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .thesis-hero .lead{font-size:clamp(12px,2.8vw,17px);color:var(--blue-pale);font-weight:400;max-width:800px;margin:0 auto clamp(20px,4vw,42px);line-height:1.8;padding:0 10px}
+  .thesis-callout{display:inline-block;padding:clamp(10px,2.5vw,16px) clamp(16px,3vw,34px);background:linear-gradient(135deg,rgba(123,163,190,0.09),rgba(232,184,109,0.06));border:1px solid rgba(123,163,190,0.19);border-radius:8px;margin-bottom:clamp(24px,5vw,50px)}
+  .thesis-callout p{font-size:clamp(11px,2.5vw,14px);color:var(--accent);font-weight:400;font-style:italic;line-height:1.6}
+  .thesis-bottom{font-size:clamp(11px,2.5vw,15px);color:var(--blue);font-weight:400;max-width:600px;margin:0 auto;line-height:1.7}
 
-  .infra-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: clamp(12px, 3vw, 20px); max-width: 1000px; margin: 0 auto clamp(40px, 8vw, 80px);
-  }
-  .infra-card {
-    background: rgba(19,36,56,0.5); border: 1px solid rgba(123,163,190,0.15);
-    border-radius: 8px; padding: clamp(20px, 4vw, 36px) clamp(16px, 3vw, 24px);
-    text-align: center; transition: all 0.4s ease; backdrop-filter: blur(10px);
-  }
-  .infra-icon { font-size: clamp(24px, 5vw, 32px); margin-bottom: clamp(10px, 2vw, 16px); color: var(--blue); }
-  .infra-label { font-size: clamp(10px, 2vw, 12px); font-weight: 500; letter-spacing: 2px; color: var(--blue-light); }
+  .infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:clamp(10px,2vw,18px);max-width:1000px;margin:0 auto clamp(30px,6vw,70px)}
+  .infra-card{background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(16px,3vw,30px) clamp(12px,2.5vw,20px);text-align:center;transition:all .4s ease;backdrop-filter:blur(10px)}
+  .infra-icon{font-size:clamp(20px,4vw,26px);margin-bottom:clamp(8px,1.5vw,14px);color:var(--blue)}
+  .infra-label{font-size:clamp(8px,1.7vw,10px);font-weight:500;letter-spacing:2px;color:var(--blue-light)}
 
-  .what-we-see {
-    max-width: 800px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(19,36,56,0.56), rgba(11,25,41,0.56));
-    border: 1px solid rgba(123,163,190,0.15); border-radius: 8px;
-    padding: clamp(24px, 5vw, 48px) clamp(20px, 5vw, 56px);
-    backdrop-filter: blur(20px); box-shadow: 0 20px 80px rgba(11,25,41,0.5);
-  }
-  .what-we-see .label { font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(3px, 0.8vw, 5px); color: var(--accent); margin-bottom: clamp(20px, 4vw, 32px); font-weight: 500; }
-  .wws-grid { display: grid; gap: clamp(16px, 3vw, 24px); }
-  .wws-item { display: flex; align-items: flex-start; gap: clamp(12px, 3vw, 20px); }
-  .wws-num { color: var(--blue); font-size: clamp(11px, 2vw, 13px); font-weight: 600; min-width: 24px; font-family: monospace; }
-  .wws-text { font-size: clamp(14px, 3vw, 17px); color: var(--blue-pale); line-height: 1.6; }
+  .what-we-see{max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(19,36,56,0.56),rgba(11,25,41,0.56));border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,40px) clamp(16px,4vw,48px);backdrop-filter:blur(20px);box-shadow:0 20px 80px rgba(11,25,41,0.5)}
+  .what-we-see .label{font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.6vw,4px);color:var(--accent);margin-bottom:clamp(16px,3vw,28px);font-weight:500}
+  .wws-grid{display:grid;gap:clamp(14px,2.5vw,20px)}
+  .wws-item{display:flex;align-items:flex-start;gap:clamp(10px,2vw,18px)}
+  .wws-num{color:var(--blue);font-size:clamp(9px,1.7vw,11px);font-weight:600;min-width:22px;font-family:monospace}
+  .wws-text{font-size:clamp(11px,2.5vw,14px);color:var(--blue-pale);line-height:1.6}
 
-  /* Verticals */
-  .vert-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-    gap: clamp(16px, 3vw, 24px); max-width: 1200px; margin: 0 auto;
-  }
-  .vert-card {
-    background: rgba(19,36,56,0.44); border: 1px solid rgba(123,163,190,0.125);
-    border-radius: 8px; padding: clamp(20px, 4vw, 32px);
-    transition: all 0.4s ease; backdrop-filter: blur(10px);
-  }
-  .vert-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .vert-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); flex-shrink: 0; }
-  .vert-name { font-size: clamp(16px, 3.5vw, 20px); font-weight: 500; color: var(--white); }
-  .vert-tagline { font-size: clamp(12px, 2.5vw, 14px); font-style: italic; color: var(--blue); margin-bottom: 16px; }
-  .vert-desc { font-size: clamp(13px, 2.5vw, 15px); color: var(--blue-pale); line-height: 1.7; margin-bottom: 20px; }
-  .vert-biz {
-    background: rgba(123,163,190,0.09); border-radius: 4px; padding: 12px 16px;
-    margin-bottom: 20px; font-size: clamp(10px, 2vw, 12px); color: var(--blue-light);
-    letter-spacing: 0.5px; border: 1px solid rgba(123,163,190,0.125);
-  }
-  .vert-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .vert-tag {
-    padding: 6px 12px; background: rgba(123,163,190,0.06);
-    border: 1px solid rgba(123,163,190,0.19); border-radius: 20px;
-    font-size: clamp(10px, 2vw, 11px); color: var(--blue-light);
-  }
-  .vert-insight { border-top: 1px solid rgba(123,163,190,0.125); padding-top: 16px; font-size: clamp(11px, 2vw, 13px); color: var(--accent); font-style: italic; line-height: 1.5; }
+  .vert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(14px,2.5vw,20px);max-width:1200px;margin:0 auto}
+  .vert-card{background:rgba(19,36,56,0.44);border:1px solid rgba(123,163,190,0.125);border-radius:8px;padding:clamp(16px,3.5vw,28px);transition:all .4s ease;backdrop-filter:blur(10px)}
+  .vert-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .vert-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);flex-shrink:0}
+  .vert-name{font-size:clamp(13px,2.8vw,17px);font-weight:500;color:var(--white)}
+  .vert-tagline{font-size:clamp(10px,2.2vw,12px);font-style:italic;color:var(--blue);margin-bottom:14px}
+  .vert-desc{font-size:clamp(10px,2.2vw,12px);color:var(--blue-pale);line-height:1.7;margin-bottom:16px}
+  .vert-biz{background:rgba(123,163,190,0.09);border-radius:4px;padding:10px 14px;margin-bottom:16px;font-size:clamp(8px,1.7vw,10px);color:var(--blue-light);letter-spacing:.5px;border:1px solid rgba(123,163,190,0.125)}
+  .vert-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .vert-tag{padding:5px 10px;background:rgba(123,163,190,0.06);border:1px solid rgba(123,163,190,0.19);border-radius:20px;font-size:clamp(8px,1.7vw,9px);color:var(--blue-light)}
+  .vert-insight{border-top:1px solid rgba(123,163,190,0.125);padding-top:14px;font-size:clamp(9px,1.7vw,11px);color:var(--accent);font-style:italic;line-height:1.5}
 
-  /* LPs */
-  .lp-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: clamp(16px, 3vw, 20px); max-width: 1200px; margin: 0 auto;
-  }
-  .lp-card {
-    background: rgba(19,36,56,0.44); border: 1px solid rgba(123,163,190,0.125);
-    border-radius: 8px; padding: clamp(20px, 4vw, 28px);
-    transition: all 0.4s ease; backdrop-filter: blur(10px);
-  }
-  .lp-cat { font-size: clamp(15px, 3vw, 17px); font-weight: 500; color: var(--white); margin-bottom: 6px; }
-  .lp-rationale { font-size: clamp(11px, 2vw, 12px); color: var(--blue); margin-bottom: 20px; font-style: italic; }
-  .lp-targets { display: grid; gap: 10px; }
-  .lp-target { background: rgba(123,163,190,0.06); border-radius: 6px; padding: 12px 14px; border: 1px solid rgba(123,163,190,0.09); }
-  .lp-name { font-size: clamp(13px, 2.5vw, 14px); font-weight: 500; color: var(--blue-light); margin-bottom: 3px; }
-  .lp-fit { font-size: clamp(10px, 2vw, 11px); color: var(--blue-pale); opacity: 0.7; line-height: 1.4; }
+  .lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(14px,2.5vw,18px);max-width:1200px;margin:0 auto}
+  .lp-card{background:rgba(19,36,56,0.44);border:1px solid rgba(123,163,190,0.125);border-radius:8px;padding:clamp(16px,3.5vw,24px);transition:all .4s ease;backdrop-filter:blur(10px)}
+  .lp-cat{font-size:clamp(12px,2.5vw,14px);font-weight:500;color:var(--white);margin-bottom:5px}
+  .lp-rationale{font-size:clamp(9px,1.7vw,10px);color:var(--blue);margin-bottom:16px;font-style:italic}
+  .lp-targets{display:grid;gap:8px}
+  .lp-target{background:rgba(123,163,190,0.06);border-radius:6px;padding:10px 12px;border:1px solid rgba(123,163,190,0.09)}
+  .lp-name{font-size:clamp(10px,2.2vw,12px);font-weight:500;color:var(--blue-light);margin-bottom:2px}
+  .lp-fit{font-size:clamp(8px,1.7vw,9px);color:var(--blue-pale);opacity:.7;line-height:1.4}
 
-  /* Geography */
-  .geo-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    gap: clamp(20px, 4vw, 32px); max-width: 1000px; margin: 0 auto;
-  }
-  .geo-left {
-    background: linear-gradient(135deg, var(--blue), var(--blue-light));
-    border-radius: 8px; padding: clamp(24px, 5vw, 40px); color: var(--navy);
-    box-shadow: 0 20px 60px rgba(123,163,190,0.19);
-  }
-  .geo-left h3 { font-size: clamp(16px, 3vw, 18px); font-weight: 500; margin-bottom: clamp(20px, 4vw, 28px); letter-spacing: 1px; }
-  .geo-points { display: grid; gap: clamp(14px, 3vw, 18px); }
-  .geo-point { display: flex; align-items: center; gap: 14px; }
-  .geo-point-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); opacity: 0.6; flex-shrink: 0; }
-  .geo-point span { font-size: clamp(13px, 2.5vw, 15px); line-height: 1.5; }
+  .geo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,3vw,28px);max-width:1000px;margin:0 auto}
+  .geo-left{background:linear-gradient(135deg,var(--blue),var(--blue-light));border-radius:8px;padding:clamp(20px,4vw,34px);color:var(--navy);box-shadow:0 20px 60px rgba(123,163,190,0.19)}
+  .geo-left h3{font-size:clamp(13px,2.5vw,15px);font-weight:500;margin-bottom:clamp(16px,3vw,24px);letter-spacing:1px}
+  .geo-points{display:grid;gap:clamp(12px,2.5vw,16px)}
+  .geo-point{display:flex;align-items:center;gap:12px}
+  .geo-point-dot{width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.6;flex-shrink:0}
+  .geo-point span{font-size:clamp(10px,2.2vw,13px);line-height:1.5}
+  .geo-right{background:rgba(19,36,56,0.44);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,34px);backdrop-filter:blur(10px)}
+  .geo-right h3{font-size:clamp(13px,2.5vw,15px);font-weight:500;color:var(--white);margin-bottom:clamp(16px,3vw,24px)}
+  .sp-list{display:grid;gap:10px}
+  .sp-item{display:flex;justify-content:space-between;align-items:center;padding:clamp(8px,1.8vw,12px) clamp(10px,2.5vw,16px);background:rgba(123,163,190,0.06);border-radius:6px;border:1px solid rgba(123,163,190,0.09);gap:10px}
+  .sp-region{font-size:clamp(10px,2.2vw,12px);font-weight:500;color:var(--blue-light)}
+  .sp-status{font-size:clamp(8px,1.7vw,10px);color:var(--blue-pale);opacity:.7;text-align:right}
 
-  .geo-right {
-    background: rgba(19,36,56,0.44); border: 1px solid rgba(123,163,190,0.15);
-    border-radius: 8px; padding: clamp(24px, 5vw, 40px); backdrop-filter: blur(10px);
-  }
-  .geo-right h3 { font-size: clamp(16px, 3vw, 18px); font-weight: 500; color: var(--white); margin-bottom: clamp(20px, 4vw, 28px); }
-  .sp-list { display: grid; gap: 12px; }
-  .sp-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: clamp(10px, 2vw, 14px) clamp(12px, 3vw, 18px);
-    background: rgba(123,163,190,0.06); border-radius: 6px;
-    border: 1px solid rgba(123,163,190,0.09); gap: 12px;
-  }
-  .sp-region { font-size: clamp(13px, 2.5vw, 14px); font-weight: 500; color: var(--blue-light); }
-  .sp-status { font-size: clamp(10px, 2vw, 12px); color: var(--blue-pale); opacity: 0.7; text-align: right; }
+  .closing{max-width:800px;margin:clamp(30px,6vw,50px) auto 0;text-align:center;padding:clamp(24px,4.5vw,42px);background:linear-gradient(135deg,rgba(19,36,56,0.56),rgba(11,25,41,0.56));border:2px solid var(--blue);border-radius:8px;backdrop-filter:blur(20px);box-shadow:0 0 80px rgba(123,163,190,0.09)}
+  .closing .cl-label{font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.6vw,4px);color:var(--blue);margin-bottom:14px;font-weight:500}
+  .closing .cl-title{font-size:clamp(20px,4.2vw,30px);font-weight:500;margin-bottom:clamp(14px,2.5vw,20px);background:linear-gradient(180deg,var(--white) 0%,var(--blue-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .closing .cl-desc{font-size:clamp(11px,2.5vw,14px);color:var(--blue-pale);line-height:1.8;max-width:600px;margin:0 auto}
 
-  .closing {
-    max-width: 800px; margin: clamp(40px, 8vw, 60px) auto 0; text-align: center;
-    padding: clamp(28px, 5vw, 48px);
-    background: linear-gradient(135deg, rgba(19,36,56,0.56), rgba(11,25,41,0.56));
-    border: 2px solid var(--blue); border-radius: 8px;
-    backdrop-filter: blur(20px); box-shadow: 0 0 80px rgba(123,163,190,0.09);
-  }
-  .closing .cl-label { font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(3px, 0.8vw, 5px); color: var(--blue); margin-bottom: 16px; font-weight: 500; }
-  .closing .cl-title {
-    font-size: clamp(24px, 5vw, 36px); font-weight: 500; margin-bottom: clamp(16px, 3vw, 24px);
-    background: linear-gradient(180deg, var(--white) 0%, var(--blue-light) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .closing .cl-desc { font-size: clamp(14px, 3vw, 17px); color: var(--blue-pale); line-height: 1.8; max-width: 600px; margin: 0 auto; }
+  .team-intro{max-width:800px;margin:0 auto clamp(30px,5vw,50px);text-align:center}
+  .team-intro p{font-size:clamp(12px,2.5vw,16px);color:var(--blue-pale);line-height:1.8;margin-top:clamp(14px,2.5vw,20px);padding:0 10px}
+  .team-grid{display:grid;grid-template-columns:1fr;gap:clamp(16px,3vw,24px);max-width:900px;margin:0 auto clamp(30px,5vw,50px)}
+  .team-card{background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:10px;padding:clamp(22px,4vw,34px);backdrop-filter:blur(10px);transition:all .4s ease;position:relative;overflow:hidden}
+  .team-card-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent))}
+  .team-avatar{width:clamp(52px,10vw,64px);height:clamp(52px,10vw,64px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--navy);margin-bottom:16px}
+  .team-name{font-size:clamp(14px,3vw,19px);font-weight:500;color:var(--white);margin-bottom:3px}
+  .team-role{font-size:clamp(8px,1.7vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:14px}
+  .team-bio{font-size:clamp(10px,2.2vw,12px);color:var(--blue-pale);line-height:1.7;margin-bottom:18px}
+  .team-creds{display:grid;gap:7px}
+  .team-cred{display:flex;align-items:flex-start;gap:9px;font-size:clamp(9px,1.8vw,10.5px);color:var(--blue-light);line-height:1.5}
+  .team-cred-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:5px}
 
-  /* Team Section */
-  .team-intro {
-    max-width: 800px; margin: 0 auto clamp(40px, 6vw, 60px); text-align: center;
-  }
-  .team-intro p {
-    font-size: clamp(15px, 3vw, 19px); color: var(--blue-pale); line-height: 1.8;
-    margin-top: clamp(16px, 3vw, 24px); padding: 0 10px;
-  }
-  .team-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: clamp(20px, 4vw, 28px); max-width: 900px; margin: 0 auto clamp(40px, 6vw, 60px);
-  }
-  .team-card {
-    background: rgba(19,36,56,0.55); border: 1px solid rgba(123,163,190,0.2);
-    border-radius: 10px; padding: clamp(28px, 5vw, 40px);
-    backdrop-filter: blur(10px); transition: all 0.4s ease;
-    position: relative; overflow: hidden;
-  }
-  .team-card:hover { border-color: rgba(123,163,190,0.4); transform: translateY(-2px); }
-  .team-card-accent {
-    position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--accent));
-  }
-  .team-avatar {
-    width: 72px; height: 72px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; font-weight: 500; color: var(--navy);
-    margin-bottom: 20px;
-  }
-  .team-name {
-    font-size: clamp(18px, 3.5vw, 22px); font-weight: 500; color: var(--white);
-    margin-bottom: 4px;
-  }
-  .team-role {
-    font-size: clamp(11px, 2vw, 13px); color: var(--accent);
-    letter-spacing: 1px; font-weight: 500; margin-bottom: 16px;
-  }
-  .team-bio {
-    font-size: clamp(13px, 2.5vw, 14px); color: var(--blue-pale);
-    line-height: 1.7; margin-bottom: 20px;
-  }
-  .team-creds { display: grid; gap: 8px; }
-  .team-cred {
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: clamp(11px, 2vw, 12px); color: var(--blue-light); line-height: 1.5;
-  }
-  .team-cred-dot {
-    width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
-    flex-shrink: 0; margin-top: 5px;
-  }
+  .advisory-block{max-width:900px;margin:0 auto clamp(30px,5vw,50px);background:linear-gradient(135deg,rgba(232,184,109,0.08),rgba(123,163,190,0.06));border:1px solid rgba(232,184,109,0.25);border-radius:10px;padding:clamp(22px,4vw,38px);text-align:center}
+  .advisory-label{font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.6vw,4px);color:var(--accent);margin-bottom:clamp(14px,2.5vw,20px);font-weight:500}
+  .advisory-title{font-size:clamp(16px,3.2vw,24px);font-weight:500;color:var(--white);margin-bottom:clamp(10px,1.8vw,18px)}
+  .advisory-desc{font-size:clamp(11px,2.2vw,13px);color:var(--blue-pale);line-height:1.8;max-width:700px;margin:0 auto clamp(18px,3vw,30px)}
+  .advisory-names{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .advisory-name-tag{padding:6px 14px;background:rgba(232,184,109,0.12);border:1px solid rgba(232,184,109,0.3);border-radius:24px;font-size:clamp(9px,1.7vw,11px);color:var(--accent-light);font-weight:500}
 
-  /* Space Advisory */
-  .advisory-block {
-    max-width: 900px; margin: 0 auto clamp(40px, 6vw, 60px);
-    background: linear-gradient(135deg, rgba(232,184,109,0.08), rgba(123,163,190,0.06));
-    border: 1px solid rgba(232,184,109,0.25); border-radius: 10px;
-    padding: clamp(28px, 5vw, 44px); text-align: center;
-  }
-  .advisory-label {
-    font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(3px, 0.8vw, 5px);
-    color: var(--accent); margin-bottom: clamp(16px, 3vw, 24px); font-weight: 500;
-  }
-  .advisory-title {
-    font-size: clamp(20px, 4vw, 28px); font-weight: 500; color: var(--white);
-    margin-bottom: clamp(12px, 2vw, 20px);
-  }
-  .advisory-desc {
-    font-size: clamp(14px, 2.5vw, 16px); color: var(--blue-pale); line-height: 1.8;
-    max-width: 700px; margin: 0 auto clamp(24px, 4vw, 36px);
-  }
-  .advisory-names {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-  }
-  .advisory-name-tag {
-    padding: 8px 18px; background: rgba(232,184,109,0.12);
-    border: 1px solid rgba(232,184,109,0.3); border-radius: 24px;
-    font-size: clamp(11px, 2vw, 13px); color: var(--accent-light); font-weight: 500;
-  }
+  .press-section{max-width:1000px;margin:0 auto}
+  .press-label{font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.6vw,4px);color:var(--accent);margin-bottom:14px;font-weight:500;text-align:center}
+  .press-heading{font-size:clamp(18px,4vw,28px);font-weight:500;text-align:center;color:var(--white);margin-bottom:clamp(18px,3vw,34px)}
+  .press-grid{display:grid;gap:clamp(14px,2.5vw,18px)}
+  .press-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(12px,2.5vw,20px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(16px,3.5vw,28px);backdrop-filter:blur(10px);transition:all .3s ease;text-decoration:none;color:inherit;cursor:pointer}
+  .press-icon{width:clamp(36px,7vw,42px);height:clamp(36px,7vw,42px);border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;font-size:clamp(14px,2.5vw,17px);color:var(--navy);flex-shrink:0;font-weight:600}
+  .press-source{font-size:clamp(7px,1.5vw,8px);letter-spacing:2px;color:var(--blue);font-weight:500;margin-bottom:4px;text-transform:uppercase}
+  .press-title-text{font-size:clamp(12px,2.5vw,15px);font-weight:500;color:var(--white);margin-bottom:6px;line-height:1.4}
+  .press-excerpt{font-size:clamp(10px,2.2vw,12px);color:var(--blue-pale);line-height:1.6;opacity:.8}
+  .press-link{display:inline-block;margin-top:8px;font-size:clamp(8px,1.7vw,10px);color:var(--accent);text-decoration:none;font-weight:500;letter-spacing:.5px}
 
-  /* Press / Why Us */
-  .press-section {
-    max-width: 1000px; margin: 0 auto;
-  }
-  .press-label {
-    font-size: clamp(9px, 2vw, 11px); letter-spacing: clamp(3px, 0.8vw, 5px);
-    color: var(--accent); margin-bottom: 16px; font-weight: 500; text-align: center;
-  }
-  .press-heading {
-    font-size: clamp(22px, 5vw, 34px); font-weight: 500; text-align: center;
-    color: var(--white); margin-bottom: clamp(24px, 4vw, 40px);
-  }
-  .press-grid {
-    display: grid; gap: clamp(16px, 3vw, 20px);
-  }
-  .press-card {
-    display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 3vw, 24px);
-    background: rgba(19,36,56,0.5); border: 1px solid rgba(123,163,190,0.15);
-    border-radius: 8px; padding: clamp(20px, 4vw, 32px);
-    backdrop-filter: blur(10px); transition: all 0.3s ease;
-    text-decoration: none; color: inherit; cursor: pointer;
-  }
-  .press-card:hover { border-color: rgba(123,163,190,0.35); transform: translateY(-1px); }
+  .blinc-tabs{display:flex;gap:5px;justify-content:center;margin-bottom:clamp(24px,4vw,42px);flex-wrap:wrap}
+  .blinc-tab{padding:clamp(7px,1.8vw,10px) clamp(12px,2.5vw,20px);background:transparent;border:1px solid rgba(123,163,190,0.25);border-radius:4px;color:var(--blue-light);cursor:pointer;font-size:clamp(8px,1.7vw,9.5px);font-weight:500;letter-spacing:clamp(1px,.3vw,2px);text-transform:uppercase;font-family:inherit;transition:all .3s ease;white-space:nowrap}
+  .blinc-tab.active{background:rgba(232,184,109,0.15);border-color:var(--accent);color:var(--accent)}
+  .blinc-panel{display:none;animation:fade-in-up .6s ease-out}
+  .blinc-panel.active{display:block}
 
-  @media (max-width: 600px) {
-    .press-card { grid-template-columns: 1fr; }
-    .press-icon { width: 36px; height: 36px; font-size: 14px; }
-  }
-  .press-icon {
-    width: 48px; height: 48px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--blue), var(--blue-light));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: var(--navy); flex-shrink: 0; font-weight: 600;
-  }
-  .press-content {}
-  .press-source {
-    font-size: clamp(9px, 2vw, 10px); letter-spacing: 2px;
-    color: var(--blue); font-weight: 500; margin-bottom: 6px; text-transform: uppercase;
-  }
-  .press-title-text {
-    font-size: clamp(15px, 3vw, 18px); font-weight: 500; color: var(--white);
-    margin-bottom: 8px; line-height: 1.4;
-  }
-  .press-excerpt {
-    font-size: clamp(12px, 2.5vw, 14px); color: var(--blue-pale);
-    line-height: 1.6; opacity: 0.8;
-  }
-  .press-link {
-    display: inline-block; margin-top: 10px;
-    font-size: clamp(10px, 2vw, 12px); color: var(--accent);
-    text-decoration: none; font-weight: 500; letter-spacing: 0.5px;
-  }
-  .press-link:hover { text-decoration: underline; }
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:clamp(10px,1.8vw,14px);max-width:1100px;margin:0 auto}
+  .gallery-card{aspect-ratio:16/10;border-radius:8px;overflow:hidden;position:relative;border:1px solid rgba(123,163,190,0.15);transition:all .4s ease;cursor:pointer}
+  .gallery-card .g-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,4vw,34px)}
+  .gallery-card .g-overlay{position:absolute;bottom:0;left:0;right:0;padding:clamp(10px,1.8vw,16px);background:linear-gradient(transparent,rgba(11,25,41,0.92))}
+  .gallery-card .g-caption{font-size:clamp(9px,1.7vw,11px);color:var(--blue-pale);line-height:1.4}
+  .gallery-card .g-tag{font-size:clamp(7px,1.3vw,8px);letter-spacing:1.5px;color:var(--accent);font-weight:500;margin-bottom:3px}
 
-  /* Footer */
-  footer {
-    position: relative; z-index: 10;
-    padding: clamp(20px, 4vw, 32px) clamp(20px, 5vw, 60px);
-    border-top: 1px solid rgba(123,163,190,0.125);
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    background: rgba(11,25,41,0.5); backdrop-filter: blur(10px);
-  }
-  .footer-left { font-size: clamp(9px, 2vw, 11px); color: var(--blue); letter-spacing: 2px; }
-  .footer-right { font-size: clamp(9px, 2vw, 11px); color: var(--blue-pale); opacity: 0.5; text-align: center; }
+  .impact-stat{text-align:center;padding:clamp(16px,3vw,28px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px}
+  .impact-num{font-size:clamp(22px,4.5vw,36px);font-weight:500;margin-bottom:3px;line-height:1}
+  .impact-label{font-size:clamp(8px,1.7vw,10px);color:var(--blue-light);letter-spacing:1px;line-height:1.4}
 
-  /* BLINC Sub-Tabs */
-  .blinc-tabs { display:flex;gap:6px;justify-content:center;margin-bottom:clamp(30px,5vw,50px);flex-wrap:wrap; }
-  .blinc-tab {
-    padding:clamp(8px,2vw,12px) clamp(14px,3vw,24px);background:transparent;border:1px solid rgba(123,163,190,0.25);
-    border-radius:4px;color:var(--blue-light);cursor:pointer;font-size:clamp(9px,2vw,11px);font-weight:500;
-    letter-spacing:clamp(1px,0.3vw,2px);text-transform:uppercase;font-family:inherit;transition:all 0.3s ease;white-space:nowrap;
-  }
-  .blinc-tab.active { background:rgba(232,184,109,0.15);border-color:var(--accent);color:var(--accent); }
-  .blinc-panel { display:none;animation:fade-in-up 0.6s ease-out; }
-  .blinc-panel.active { display:block; }
+  /* Inline overrides for BLINC panels */
+  .bp-callout-box{background:linear-gradient(135deg,rgba(232,184,109,0.1),rgba(123,163,190,0.06));border:1px solid rgba(232,184,109,0.3);border-radius:8px;padding:clamp(16px,3.5vw,28px);display:flex;align-items:flex-start;gap:clamp(12px,2.5vw,20px);flex-wrap:wrap}
+  .bp-callout-icon{font-size:26px;flex-shrink:0}
+  .bp-callout-title{font-size:clamp(11px,2.5vw,14px);font-weight:500;color:var(--accent);margin-bottom:6px}
+  .bp-callout-text{font-size:clamp(10px,2.2vw,12px);color:var(--blue-pale);line-height:1.6}
+  .bp-pillar{background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:10px;padding:clamp(22px,4vw,34px);backdrop-filter:blur(10px);position:relative;overflow:hidden}
+  .bp-pillar-accent{position:absolute;top:0;left:0;right:0;height:3px}
+  .bp-pillar-label{font-size:clamp(7px,1.7vw,9px);letter-spacing:3px;color:var(--accent);font-weight:500;margin-bottom:14px}
+  .bp-pillar-title{font-size:clamp(14px,3vw,19px);font-weight:500;color:var(--white);margin-bottom:14px}
+  .bp-pillar-desc{font-size:clamp(10px,2.2vw,13px);color:var(--blue-pale);line-height:1.7;margin-bottom:18px}
+  .bp-bullet{display:flex;align-items:flex-start;gap:9px}
+  .bp-bullet-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+  .bp-bullet-text{font-size:clamp(10px,2.2vw,12px);color:var(--blue-light);line-height:1.5}
+  .bp-proposal{background:linear-gradient(135deg,rgba(232,184,109,0.08),rgba(123,163,190,0.06));border:1px solid rgba(232,184,109,0.25);border-radius:10px;padding:clamp(22px,4vw,38px);backdrop-filter:blur(20px)}
+  .bp-funds-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)}
+  .bp-funds-label{font-size:clamp(10px,2.2vw,12px);color:var(--blue-light)}
+  .bp-funds-pct{font-size:clamp(10px,2.2vw,12px);font-weight:600;color:var(--accent)}
+  .bp-exit-box{padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px}
+  .bp-exit-label{font-size:clamp(9px,1.7vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:6px}
+  .bp-exit-text{font-size:clamp(11px,2.5vw,14px);color:var(--blue-pale);line-height:1.6}
+  .bp-roadmap-card{border-radius:8px;padding:clamp(20px,4vw,30px)}
+  .bp-roadmap-year{font-size:clamp(20px,4.2vw,28px);font-weight:500;margin-bottom:14px}
+  .bp-roadmap-items{display:grid;gap:8px;font-size:clamp(10px,2.2vw,12px);line-height:1.5}
+  .bp-partner-wrap{background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,30px);text-align:center;backdrop-filter:blur(10px)}
+  .bp-partner-tag{padding:5px 12px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(8px,1.7vw,10px);color:var(--blue-light);font-weight:500}
+  .bp-cap-card{background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(16px,3.5vw,24px)}
+  .bp-cap-icon{font-size:18px;margin-bottom:8px}
+  .bp-cap-title{font-size:clamp(11px,2.5vw,14px);font-weight:500;color:var(--white);margin-bottom:6px}
+  .bp-cap-text{font-size:clamp(10px,2.2vw,11px);color:var(--blue-pale);line-height:1.6}
+  .bp-timeline-card{padding:clamp(14px,2.5vw,20px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;text-align:center}
+  .bp-timeline-year{font-size:clamp(9px,1.7vw,11px);font-weight:500;margin-bottom:6px}
+  .bp-timeline-num{font-size:clamp(16px,3.2vw,24px);font-weight:500;color:var(--white)}
+  .bp-timeline-sub{font-size:clamp(8px,1.5vw,9px);color:var(--blue-pale);margin-top:3px}
+  .bp-table-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:7px 10px;border-radius:4px}
+  .bp-table-label{font-size:clamp(9px,1.8vw,11px);color:var(--blue-light);font-weight:500}
+  .bp-table-val{font-size:clamp(9px,1.8vw,11px);color:var(--accent);text-align:right;font-weight:600}
+  .bp-team-card{background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(16px,3.5vw,24px)}
+  .bp-team-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy);margin-bottom:12px}
+  .bp-team-name{font-size:clamp(12px,2.5vw,14px);font-weight:500;color:var(--white);margin-bottom:3px}
+  .bp-team-role{font-size:clamp(8px,1.7vw,9px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:10px}
+  .bp-team-bio{font-size:clamp(10px,2.2vw,11px);color:var(--blue-pale);line-height:1.6}
+  .bp-milestone{padding:clamp(14px,2.5vw,20px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px}
+  .bp-milestone-year{font-size:clamp(14px,3vw,19px);font-weight:500;color:var(--white);margin-bottom:5px}
+  .bp-milestone-text{font-size:clamp(9px,1.7vw,11px);color:var(--blue-pale);line-height:1.5}
 
-  /* Gallery */
-  .gallery-grid {
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:clamp(12px,2vw,16px);
-    max-width:1100px;margin:0 auto;
-  }
-  .gallery-card {
-    aspect-ratio:16/10;border-radius:8px;overflow:hidden;position:relative;
-    border:1px solid rgba(123,163,190,0.15);transition:all 0.4s ease;cursor:pointer;
-  }
-  .gallery-card:hover { border-color:rgba(232,184,109,0.4);transform:translateY(-2px); }
-  .gallery-card .g-bg {
-    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-size:clamp(28px,5vw,40px);
-  }
-  .gallery-card .g-overlay {
-    position:absolute;bottom:0;left:0;right:0;padding:clamp(12px,2vw,18px);
-    background:linear-gradient(transparent,rgba(11,25,41,0.92));
-  }
-  .gallery-card .g-caption { font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.4; }
-  .gallery-card .g-tag { font-size:clamp(8px,1.5vw,10px);letter-spacing:1.5px;color:var(--accent);font-weight:500;margin-bottom:4px; }
+  .press-link-row{display:flex;align-items:center;gap:9px;padding:8px 12px;background:rgba(123,163,190,0.08);border:1px solid rgba(123,163,190,0.15);border-radius:6px;text-decoration:none;transition:all .2s ease}
+  .press-link-src{font-size:9px;font-weight:600;color:var(--blue);min-width:24px}
+  .press-link-text{font-size:clamp(9px,1.7vw,11px);color:var(--blue-pale);line-height:1.4}
+  .press-link-arrow{font-size:9px;color:var(--accent);margin-left:auto;flex-shrink:0}
 
-  /* Impact stat */
-  .impact-stat {
-    text-align:center;padding:clamp(20px,4vw,32px);background:rgba(19,36,56,0.5);
-    border:1px solid rgba(123,163,190,0.15);border-radius:8px;
-  }
-  .impact-num { font-size:clamp(28px,6vw,44px);font-weight:500;margin-bottom:4px;line-height:1; }
-  .impact-label { font-size:clamp(10px,2vw,12px);color:var(--blue-light);letter-spacing:1px;line-height:1.4; }
+  footer{position:relative;z-index:10;padding:clamp(16px,3vw,28px) clamp(16px,4vw,50px);border-top:1px solid rgba(123,163,190,0.125);display:flex;justify-content:space-between;align-items:center;gap:10px;background:rgba(11,25,41,0.5);backdrop-filter:blur(10px)}
+  .footer-left{font-size:clamp(7px,1.7vw,9px);color:var(--blue);letter-spacing:2px}
+  .footer-right{font-size:clamp(7px,1.7vw,9px);color:var(--blue-pale);opacity:.5;text-align:center}
 
-  @media (max-width: 480px) {
-    .orbital-el { display: none; }
-    footer { flex-direction: column; }
-    .advisory-names { gap: 8px; }
-    .advisory-name-tag { font-size: 10px; padding: 6px 12px; }
+  @media(max-width:600px){
+    .press-card{grid-template-columns:1fr}
+    .press-icon{width:32px;height:32px;font-size:12px}
   }
+  @media(max-width:480px){
+    .orbital-el{display:none}
+    footer{flex-direction:column}
+    .advisory-names{gap:6px}
+    .advisory-name-tag{font-size:8px;padding:5px 10px}
+  }
+  @media(hover:hover){.vert-card:hover{border-color:rgba(123,163,190,0.35);transform:translateY(-2px)}.team-card:hover{border-color:rgba(123,163,190,0.4);transform:translateY(-2px)}.gallery-card:hover{border-color:rgba(232,184,109,0.4);transform:translateY(-2px)}.press-card:hover{border-color:rgba(123,163,190,0.35);transform:translateY(-1px)}}
 </style>
 </head>
 <body>
@@ -472,20 +284,13 @@
 
 <header>
   <div class="header-left">
-    <svg width="48" height="48" viewBox="0 0 56 56">
-      <rect width="56" height="56" fill="#7BA3BE" rx="4"/>
-      <text x="10" y="40" font-family="Georgia,'Times New Roman',serif" font-size="36" font-style="italic" font-weight="400" fill="#FFFFFF">V</text>
-      <text x="28" y="40" font-family="Georgia,'Times New Roman',serif" font-size="28" font-weight="400" fill="#FFFFFF">C</text>
-    </svg>
+    <img src="https://i.postimg.cc/wj47bvDq/image.png" alt="Vitality Capital">
     <div>
       <div class="header-label">VITALITY CAPITAL</div>
       <div class="header-title">Space Fund I</div>
     </div>
   </div>
-  <div class="orbital-el">
-    <div class="orbital-dot"></div>
-    <div class="orbital-ring"></div>
-  </div>
+  <div class="orbital-el"><div class="orbital-dot"></div><div class="orbital-ring"></div></div>
 </header>
 
 <nav id="nav"></nav>
@@ -509,7 +314,7 @@
 
   <!-- VERTICALS -->
   <div class="section" id="sec-verticals">
-    <div style="text-align:center;margin-bottom:clamp(30px,5vw,50px)">
+    <div style="text-align:center;margin-bottom:clamp(24px,4vw,42px)">
       <div class="section-label">INVESTMENT VERTICALS</div>
       <h2 class="section-heading">Six Investable Markets</h2>
     </div>
@@ -518,13 +323,12 @@
 
   <!-- BLINC SPACE -->
   <div class="section" id="sec-lps">
-    <div style="text-align:center;margin-bottom:20px">
+    <div style="text-align:center;margin-bottom:16px">
       <div class="section-label">ANCHOR PORTFOLIO COMPANY</div>
       <h2 class="section-heading">BLINC Space Limited, UAE</h2>
       <p class="section-sub">The Premier SpaceTech Brand Leading the UAE to the Final Frontier — and the operational backbone of Space Fund I</p>
     </div>
 
-    <!-- Sub-tabs -->
     <div class="blinc-tabs" id="blincTabs">
       <button class="blinc-tab active" data-panel="bp-overview">Overview</button>
       <button class="blinc-tab" data-panel="bp-impact">Economic Impact</button>
@@ -534,92 +338,81 @@
 
     <!-- PANEL: Overview -->
     <div class="blinc-panel active" id="bp-overview">
+      <div style="max-width:1100px;margin:0 auto clamp(24px,4vw,42px)">
+        <div class="bp-callout-box">
+          <div class="bp-callout-icon">🏛️</div>
+          <div style="flex:1;min-width:220px">
+            <div class="bp-callout-title">UAE Space Agency — Official No Objection Letter</div>
+            <div class="bp-callout-text">BLINC Space Limited holds the <strong style="color:var(--white)">only licenses required to pioneer human spaceflight training</strong> within the Emirates — the first and only such authorization in the nation, approved by the UAE Space Agency (Ref: UAESA-SLP-2025-505). Licensed for Space Training Programs, Space Consultancies, and R&D of Space Technologies.</div>
+          </div>
+        </div>
+      </div>
 
-      <!-- Accreditation Callout -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(14px,2.5vw,20px);max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+        <div class="bp-pillar">
+          <div class="bp-pillar-accent" style="background:linear-gradient(90deg,var(--blue),var(--accent))"></div>
+          <div class="bp-pillar-label">PILLAR 1</div>
+          <div class="bp-pillar-title">Human Spaceflight Training Centre</div>
+          <div class="bp-pillar-desc">The MENA region's first accredited astronaut training program — serving private space companies, international agencies, corporate leadership workshops, and space tourism experiences.</div>
+          <div style="display:grid;gap:8px">
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Projected <strong style="color:var(--accent)">$50M+ annual revenue by 2027</strong></span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Managed by top-tier former NASA astronauts & trainers</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Only UAE Space Agency-licensed private training facility</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">EVA, survival, centrifuge, neutral buoyancy & operational readiness</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Operating across 4 Emirates — Abu Dhabi, Sharjah, Dubai, Ras Al Khaimah</span></div>
+          </div>
+        </div>
+        <div class="bp-pillar">
+          <div class="bp-pillar-accent" style="background:linear-gradient(90deg,var(--accent),var(--blue))"></div>
+          <div class="bp-pillar-label">PILLAR 2</div>
+          <div class="bp-pillar-title">$1 Billion UAE Space Investment Fund</div>
+          <div class="bp-pillar-desc">Technical Advisor to a space investment fund in ADGM — co-investing with the US, Europe, Asia, and Africa with 40% reinvestment back into the UAE.</div>
+          <div style="display:grid;gap:8px">
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Satellite comms, data/AI, mobility, health, private space travel</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Unlocking <strong style="color:var(--accent)">$10B+ in deal flow</strong> & thousands of high-skill jobs</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Fund-of-Funds architecture routing global IP through UAE</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Incubator & accelerator connected to fund by 2027</span></div>
+            <div class="bp-bullet"><span class="bp-bullet-dot"></span><span class="bp-bullet-text">Aligned with National Space Strategy 2030 & Mars 2117</span></div>
+          </div>
+        </div>
+      </div>
+
       <div style="max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
-        <div style="background:linear-gradient(135deg,rgba(232,184,109,0.1),rgba(123,163,190,0.06));border:1px solid rgba(232,184,109,0.3);border-radius:8px;padding:clamp(20px,4vw,32px);display:flex;align-items:flex-start;gap:clamp(16px,3vw,24px);flex-wrap:wrap">
-          <div style="font-size:32px;flex-shrink:0">🏛️</div>
-          <div style="flex:1;min-width:240px">
-            <div style="font-size:clamp(14px,3vw,17px);font-weight:500;color:var(--accent);margin-bottom:8px">UAE Space Agency — Official No Objection Letter</div>
-            <div style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-pale);line-height:1.6">BLINC Space Limited holds the <strong style="color:var(--white)">only licenses required to pioneer human spaceflight training</strong> within the Emirates — the first and only such authorization in the nation, approved by the UAE Space Agency (Ref: UAESA-SLP-2025-505). Licensed for Space Training Programs, Space Consultancies, and R&D of Space Technologies.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Two-Pillar Model -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(16px,3vw,24px);max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:10px;padding:clamp(28px,5vw,40px);backdrop-filter:blur(10px);position:relative;overflow:hidden">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent))"></div>
-          <div style="font-size:clamp(9px,2vw,11px);letter-spacing:3px;color:var(--accent);font-weight:500;margin-bottom:16px">PILLAR 1</div>
-          <div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:16px">Human Spaceflight Training Centre</div>
-          <div style="font-size:clamp(13px,2.5vw,15px);color:var(--blue-pale);line-height:1.7;margin-bottom:20px">The MENA region's first accredited astronaut training program — serving private space companies, international agencies, corporate leadership workshops, and space tourism experiences.</div>
-          <div style="display:grid;gap:10px">
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Projected <strong style="color:var(--accent)">$50M+ annual revenue by 2027</strong></span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Managed by top-tier former NASA astronauts & trainers</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Only UAE Space Agency-licensed private training facility</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">EVA, survival, centrifuge, neutral buoyancy & operational readiness</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Operating across 4 Emirates — Abu Dhabi, Sharjah, Dubai, Ras Al Khaimah</span></div>
-          </div>
-        </div>
-        <div style="background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:10px;padding:clamp(28px,5vw,40px);backdrop-filter:blur(10px);position:relative;overflow:hidden">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--blue))"></div>
-          <div style="font-size:clamp(9px,2vw,11px);letter-spacing:3px;color:var(--accent);font-weight:500;margin-bottom:16px">PILLAR 2</div>
-          <div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:16px">$1 Billion UAE Space Investment Fund</div>
-          <div style="font-size:clamp(13px,2.5vw,15px);color:var(--blue-pale);line-height:1.7;margin-bottom:20px">Technical Advisor to a space investment fund in ADGM — co-investing with the US, Europe, Asia, and Africa with 40% reinvestment back into the UAE.</div>
-          <div style="display:grid;gap:10px">
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Satellite comms, data/AI, mobility, health, private space travel</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Unlocking <strong style="color:var(--accent)">$10B+ in deal flow</strong> & thousands of high-skill jobs</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Fund-of-Funds architecture routing global IP through UAE</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Incubator & accelerator connected to fund by 2027</span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light);line-height:1.5">Aligned with National Space Strategy 2030 & Mars 2117</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Investment Proposal -->
-      <div style="max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="background:linear-gradient(135deg,rgba(232,184,109,0.08),rgba(123,163,190,0.06));border:1px solid rgba(232,184,109,0.25);border-radius:10px;padding:clamp(28px,5vw,44px);backdrop-filter:blur(20px)">
-          <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);font-weight:500;margin-bottom:clamp(16px,3vw,24px);text-align:center">BLINC INVESTMENT PROPOSAL</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(16px,3vw,24px);margin-bottom:clamp(24px,4vw,36px)">
+        <div class="bp-proposal">
+          <div class="section-label">BLINC INVESTMENT PROPOSAL</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(12px,2vw,20px);margin-bottom:clamp(20px,3.5vw,30px)">
             <div class="impact-stat"><div class="impact-num" style="color:var(--white)">$10M</div><div class="impact-label">RAISING</div></div>
             <div class="impact-stat"><div class="impact-num" style="color:var(--white)">$50M</div><div class="impact-label">POST-MONEY VALUATION</div></div>
             <div class="impact-stat"><div class="impact-num" style="color:var(--accent)">42–48%</div><div class="impact-label">TARGETED IRR (5 YR)</div></div>
             <div class="impact-stat"><div class="impact-num" style="color:var(--accent)">9–11×</div><div class="impact-label">TARGETED MOIC</div></div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(16px,3vw,24px)">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(14px,2.5vw,20px)">
             <div>
-              <div style="font-size:clamp(13px,2.5vw,15px);font-weight:500;color:var(--white);margin-bottom:16px">Use of Funds (24-month horizon)</div>
-              <div style="display:grid;gap:10px">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Human Spaceflight Training Centre</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">35%</span></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Astronaut Tourism & Space Camps</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">20%</span></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Events, Activations & Outreach</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">15%</span></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Operations, Staffing & Overhead</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">12%</span></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Regulatory, Safety & Fund Setup</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">8%</span></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(123,163,190,0.08);border-radius:6px;border:1px solid rgba(123,163,190,0.1)"><span style="font-size:clamp(12px,2.5vw,14px);color:var(--blue-light)">Reinvestment & Contingency</span><span style="font-size:clamp(13px,2.5vw,15px);font-weight:600;color:var(--accent)">10%</span></div>
+              <div style="font-size:clamp(11px,2.2vw,13px);font-weight:500;color:var(--white);margin-bottom:14px">Use of Funds (24-month horizon)</div>
+              <div style="display:grid;gap:8px">
+                <div class="bp-funds-row"><span class="bp-funds-label">Human Spaceflight Training Centre</span><span class="bp-funds-pct">35%</span></div>
+                <div class="bp-funds-row"><span class="bp-funds-label">Astronaut Tourism & Space Camps</span><span class="bp-funds-pct">20%</span></div>
+                <div class="bp-funds-row"><span class="bp-funds-label">Events, Activations & Outreach</span><span class="bp-funds-pct">15%</span></div>
+                <div class="bp-funds-row"><span class="bp-funds-label">Operations, Staffing & Overhead</span><span class="bp-funds-pct">12%</span></div>
+                <div class="bp-funds-row"><span class="bp-funds-label">Regulatory, Safety & Fund Setup</span><span class="bp-funds-pct">8%</span></div>
+                <div class="bp-funds-row"><span class="bp-funds-label">Reinvestment & Contingency</span><span class="bp-funds-pct">10%</span></div>
               </div>
             </div>
             <div>
-              <div style="font-size:clamp(13px,2.5vw,15px);font-weight:500;color:var(--white);margin-bottom:16px">Investor Exit Strategy</div>
-              <div style="padding:clamp(20px,4vw,28px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;margin-bottom:16px">
-                <div style="font-size:clamp(11px,2vw,13px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:8px">PRIMARY EXIT</div>
-                <div style="font-size:clamp(14px,3vw,17px);color:var(--blue-pale);line-height:1.6">Strategic acquisition (Year 5–6) by global space giants</div>
-              </div>
-              <div style="padding:clamp(20px,4vw,28px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px">
-                <div style="font-size:clamp(11px,2vw,13px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:8px">SECONDARY EXIT</div>
-                <div style="font-size:clamp(14px,3vw,17px);color:var(--blue-pale);line-height:1.6">IPO (Years 6–7) on Abu Dhabi Securities Exchange or NASDAQ</div>
-              </div>
+              <div style="font-size:clamp(11px,2.2vw,13px);font-weight:500;color:var(--white);margin-bottom:14px">Investor Exit Strategy</div>
+              <div class="bp-exit-box" style="margin-bottom:14px"><div class="bp-exit-label">PRIMARY EXIT</div><div class="bp-exit-text">Strategic acquisition (Year 5–6) by global space giants</div></div>
+              <div class="bp-exit-box"><div class="bp-exit-label">SECONDARY EXIT</div><div class="bp-exit-text">IPO (Years 6–7) on Abu Dhabi Securities Exchange or NASDAQ</div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Roadmap -->
-      <div style="max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);font-weight:500;margin-bottom:clamp(16px,3vw,24px);text-align:center">EXECUTION ROADMAP</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(16px,3vw,20px)">
-          <div style="background:linear-gradient(135deg,var(--blue),var(--blue-light));border-radius:8px;padding:clamp(24px,5vw,36px);color:var(--navy)">
-            <div style="font-size:clamp(24px,5vw,32px);font-weight:500;margin-bottom:16px">2026</div>
-            <div style="display:grid;gap:10px;font-size:clamp(12px,2.5vw,14px);line-height:1.5">
+      <div style="max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+        <div class="section-label">EXECUTION ROADMAP</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(14px,2.5vw,18px)">
+          <div class="bp-roadmap-card" style="background:linear-gradient(135deg,var(--blue),var(--blue-light));color:var(--navy)">
+            <div class="bp-roadmap-year">2026</div>
+            <div class="bp-roadmap-items">
               <div>▸ Close investment round, begin operations Q1</div>
               <div>▸ Establish Human Spaceflight Training Centre</div>
               <div>▸ Roll out accredited Masters degree course</div>
@@ -627,9 +420,9 @@
               <div>▸ Register $1B Space Investment Fund in ADGM</div>
             </div>
           </div>
-          <div style="background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:8px;padding:clamp(24px,5vw,36px)">
-            <div style="font-size:clamp(24px,5vw,32px);font-weight:500;color:var(--white);margin-bottom:16px">2027</div>
-            <div style="display:grid;gap:10px;font-size:clamp(12px,2.5vw,14px);color:var(--blue-pale);line-height:1.5">
+          <div class="bp-roadmap-card bp-pillar" style="padding:clamp(20px,4vw,30px)">
+            <div class="bp-roadmap-year" style="color:var(--white)">2027</div>
+            <div class="bp-roadmap-items" style="color:var(--blue-pale)">
               <div>▸ Scale training centre + corporate leadership packages</div>
               <div>▸ Secure government contracts for spaceflight ops</div>
               <div>▸ Expand revenue from existing infrastructure</div>
@@ -637,9 +430,9 @@
               <div>▸ 500+ defence officers trained annually</div>
             </div>
           </div>
-          <div style="background:rgba(19,36,56,0.55);border:1px solid rgba(123,163,190,0.2);border-radius:8px;padding:clamp(24px,5vw,36px)">
-            <div style="font-size:clamp(24px,5vw,32px);font-weight:500;color:var(--white);margin-bottom:16px">2028</div>
-            <div style="display:grid;gap:10px;font-size:clamp(12px,2.5vw,14px);color:var(--blue-pale);line-height:1.5">
+          <div class="bp-roadmap-card bp-pillar" style="padding:clamp(20px,4vw,30px)">
+            <div class="bp-roadmap-year" style="color:var(--white)">2028</div>
+            <div class="bp-roadmap-items" style="color:var(--blue-pale)">
               <div>▸ Government contracts in education, youth & defence</div>
               <div>▸ International launch & mission support partnerships</div>
               <div>▸ Space infrastructure workforce development</div>
@@ -650,22 +443,21 @@
         </div>
       </div>
 
-      <!-- Strategic Partners -->
       <div style="max-width:1100px;margin:0 auto">
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(24px,5vw,36px);text-align:center;backdrop-filter:blur(10px)">
-          <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);font-weight:500;margin-bottom:clamp(16px,3vw,24px)">STRATEGIC PARTNERS</div>
-          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">IIAS — Astronautical Sciences</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Charles F. Bolden Group</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Alfiya Space Corporation</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">A2RL</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Actionflight RAK</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Deep Dive Dubai</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Abu Dhabi Polytechnic</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Biosphere 2 — U of Arizona</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Inter Astra Institute</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">SpaceFund</span>
-            <span style="padding:7px 16px;background:rgba(123,163,190,0.1);border:1px solid rgba(123,163,190,0.2);border-radius:24px;font-size:clamp(10px,2vw,12px);color:var(--blue-light);font-weight:500">Karman Line</span>
+        <div class="bp-partner-wrap">
+          <div class="section-label">STRATEGIC PARTNERS</div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px">
+            <span class="bp-partner-tag">IIAS — Astronautical Sciences</span>
+            <span class="bp-partner-tag">Charles F. Bolden Group</span>
+            <span class="bp-partner-tag">Alfiya Space Corporation</span>
+            <span class="bp-partner-tag">A2RL</span>
+            <span class="bp-partner-tag">Actionflight RAK</span>
+            <span class="bp-partner-tag">Deep Dive Dubai</span>
+            <span class="bp-partner-tag">Abu Dhabi Polytechnic</span>
+            <span class="bp-partner-tag">Biosphere 2 — U of Arizona</span>
+            <span class="bp-partner-tag">Inter Astra Institute</span>
+            <span class="bp-partner-tag">SpaceFund</span>
+            <span class="bp-partner-tag">Karman Line</span>
           </div>
         </div>
       </div>
@@ -673,87 +465,43 @@
 
     <!-- PANEL: Economic Impact -->
     <div class="blinc-panel" id="bp-impact">
-      <!-- Headline Stats -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(12px,2vw,16px);max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(10px,1.8vw,14px);max-width:1100px;margin:0 auto clamp(24px,4vw,42px)">
         <div class="impact-stat"><div class="impact-num" style="color:var(--accent)">$5.5B</div><div class="impact-label">CUMULATIVE GDP IMPACT<br>BY 2035</div></div>
         <div class="impact-stat"><div class="impact-num" style="color:var(--white)">1,800+</div><div class="impact-label">DIRECT & INDIRECT<br>JOBS CREATED</div></div>
         <div class="impact-stat"><div class="impact-num" style="color:var(--accent)">$3.8B</div><div class="impact-label">FDI INFLOWS<br>ATTRACTED</div></div>
         <div class="impact-stat"><div class="impact-num" style="color:var(--white)">$1.2B</div><div class="impact-label">WORKFORCE DEV<br>CONTRIBUTION (10 YR)</div></div>
       </div>
 
-      <!-- Impact Timeline -->
-      <div style="max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="font-size:clamp(13px,2.5vw,15px);font-weight:500;color:var(--white);margin-bottom:16px;text-align:center">Projected Economic Impact Timeline</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(12px,2vw,16px)">
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;text-align:center;border-top:3px solid var(--blue)">
-            <div style="font-size:clamp(11px,2vw,13px);color:var(--blue);font-weight:500;margin-bottom:8px">YEAR 1 (2026)</div>
-            <div style="font-size:clamp(20px,4vw,28px);font-weight:500;color:var(--white)">$325M</div>
-            <div style="font-size:clamp(10px,2vw,11px);color:var(--blue-pale);margin-top:4px">$125M direct · $200M indirect</div>
-          </div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;text-align:center;border-top:3px solid var(--blue-light)">
-            <div style="font-size:clamp(11px,2vw,13px);color:var(--blue);font-weight:500;margin-bottom:8px">YEAR 3 (2028)</div>
-            <div style="font-size:clamp(20px,4vw,28px);font-weight:500;color:var(--white)">$555M</div>
-            <div style="font-size:clamp(10px,2vw,11px);color:var(--blue-pale);margin-top:4px">$180M direct · $375M indirect</div>
-          </div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;text-align:center;border-top:3px solid var(--accent)">
-            <div style="font-size:clamp(11px,2vw,13px);color:var(--accent);font-weight:500;margin-bottom:8px">YEAR 5 (2030)</div>
-            <div style="font-size:clamp(20px,4vw,28px);font-weight:500;color:var(--accent)">$850M</div>
-            <div style="font-size:clamp(10px,2vw,11px);color:var(--blue-pale);margin-top:4px">$250M direct · $600M indirect</div>
-          </div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(232,184,109,0.3);border-radius:8px;text-align:center;border-top:3px solid var(--accent)">
-            <div style="font-size:clamp(11px,2vw,13px);color:var(--accent);font-weight:500;margin-bottom:8px">YEAR 10 (2035)</div>
-            <div style="font-size:clamp(20px,4vw,28px);font-weight:500;color:var(--accent)">$1.3B</div>
-            <div style="font-size:clamp(10px,2vw,11px);color:var(--blue-pale);margin-top:4px">$400M direct · $900M indirect</div>
-          </div>
+      <div style="max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+        <div style="font-size:clamp(11px,2.2vw,13px);font-weight:500;color:var(--white);margin-bottom:14px;text-align:center">Projected Economic Impact Timeline</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(10px,1.8vw,14px)">
+          <div class="bp-timeline-card" style="border-top:3px solid var(--blue)"><div class="bp-timeline-year" style="color:var(--blue)">YEAR 1 (2026)</div><div class="bp-timeline-num">$325M</div><div class="bp-timeline-sub">$125M direct · $200M indirect</div></div>
+          <div class="bp-timeline-card" style="border-top:3px solid var(--blue-light)"><div class="bp-timeline-year" style="color:var(--blue)">YEAR 3 (2028)</div><div class="bp-timeline-num">$555M</div><div class="bp-timeline-sub">$180M direct · $375M indirect</div></div>
+          <div class="bp-timeline-card" style="border-top:3px solid var(--accent)"><div class="bp-timeline-year" style="color:var(--accent)">YEAR 5 (2030)</div><div class="bp-timeline-num" style="color:var(--accent)">$850M</div><div class="bp-timeline-sub">$250M direct · $600M indirect</div></div>
+          <div class="bp-timeline-card" style="border-top:3px solid var(--accent)"><div class="bp-timeline-year" style="color:var(--accent)">YEAR 10 (2035)</div><div class="bp-timeline-num" style="color:var(--accent)">$1.3B</div><div class="bp-timeline-sub">$400M direct · $900M indirect</div></div>
         </div>
       </div>
 
-      <!-- Strengthening National Capabilities -->
-      <div style="max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);font-weight:500;margin-bottom:clamp(16px,3vw,24px);text-align:center">STRENGTHENING NATIONAL CAPABILITIES</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(12px,2vw,16px)">
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">🎓</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">Education & STEAM</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">25,000+ annual participants by 2035 across space camps, analog missions, rover builds, and university programs. 250+ Emirati experts developed in astronautics and engineering.</div>
-          </div>
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">🛡️</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">Defence Readiness</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">500+ defence officers trained annually in crew-resource management, leadership, mission-readiness, and high-pressure decision-making for UAE defence and National Guard.</div>
-          </div>
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">🔬</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">R&D & Innovation</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">30+ space-tech startups and 50+ patents originating from UAE-based R&D. Strengthened domestic supply chains for rovers, suits, drones, and training systems.</div>
-          </div>
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">🌍</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">Global Space Leadership</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">Establishes UAE as the world's third operational hub for human spaceflight training (after NASA & ESA). The "Houston of the Middle East."</div>
-          </div>
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">👩‍🔬</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">Women Empowerment</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">35–40% women participation across R&D and technical roles, aligned with UAE National Policy for Empowerment of Emirati Women 2023–2031.</div>
-          </div>
-          <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-            <div style="font-size:20px;margin-bottom:10px">✈️</div>
-            <div style="font-size:clamp(14px,3vw,16px);font-weight:500;color:var(--white);margin-bottom:8px">Tourism & Hospitality</div>
-            <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">$600M tourism and experience economy impact. Space analog experiences attract global HNWI visitors, driving non-oil GDP growth.</div>
-          </div>
+      <div style="max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+        <div class="section-label">STRENGTHENING NATIONAL CAPABILITIES</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(10px,1.8vw,14px)">
+          <div class="bp-cap-card"><div class="bp-cap-icon">🎓</div><div class="bp-cap-title">Education & STEAM</div><div class="bp-cap-text">25,000+ annual participants by 2035 across space camps, analog missions, rover builds, and university programs. 250+ Emirati experts developed in astronautics and engineering.</div></div>
+          <div class="bp-cap-card"><div class="bp-cap-icon">🛡️</div><div class="bp-cap-title">Defence Readiness</div><div class="bp-cap-text">500+ defence officers trained annually in crew-resource management, leadership, mission-readiness, and high-pressure decision-making for UAE defence and National Guard.</div></div>
+          <div class="bp-cap-card"><div class="bp-cap-icon">🔬</div><div class="bp-cap-title">R&D & Innovation</div><div class="bp-cap-text">30+ space-tech startups and 50+ patents originating from UAE-based R&D. Strengthened domestic supply chains for rovers, suits, drones, and training systems.</div></div>
+          <div class="bp-cap-card"><div class="bp-cap-icon">🌍</div><div class="bp-cap-title">Global Space Leadership</div><div class="bp-cap-text">Establishes UAE as the world's third operational hub for human spaceflight training (after NASA & ESA). The "Houston of the Middle East."</div></div>
+          <div class="bp-cap-card"><div class="bp-cap-icon">👩‍🔬</div><div class="bp-cap-title">Women Empowerment</div><div class="bp-cap-text">35–40% women participation across R&D and technical roles, aligned with UAE National Policy for Empowerment of Emirati Women 2023–2031.</div></div>
+          <div class="bp-cap-card"><div class="bp-cap-icon">✈️</div><div class="bp-cap-title">Tourism & Hospitality</div><div class="bp-cap-text">$600M tourism and experience economy impact. Space analog experiences attract global HNWI visitors, driving non-oil GDP growth.</div></div>
         </div>
       </div>
 
-      <!-- Key Metric Table -->
       <div style="max-width:1100px;margin:0 auto">
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,32px);overflow-x:auto">
-          <div style="font-size:clamp(9px,2vw,11px);letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:16px">CUMULATIVE ECONOMIC OUTPUT (2026–2035)</div>
-          <div style="display:grid;gap:8px;min-width:500px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px;background:rgba(123,163,190,0.1);border-radius:4px"><span style="font-size:clamp(11px,2vw,13px);color:var(--blue-light);font-weight:500">Education & Training Revenues</span><span style="font-size:clamp(11px,2vw,13px);color:var(--accent);text-align:right;font-weight:600">$700 Million</span></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px;background:rgba(123,163,190,0.06);border-radius:4px"><span style="font-size:clamp(11px,2vw,13px);color:var(--blue-light);font-weight:500">Tourism & Experience Economy</span><span style="font-size:clamp(11px,2vw,13px);color:var(--accent);text-align:right;font-weight:600">$600 Million</span></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px;background:rgba(123,163,190,0.1);border-radius:4px"><span style="font-size:clamp(11px,2vw,13px);color:var(--blue-light);font-weight:500">Innovation Output</span><span style="font-size:clamp(11px,2vw,13px);color:var(--accent);text-align:right;font-weight:600">50+ patents · 30+ startups</span></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px;background:rgba(123,163,190,0.06);border-radius:4px"><span style="font-size:clamp(11px,2vw,13px);color:var(--blue-light);font-weight:500">Job Creation</span><span style="font-size:clamp(11px,2vw,13px);color:var(--accent);text-align:right;font-weight:600">400 direct · 1,400 indirect</span></div>
+        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(16px,3.5vw,28px);overflow-x:auto">
+          <div style="font-size:clamp(7px,1.7vw,9px);letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:14px">CUMULATIVE ECONOMIC OUTPUT (2026–2035)</div>
+          <div style="display:grid;gap:6px;min-width:420px">
+            <div class="bp-table-row" style="background:rgba(123,163,190,0.1)"><span class="bp-table-label">Education & Training Revenues</span><span class="bp-table-val">$700 Million</span></div>
+            <div class="bp-table-row" style="background:rgba(123,163,190,0.06)"><span class="bp-table-label">Tourism & Experience Economy</span><span class="bp-table-val">$600 Million</span></div>
+            <div class="bp-table-row" style="background:rgba(123,163,190,0.1)"><span class="bp-table-label">Innovation Output</span><span class="bp-table-val">50+ patents · 30+ startups</span></div>
+            <div class="bp-table-row" style="background:rgba(123,163,190,0.06)"><span class="bp-table-label">Job Creation</span><span class="bp-table-val">400 direct · 1,400 indirect</span></div>
           </div>
         </div>
       </div>
@@ -761,59 +509,28 @@
 
     <!-- PANEL: BLINC Team -->
     <div class="blinc-panel" id="bp-team">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,3vw,20px);max-width:1100px;margin:0 auto clamp(40px,6vw,60px)">
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#E8B86D,#F4D9A0);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--navy);margin-bottom:14px">DD</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">Dara Dotz</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">CHIEF TECHNOLOGY OFFICER</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">Founding team of Made in Space — one of the earliest innovators of 3D printing worldwide and in space. UN and TED speaker. Completing Masters in Space Entrepreneurship.</div>
-        </div>
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--navy);margin-bottom:14px">OA</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">Omar Al Balbaki</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">CHIEF ENGINEER</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">Medtronics engineering grad specializing in autonomous robotics for space & defence. Lunar/Martian rover systems, AI-driven navigation, LiDAR drones, small-satellite hardware.</div>
-        </div>
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#9DC4DB,#C5E1EE);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--navy);margin-bottom:14px">AS</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">Aoun Sharaf</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">INTERIM CFO</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">Multi-jurisdictional regulatory, legal, risk & compliance expert. Former Head of Compliance at Investcorp, Gulf Capital, PineBridge. MBA, LLM, CAMS, ESG (CFA).</div>
-        </div>
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7BA3BE,#A8D4E8);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--navy);margin-bottom:14px">DJ</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">David Juahardo</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">INTERIM COO</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">MBA with extensive operations & sales experience in US Energy. Co-founded HM Energy Mexico. Citizen Scientist Astronaut in training, completing Masters in Space Operations.</div>
-        </div>
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(232,184,109,0.25);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#F4D9A0);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--navy);margin-bottom:14px">SP</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">Dr. Sian Proctor</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">CHIEF ASTRONAUT TRAINER</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">Inspiration4 Mission Pilot — first all-civilian orbital spaceflight. PhD Geoscientist, 25+ years as professor. NASA 2009 astronaut finalist. Founder of Space2inspire; TEDx speaker.</div>
-        </div>
-        <div style="background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;padding:clamp(20px,4vw,28px)">
-          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#132438,#1a3050);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:var(--blue-light);margin-bottom:14px;border:1px solid rgba(123,163,190,0.3)">GM</div>
-          <div style="font-size:clamp(15px,3vw,17px);font-weight:500;color:var(--white);margin-bottom:4px">George McNee</div>
-          <div style="font-size:clamp(10px,2vw,11px);color:var(--accent);letter-spacing:1px;font-weight:500;margin-bottom:12px">ADVISORY BOARD</div>
-          <div style="font-size:clamp(12px,2.5vw,13px);color:var(--blue-pale);line-height:1.6">20 years experience across diverse sectors. Long-short portfolio management and hedging strategies. Strategic consultant on mergers and acquisitions.</div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(12px,2vw,16px);max-width:1100px;margin:0 auto clamp(30px,5vw,50px)">
+        <div class="bp-team-card"><div class="bp-team-avatar" style="background:linear-gradient(135deg,#E8B86D,#F4D9A0)">DD</div><div class="bp-team-name">Dara Dotz</div><div class="bp-team-role">CHIEF TECHNOLOGY OFFICER</div><div class="bp-team-bio">Founding team of Made in Space — one of the earliest innovators of 3D printing worldwide and in space. UN and TED speaker. Completing Masters in Space Entrepreneurship.</div></div>
+        <div class="bp-team-card"><div class="bp-team-avatar" style="background:linear-gradient(135deg,var(--blue),var(--blue-light))">OA</div><div class="bp-team-name">Omar Al Balbaki</div><div class="bp-team-role">CHIEF ENGINEER</div><div class="bp-team-bio">Medtronics engineering grad specializing in autonomous robotics for space & defence. Lunar/Martian rover systems, AI-driven navigation, LiDAR drones, small-satellite hardware.</div></div>
+        <div class="bp-team-card"><div class="bp-team-avatar" style="background:linear-gradient(135deg,#9DC4DB,#C5E1EE)">AS</div><div class="bp-team-name">Aoun Sharaf</div><div class="bp-team-role">INTERIM CFO</div><div class="bp-team-bio">Multi-jurisdictional regulatory, legal, risk & compliance expert. Former Head of Compliance at Investcorp, Gulf Capital, PineBridge. MBA, LLM, CAMS, ESG (CFA).</div></div>
+        <div class="bp-team-card"><div class="bp-team-avatar" style="background:linear-gradient(135deg,#7BA3BE,#A8D4E8)">DJ</div><div class="bp-team-name">David Juahardo</div><div class="bp-team-role">INTERIM COO</div><div class="bp-team-bio">MBA with extensive operations & sales experience in US Energy. Co-founded HM Energy Mexico. Citizen Scientist Astronaut in training, completing Masters in Space Operations.</div></div>
+        <div class="bp-team-card" style="border-color:rgba(232,184,109,0.25)"><div class="bp-team-avatar" style="background:linear-gradient(135deg,var(--accent),#F4D9A0)">SP</div><div class="bp-team-name">Dr. Sian Proctor</div><div class="bp-team-role">CHIEF ASTRONAUT TRAINER</div><div class="bp-team-bio">Inspiration4 Mission Pilot — first all-civilian orbital spaceflight. PhD Geoscientist, 25+ years as professor. NASA 2009 astronaut finalist. Founder of Space2inspire; TEDx speaker.</div></div>
+        <div class="bp-team-card"><div class="bp-team-avatar" style="background:linear-gradient(135deg,#132438,#1a3050);border:1px solid rgba(123,163,190,0.3);color:var(--blue-light)">GM</div><div class="bp-team-name">George McNee</div><div class="bp-team-role">ADVISORY BOARD</div><div class="bp-team-bio">20 years experience across diverse sectors. Long-short portfolio management and hedging strategies. Strategic consultant on mergers and acquisitions.</div></div>
       </div>
-      <!-- Milestones -->
       <div style="max-width:1100px;margin:0 auto">
-        <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);font-weight:500;margin-bottom:clamp(16px,3vw,24px);text-align:center">KEY MILESTONES</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(12px,2vw,16px)">
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;border-left:3px solid var(--blue)"><div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:6px">2018</div><div style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.5">Borderless Labs Inc (USA) incorporated. Space camps and analog simulations begin.</div></div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;border-left:3px solid var(--blue)"><div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:6px">2019</div><div style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.5">20+ international space documentaries in 6 languages. Schools outreach begins.</div></div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;border-left:3px solid var(--accent)"><div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:6px">2022</div><div style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.5">Mac completes Citizen Scientist Astronaut Training. Training of 20+ international astronauts begins.</div></div>
-          <div style="padding:clamp(16px,3vw,24px);background:rgba(19,36,56,0.5);border:1px solid rgba(123,163,190,0.15);border-radius:8px;border-left:3px solid var(--accent)"><div style="font-size:clamp(18px,3.5vw,22px);font-weight:500;color:var(--white);margin-bottom:6px">2025</div><div style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.5">Blinc Space Limited (UAE) incorporated. Only UAE Space Agency-licensed entity. Hosted largest US space delegation on UAE soil.</div></div>
+        <div class="section-label">KEY MILESTONES</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(10px,1.8vw,14px)">
+          <div class="bp-milestone" style="border-left:3px solid var(--blue)"><div class="bp-milestone-year">2018</div><div class="bp-milestone-text">Borderless Labs Inc (USA) incorporated. Space camps and analog simulations begin.</div></div>
+          <div class="bp-milestone" style="border-left:3px solid var(--blue)"><div class="bp-milestone-year">2019</div><div class="bp-milestone-text">20+ international space documentaries in 6 languages. Schools outreach begins.</div></div>
+          <div class="bp-milestone" style="border-left:3px solid var(--accent)"><div class="bp-milestone-year">2022</div><div class="bp-milestone-text">Mac completes Citizen Scientist Astronaut Training. Training of 20+ international astronauts begins.</div></div>
+          <div class="bp-milestone" style="border-left:3px solid var(--accent)"><div class="bp-milestone-year">2025</div><div class="bp-milestone-text">Blinc Space Limited (UAE) incorporated. Only UAE Space Agency-licensed entity. Hosted largest US space delegation on UAE soil.</div></div>
         </div>
       </div>
     </div>
 
     <!-- PANEL: Gallery -->
     <div class="blinc-panel" id="bp-gallery">
-      <div style="font-size:clamp(13px,2.5vw,15px);color:var(--blue-pale);text-align:center;margin-bottom:clamp(24px,4vw,36px);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6">Training courses, space camps, analog missions, and events performed internationally by the BLINC team</div>
+      <div style="font-size:clamp(11px,2.2vw,13px);color:var(--blue-pale);text-align:center;margin-bottom:clamp(18px,3vw,30px);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6">Training courses, space camps, analog missions, and events performed internationally by the BLINC team</div>
       <div class="gallery-grid">
         <div class="gallery-card"><div class="g-bg" style="background:linear-gradient(135deg,#1a3050,#0D1F33)">🚀</div><div class="g-overlay"><div class="g-tag">CAPSULE TRAINING</div><div class="g-caption">Crew capsule egress and emergency procedures — spacecraft mockup training with IIAS</div></div></div>
         <div class="gallery-card"><div class="g-bg" style="background:linear-gradient(135deg,#132438,#1a3050)">🌊</div><div class="g-overlay"><div class="g-tag">NEUTRAL BUOYANCY</div><div class="g-caption">Underwater spacesuit simulation at Deep Dive Dubai — EVA operations and spacewalk readiness</div></div></div>
@@ -829,68 +546,46 @@
         <div class="gallery-card"><div class="g-bg" style="background:linear-gradient(135deg,#0D1F33,#1a3050)">🌐</div><div class="g-overlay"><div class="g-tag">PLANET X — ABU DHABI</div><div class="g-caption">BLINC team at Planet X Abu Dhabi space innovation event with international partners</div></div></div>
       </div>
     </div>
-
   </div>
 
   <!-- TEAM & WHY US -->
   <div class="section" id="sec-team">
-    <!-- Intro -->
     <div class="team-intro">
       <div class="section-label">THE TEAM</div>
       <h2 class="section-heading">Built to Win</h2>
       <p>Our specialist space team supplements leading fund management experience across growth equity, venture capital, and sovereign partnerships. We bring together institutional investment discipline, deep Gulf-region access, and hands-on space industry expertise — a combination that doesn't exist anywhere else.</p>
     </div>
 
-    <!-- Team Cards -->
     <div class="team-grid">
-      <!-- Mac — FIRST -->
       <div class="team-card" style="max-width:100%">
         <div class="team-card-accent" style="height:4px;background:linear-gradient(90deg,#4ECDC4,var(--accent),var(--blue))"></div>
-        <div style="display:grid;grid-template-columns:1fr;gap:0">
-          <div>
-            <div class="team-avatar" style="background:linear-gradient(135deg,#4ECDC4,#6DE8DE);">MM</div>
-            <div class="team-name">Malik "Mac" Malkawi</div>
-            <div class="team-role">SPACE INDUSTRY LEAD — SCIENTIST ASTRONAUT</div>
-            <div class="team-bio">Jordanian-American scientist astronaut, entrepreneur, and the founder building the UAE's first private astronaut training and human spaceflight ecosystem. Mac brings the rare operational credibility that connects our fund thesis to the actual builders, operators, and regulators of the space economy. His mission: make space travel as routine as commercial aviation.</div>
-            <div class="team-creds">
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Founder & CEO, BLINC Space Limited — developing the UAE's first Human Spaceflight Training Center, the only licensed private astronaut training facility in the Middle East</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Citizen Scientist Astronaut candidate; trained at the International Institute of Astronautical Sciences (IIAS) in bioastronautics, EVA operations, microgravity research & space medicine</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Partnership with the Bolden Group (Hon. Charles F. Bolden Jr., former NASA Administrator) and Inter Astra for astronaut readiness & space medicine</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Endorsed by NASA Astronaut Dr. Jeanette Epps; hosted live ISS calls from Abu Dhabi with international astronauts</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Operating full-spectrum across 4 UAE Emirates — classrooms in Abu Dhabi, analog missions in Sharjah, underwater spacesuit simulations in Dubai, G-force aviation training in Ras Al Khaimah</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Keynote speaker: Humans to Mars Summit, International Astronautical Congress (IAC Baku), SGx, Oman AI Summit</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Founded Borderless Labs Inc. (2015) — STEAM education in refugee camps and underserved communities across MENA; CubeSat programs, space camps, analog astronaut training for youth</span></div>
-              <div class="team-cred"><span class="team-cred-dot"></span><span>Centre expected to train 250+ astronauts over the next decade, partnering with NASA, ESA, and leading universities</span></div>
-            </div>
-            <!-- Mac's Featured Press -->
-            <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(123,163,190,0.15)">
-              <div style="font-size:clamp(9px,2vw,10px);letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:12px">FEATURED COVERAGE</div>
-              <div style="display:grid;gap:8px">
-                <a href="https://www.khaleejtimes.com/space/uae-scientist-astronaut-make-space-travel-as-normal-as-flying" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(123,163,190,0.08);border:1px solid rgba(123,163,190,0.15);border-radius:6px;text-decoration:none;transition:all 0.2s ease">
-                  <span style="font-size:11px;font-weight:600;color:var(--blue);min-width:28px">KT</span>
-                  <span style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.4">"Make space travel as normal as flying" — Khaleej Times</span>
-                  <span style="font-size:10px;color:var(--accent);margin-left:auto;flex-shrink:0">→</span>
-                </a>
-                <a href="https://mena.entrepreneur.com/news-and-trends/uae-emerges-as-a-global-hub-for-astronaut-training-and/499471" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(123,163,190,0.08);border:1px solid rgba(123,163,190,0.15);border-radius:6px;text-decoration:none;transition:all 0.2s ease">
-                  <span style="font-size:11px;font-weight:600;color:var(--blue);min-width:28px">ENT</span>
-                  <span style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.4">"UAE Emerges as Global Hub for Astronaut Training" — Entrepreneur ME</span>
-                  <span style="font-size:10px;color:var(--accent);margin-left:auto;flex-shrink:0">→</span>
-                </a>
-                <a href="https://gulfnews.com/uae/new-private-astronaut-training-centre-set-to-open-in-uae-1.500344544" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(123,163,190,0.08);border:1px solid rgba(123,163,190,0.15);border-radius:6px;text-decoration:none;transition:all 0.2s ease">
-                  <span style="font-size:11px;font-weight:600;color:var(--blue);min-width:28px">GN</span>
-                  <span style="font-size:clamp(11px,2vw,13px);color:var(--blue-pale);line-height:1.4">"New Private Astronaut Training Centre Set to Open in UAE" — Gulf News</span>
-                  <span style="font-size:10px;color:var(--accent);margin-left:auto;flex-shrink:0">→</span>
-                </a>
-              </div>
-            </div>
+        <div class="team-avatar" style="background:linear-gradient(135deg,#4ECDC4,#6DE8DE)">MM</div>
+        <div class="team-name">Malik "Mac" Malkawi</div>
+        <div class="team-role">SPACE INDUSTRY LEAD — SCIENTIST ASTRONAUT</div>
+        <div class="team-bio">Jordanian-American scientist astronaut, entrepreneur, and the founder building the UAE's first private astronaut training and human spaceflight ecosystem. Mac brings the rare operational credibility that connects our fund thesis to the actual builders, operators, and regulators of the space economy. His mission: make space travel as routine as commercial aviation.</div>
+        <div class="team-creds">
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Founder & CEO, BLINC Space Limited — developing the UAE's first Human Spaceflight Training Center, the only licensed private astronaut training facility in the Middle East</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Citizen Scientist Astronaut candidate; trained at the International Institute of Astronautical Sciences (IIAS) in bioastronautics, EVA operations, microgravity research & space medicine</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Partnership with the Bolden Group (Hon. Charles F. Bolden Jr., former NASA Administrator) and Inter Astra for astronaut readiness & space medicine</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Endorsed by NASA Astronaut Dr. Jeanette Epps; hosted live ISS calls from Abu Dhabi with international astronauts</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Operating full-spectrum across 4 UAE Emirates — classrooms in Abu Dhabi, analog missions in Sharjah, underwater spacesuit simulations in Dubai, G-force aviation training in Ras Al Khaimah</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Keynote speaker: Humans to Mars Summit, International Astronautical Congress (IAC Baku), SGx, Oman AI Summit</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Founded Borderless Labs Inc. (2015) — STEAM education in refugee camps and underserved communities across MENA</span></div>
+          <div class="team-cred"><span class="team-cred-dot"></span><span>Centre expected to train 250+ astronauts over the next decade, partnering with NASA, ESA, and leading universities</span></div>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(123,163,190,0.15)">
+          <div style="font-size:clamp(7px,1.7vw,9px);letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:10px">FEATURED COVERAGE</div>
+          <div style="display:grid;gap:7px">
+            <a href="https://www.khaleejtimes.com/space/uae-scientist-astronaut-make-space-travel-as-normal-as-flying" target="_blank" rel="noopener" class="press-link-row"><span class="press-link-src">KT</span><span class="press-link-text">"Make space travel as normal as flying" — Khaleej Times</span><span class="press-link-arrow">→</span></a>
+            <a href="https://mena.entrepreneur.com/news-and-trends/uae-emerges-as-a-global-hub-for-astronaut-training-and/499471" target="_blank" rel="noopener" class="press-link-row"><span class="press-link-src">ENT</span><span class="press-link-text">"UAE Emerges as Global Hub for Astronaut Training" — Entrepreneur ME</span><span class="press-link-arrow">→</span></a>
+            <a href="https://gulfnews.com/uae/new-private-astronaut-training-centre-set-to-open-in-uae-1.500344544" target="_blank" rel="noopener" class="press-link-row"><span class="press-link-src">GN</span><span class="press-link-text">"New Private Astronaut Training Centre Set to Open in UAE" — Gulf News</span><span class="press-link-arrow">→</span></a>
           </div>
         </div>
       </div>
 
-      <!-- Rummana -->
       <div class="team-card">
         <div class="team-card-accent"></div>
-        <div class="team-avatar" style="background: linear-gradient(135deg, var(--accent), var(--accent-light));">RD</div>
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent-light))">RD</div>
         <div class="team-name">Rummana Dada</div>
         <div class="team-role">MANAGING PARTNER & FOUNDER</div>
         <div class="team-bio">Serial entrepreneur and growth equity investor with a track record building businesses from concept to scale across the Middle East, Asia, and the US. Currently closing $500M in Vitality Capital Life Fund I — Space Fund I is the third fund Rummana will launch, bringing institutional discipline and proven fund-building capability to the space economy.</div>
@@ -903,10 +598,9 @@
         </div>
       </div>
 
-      <!-- Maha -->
       <div class="team-card">
         <div class="team-card-accent"></div>
-        <div class="team-avatar" style="background: linear-gradient(135deg, var(--blue), var(--blue-light));">MA</div>
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--blue),var(--blue-light))">MA</div>
         <div class="team-name">Maha Al Fahim</div>
         <div class="team-role">STRATEGIC PARTNER — GULF ACCESS</div>
         <div class="team-bio">Top-tier fund manager and Emirati family office principal with deep institutional networks across Abu Dhabi and the wider Gulf. Delivered 90% IRR in 2025 and 2.8x return to LPs in just 1.8 years. Bridges the gap between global space innovation and regional capital allocation with unmatched credibility and a proven track record of outsized returns.</div>
@@ -921,7 +615,6 @@
       </div>
     </div>
 
-    <!-- BLINC Core Team Advisory -->
     <div class="advisory-block">
       <div class="advisory-label">SPECIALIST SPACE ADVISORY NETWORK</div>
       <div class="advisory-title">Mac's Extended Ecosystem</div>
@@ -938,11 +631,10 @@
       </div>
     </div>
 
-    <!-- Why This Team -->
-    <div style="max-width:800px;margin:0 auto clamp(40px,6vw,60px)">
-      <div style="background:linear-gradient(135deg,rgba(19,36,56,0.56),rgba(11,25,41,0.56));border:1px solid rgba(123,163,190,0.2);border-radius:8px;padding:clamp(28px,5vw,44px);backdrop-filter:blur(20px)">
-        <div style="font-size:clamp(9px,2vw,11px);letter-spacing:clamp(3px,0.8vw,5px);color:var(--accent);margin-bottom:clamp(16px,3vw,24px);font-weight:500">WHY THIS IS THE BEST TEAM FOR THIS FUND</div>
-        <div style="display:grid;gap:clamp(16px,3vw,22px)">
+    <div style="max-width:800px;margin:0 auto clamp(30px,5vw,50px)">
+      <div style="background:linear-gradient(135deg,rgba(19,36,56,0.56),rgba(11,25,41,0.56));border:1px solid rgba(123,163,190,0.2);border-radius:8px;padding:clamp(22px,4vw,38px);backdrop-filter:blur(20px)">
+        <div style="font-size:clamp(7px,1.7vw,9px);letter-spacing:clamp(2px,.6vw,4px);color:var(--accent);margin-bottom:clamp(14px,2.5vw,20px);font-weight:500">WHY THIS IS THE BEST TEAM FOR THIS FUND</div>
+        <div style="display:grid;gap:clamp(14px,2.5vw,20px)">
           <div class="wws-item"><span class="wws-num">01</span><span class="wws-text"><strong style="color:var(--white)">Fund Management + Space Expertise Under One Roof.</strong> Most space funds lack institutional LP access. Most growth equity funds lack space credibility. We have both — institutional-grade fund operations combined with a scientist astronaut building real infrastructure in the UAE.</span></div>
           <div class="wws-item"><span class="wws-num">02</span><span class="wws-text"><strong style="color:var(--white)">Gulf-Native Sovereign Access.</strong> Maha's position at ADIA and her family office network gives us direct access to the sovereign and institutional capital that will anchor this fund — not through introductions, but through existing trusted relationships.</span></div>
           <div class="wws-item"><span class="wws-num">03</span><span class="wws-text"><strong style="color:var(--white)">Operator, Not Observer.</strong> Mac isn't advising on space from a distance — he's building the UAE's first private astronaut training center, training crews, and hosting live ISS calls from Abu Dhabi. Our deal flow comes from inside the industry.</span></div>
@@ -952,51 +644,23 @@
       </div>
     </div>
 
-    <!-- Press Coverage -->
     <div class="press-section">
       <div class="press-label">IN THE PRESS</div>
       <div class="press-heading">Building Credibility in Real Time</div>
       <div class="press-grid">
-        <!-- KT -->
-        <a class="press-card" href="https://www.khaleejtimes.com/space/uae-scientist-astronaut-make-space-travel-as-normal-as-flying" target="_blank" rel="noopener">
-          <div class="press-icon">KT</div>
-          <div class="press-content">
-            <div class="press-source">Khaleej Times</div>
-            <div class="press-title-text">UAE Scientist-Astronaut Wants to Make Space Travel as Normal as Flying</div>
-            <div class="press-excerpt">Mac Malkawi outlines how BLINC is making the UAE a hub for commercial space, operating astronaut training across four Emirates — with UAE terrain more suitable for planetary geology training than Arizona's NASA facilities.</div>
-            <span class="press-link">Read Article →</span>
-          </div>
-        </a>
-        <!-- Entrepreneur -->
-        <a class="press-card" href="https://mena.entrepreneur.com/news-and-trends/uae-emerges-as-a-global-hub-for-astronaut-training-and/499471" target="_blank" rel="noopener">
-          <div class="press-icon">E</div>
-          <div class="press-content">
-            <div class="press-source">Entrepreneur Middle East</div>
-            <div class="press-title-text">UAE Emerges as a Global Hub for Astronaut Training and Space Innovation</div>
-            <div class="press-excerpt">BLINC Space and AlphaX Holding partner to develop the UAE's first private astronaut training facility, positioning the country alongside the US, Europe, Russia, and China in human spaceflight readiness — endorsed by former NASA Administrator Bolden.</div>
-            <span class="press-link">Read Article →</span>
-          </div>
-        </a>
-        <!-- Gulf News -->
-        <a class="press-card" href="https://gulfnews.com/uae/new-private-astronaut-training-centre-set-to-open-in-uae-1.500344544" target="_blank" rel="noopener">
-          <div class="press-icon">GN</div>
-          <div class="press-content">
-            <div class="press-source">Gulf News</div>
-            <div class="press-title-text">New Private Astronaut Training Centre Set to Open in UAE</div>
-            <div class="press-excerpt">The first facility of its kind in the Middle East and the only licensed private astronaut training center in the UAE — expected to train hundreds of astronauts and partner with NASA, ESA, and leading universities over the next decade.</div>
-            <span class="press-link">Read Article →</span>
-          </div>
-        </a>
+        <a class="press-card" href="https://www.khaleejtimes.com/space/uae-scientist-astronaut-make-space-travel-as-normal-as-flying" target="_blank" rel="noopener"><div class="press-icon">KT</div><div><div class="press-source">Khaleej Times</div><div class="press-title-text">UAE Scientist-Astronaut Wants to Make Space Travel as Normal as Flying</div><div class="press-excerpt">Mac Malkawi outlines how BLINC is making the UAE a hub for commercial space, operating astronaut training across four Emirates.</div><span class="press-link">Read Article →</span></div></a>
+        <a class="press-card" href="https://mena.entrepreneur.com/news-and-trends/uae-emerges-as-a-global-hub-for-astronaut-training-and/499471" target="_blank" rel="noopener"><div class="press-icon">E</div><div><div class="press-source">Entrepreneur Middle East</div><div class="press-title-text">UAE Emerges as a Global Hub for Astronaut Training and Space Innovation</div><div class="press-excerpt">BLINC Space and AlphaX Holding partner to develop the UAE's first private astronaut training facility.</div><span class="press-link">Read Article →</span></div></a>
+        <a class="press-card" href="https://gulfnews.com/uae/new-private-astronaut-training-centre-set-to-open-in-uae-1.500344544" target="_blank" rel="noopener"><div class="press-icon">GN</div><div><div class="press-source">Gulf News</div><div class="press-title-text">New Private Astronaut Training Centre Set to Open in UAE</div><div class="press-excerpt">The first facility of its kind in the Middle East — partnering with NASA, ESA, and leading universities.</div><span class="press-link">Read Article →</span></div></a>
       </div>
     </div>
   </div>
 
   <!-- GEOGRAPHY -->
   <div class="section" id="sec-geography">
-    <div style="text-align:center;margin-bottom:clamp(30px,5vw,50px)">
+    <div style="text-align:center;margin-bottom:clamp(24px,4vw,42px)">
       <div class="section-label">GEOGRAPHIC ADVANTAGE</div>
       <h2 class="section-heading">The Gulf Edge</h2>
-      <p style="font-size:clamp(16px,3.5vw,20px);color:var(--blue-pale);padding:0 10px;text-align:center">UAE/Saudi can become the Singapore of orbital logistics</p>
+      <p style="font-size:clamp(12px,2.8vw,16px);color:var(--blue-pale);padding:0 10px;text-align:center">UAE/Saudi can become the Singapore of orbital logistics</p>
     </div>
     <div class="geo-grid">
       <div class="geo-left">
@@ -1022,102 +686,74 @@
 </footer>
 
 <script>
-const sections = [
-  { id: 'thesis', title: 'The Thesis' },
-  { id: 'verticals', title: 'Six Verticals' },
-  { id: 'lps', title: 'BLINC Space' },
-  { id: 'team', title: 'Our Team' },
-  { id: 'geography', title: 'Gulf Edge' }
+const sections=[
+  {id:'thesis',title:'The Thesis'},
+  {id:'verticals',title:'Six Verticals'},
+  {id:'lps',title:'BLINC Space'},
+  {id:'team',title:'Our Team'},
+  {id:'geography',title:'Gulf Edge'}
 ];
-
-const infraItems = [
-  { label: 'LOGISTICS', icon: '⬡' },
-  { label: 'COMMUNICATIONS', icon: '◈' },
-  { label: 'MANUFACTURING', icon: '◇' },
-  { label: 'INTELLIGENCE', icon: '◎' }
-];
-
-const wwsPoints = [
+const infraItems=[{label:'LOGISTICS',icon:'⬡'},{label:'COMMUNICATIONS',icon:'◈'},{label:'MANUFACTURING',icon:'◇'},{label:'INTELLIGENCE',icon:'◎'}];
+const wwsPoints=[
   "Space is becoming the next commercial layer of Earth's operating system",
   "The first trillion-dollar cargo category is medical: organs, biologics, rare semiconductors",
   "Microgravity manufacturing cannot be replicated on Earth — physical moat",
   "Gulf geography + capital = natural anchor for orbital logistics hub"
 ];
-
-const verticals = [
-  { name:'Hypersonic Logistics', tagline:'FedEx Premium, but orbital', description:'Ultra-high-value supply chain compression for organs, oncology biologics, rare semiconductors, and sovereign medical stockpiles.', businessModel:'$250K–$2M per delivery • Government + insurer paid', companies:['Radian Aerospace','Sierra Space','Inversion Space','Hermeus','Stratolaunch'], insight:'The "UPS of orbital cargo" — winner is regulated, trusted, insured, government-contracted.' },
-  { name:'Space Manufacturing', tagline:'TSMC meets biotech, in microgravity', description:'Microgravity manufacturing is physically impossible to replicate on Earth. First movers: biologics, fiber optics with 10-100x purity, defect-free semiconductors.', businessModel:'Platform-as-a-Service • Recurring manufacturing contracts', companies:['Varda Space Industries','Space Forge','Redwire','Axiom Space','Orbit Fab'], insight:'The AWS of orbit will not be rockets. It will be orbital factories + services.' },
-  { name:'Planetary Intelligence', tagline:'Bloomberg Terminal for the planet', description:'Beyond imagery: climate risk pricing, insurance underwriting, agriculture yield forecasting, port congestion prediction, methane enforcement.', businessModel:'SaaS analytics • Enterprise + sovereign contracts', companies:['Planet Labs','Spire Global','HawkEye 360','Tomorrow.io','Muon Space','Kayrros'], insight:'Data is the oil. Analytics is the refinery. Recurring contracts are the profit engine.' },
-  { name:'Satellite Communications', tagline:'The next telecom backbone', description:'Post-Starlink wave: direct-to-phone, sovereign-secure networks, laser mesh backbone, industrial IoT constellations, defense-commercial dual use.', businessModel:'Spectrum + regulatory clearance = moat', companies:['AST SpaceMobile','Lynk Global','Astranis','Aalyria','Rivada Networks'], insight:'Gulf becomes natural anchor buyer: desert coverage, maritime lanes, Africa/Asia bridging.' },
-  { name:'Orbital Governance', tagline:'Picks-and-shovels of regulation', description:'Space debris is not optional. Mandated cleanup, traffic enforcement, orbital licensing, sovereign compliance — an entire regulated industry.', businessModel:'Compliance services • Data = authority', companies:['Astroscale','ClearSpace','LeoLabs','Privateer Space'], insight:'Orbital traffic control will become the FAA of space. Who owns the data owns the authority.' },
-  { name:'Launch Infrastructure', tagline:'Real estate of the space economy', description:'Launch is commoditizing. Spaceports are not. Winners: regulated corridors, fueling hubs, sovereign launch zones, equatorial advantage.', businessModel:'Infrastructure + services • Long-term concessions', companies:['Rocket Lab','ABL Space','Spaceport Cornwall','Andøya Spaceport','NEOM Corridor'], insight:'UAE/Saudi can become the Singapore of orbital logistics.' }
+const verticals=[
+  {name:'Hypersonic Logistics',tagline:'FedEx Premium, but orbital',desc:'Ultra-high-value supply chain compression for organs, oncology biologics, rare semiconductors, and sovereign medical stockpiles.',biz:'$250K–$2M per delivery • Government + insurer paid',cos:['Radian Aerospace','Sierra Space','Inversion Space','Hermeus','Stratolaunch'],insight:'The "UPS of orbital cargo" — winner is regulated, trusted, insured, government-contracted.'},
+  {name:'Space Manufacturing',tagline:'TSMC meets biotech, in microgravity',desc:'Microgravity manufacturing is physically impossible to replicate on Earth. First movers: biologics, fiber optics with 10-100x purity, defect-free semiconductors.',biz:'Platform-as-a-Service • Recurring manufacturing contracts',cos:['Varda Space Industries','Space Forge','Redwire','Axiom Space','Orbit Fab'],insight:'The AWS of orbit will not be rockets. It will be orbital factories + services.'},
+  {name:'Planetary Intelligence',tagline:'Bloomberg Terminal for the planet',desc:'Beyond imagery: climate risk pricing, insurance underwriting, agriculture yield forecasting, port congestion prediction, methane enforcement.',biz:'SaaS analytics • Enterprise + sovereign contracts',cos:['Planet Labs','Spire Global','HawkEye 360','Tomorrow.io','Muon Space','Kayrros'],insight:'Data is the oil. Analytics is the refinery. Recurring contracts are the profit engine.'},
+  {name:'Satellite Communications',tagline:'The next telecom backbone',desc:'Post-Starlink wave: direct-to-phone, sovereign-secure networks, laser mesh backbone, industrial IoT constellations, defense-commercial dual use.',biz:'Spectrum + regulatory clearance = moat',cos:['AST SpaceMobile','Lynk Global','Astranis','Aalyria','Rivada Networks'],insight:'Gulf becomes natural anchor buyer: desert coverage, maritime lanes, Africa/Asia bridging.'},
+  {name:'Orbital Governance',tagline:'Picks-and-shovels of regulation',desc:'Space debris is not optional. Mandated cleanup, traffic enforcement, orbital licensing, sovereign compliance — an entire regulated industry.',biz:'Compliance services • Data = authority',cos:['Astroscale','ClearSpace','LeoLabs','Privateer Space'],insight:'Orbital traffic control will become the FAA of space. Who owns the data owns the authority.'},
+  {name:'Launch Infrastructure',tagline:'Real estate of the space economy',desc:'Launch is commoditizing. Spaceports are not. Winners: regulated corridors, fueling hubs, sovereign launch zones, equatorial advantage.',biz:'Infrastructure + services • Long-term concessions',cos:['Rocket Lab','ABL Space','Spaceport Cornwall','Andøya Spaceport','NEOM Corridor'],insight:'UAE/Saudi can become the Singapore of orbital logistics.'}
 ];
+const gulfPoints=['Equatorial-adjacent launch advantages','Existing aviation infrastructure','Deep capital availability','Time zone bridging Asia-Europe','Saudi/UAE space agency ambitions'];
+const spaceports=[{r:'Oman',s:'Coastal launch corridor'},{r:'Morocco',s:'Atlantic launch potential'},{r:'Kenya',s:'Equatorial advantage'},{r:'Indonesia',s:'Southeast Asia hub'},{r:'NEOM',s:'Saudi corridor development'}];
 
-const gulfPoints = ['Equatorial-adjacent launch advantages','Existing aviation infrastructure','Deep capital availability','Time zone bridging Asia-Europe','Saudi/UAE space agency ambitions'];
-const spaceports = [{region:'Oman',status:'Coastal launch corridor'},{region:'Morocco',status:'Atlantic launch potential'},{region:'Kenya',status:'Equatorial advantage'},{region:'Indonesia',status:'Southeast Asia hub'},{region:'NEOM',status:'Saudi corridor development'}];
-
-// Nav
-const nav = document.getElementById('nav');
-let activeIdx = 0;
-function renderNav() {
-  nav.innerHTML = '';
-  sections.forEach((s, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn' + (i === activeIdx ? ' active' : '');
-    btn.textContent = s.title;
-    btn.onclick = () => { activeIdx = i; renderNav(); showSection(); };
-    nav.appendChild(btn);
+const nav=document.getElementById('nav');
+let activeIdx=0;
+function renderNav(){
+  nav.innerHTML='';
+  sections.forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.className='nav-btn'+(i===activeIdx?' active':'');
+    b.textContent=s.title;
+    b.onclick=()=>{activeIdx=i;renderNav();showSection()};
+    nav.appendChild(b);
   });
 }
-function showSection() {
-  document.querySelectorAll('.section').forEach((el, i) => {
-    el.classList.toggle('active', i === activeIdx);
-  });
-}
+function showSection(){document.querySelectorAll('.section').forEach((el,i)=>el.classList.toggle('active',i===activeIdx))}
 
-// Infra grid
-const ig = document.getElementById('infraGrid');
-infraItems.forEach((item, i) => {
-  ig.innerHTML += `<div class="infra-card"><div class="infra-icon" style="animation:float 4s ease-in-out infinite;animation-delay:${i*0.4}s">${item.icon}</div><div class="infra-label">${item.label}</div></div>`;
+const ig=document.getElementById('infraGrid');
+infraItems.forEach((item,i)=>{ig.innerHTML+=`<div class="infra-card"><div class="infra-icon" style="animation:float 4s ease-in-out infinite;animation-delay:${i*.4}s">${item.icon}</div><div class="infra-label">${item.label}</div></div>`});
+
+const wg=document.getElementById('wwsGrid');
+wwsPoints.forEach((p,i)=>{wg.innerHTML+=`<div class="wws-item"><span class="wws-num">0${i+1}</span><span class="wws-text">${p}</span></div>`});
+
+const vg=document.getElementById('vertGrid');
+verticals.forEach(v=>{
+  const tags=v.cos.map(c=>`<span class="vert-tag">${c}</span>`).join('');
+  vg.innerHTML+=`<div class="vert-card"><div class="vert-header"><div class="vert-dot"></div><div class="vert-name">${v.name}</div></div><div class="vert-tagline">"${v.tagline}"</div><p class="vert-desc">${v.desc}</p><div class="vert-biz">${v.biz}</div><div class="vert-tags">${tags}</div><div class="vert-insight">${v.insight}</div></div>`;
 });
 
-// What We See
-const wg = document.getElementById('wwsGrid');
-wwsPoints.forEach((p, i) => {
-  wg.innerHTML += `<div class="wws-item"><span class="wws-num">0${i+1}</span><span class="wws-text">${p}</span></div>`;
-});
+const gp=document.getElementById('geoPoints');
+gulfPoints.forEach(p=>{gp.innerHTML+=`<div class="geo-point"><span class="geo-point-dot"></span><span>${p}</span></div>`});
+const sl=document.getElementById('spList');
+spaceports.forEach(s=>{sl.innerHTML+=`<div class="sp-item"><span class="sp-region">${s.r}</span><span class="sp-status">${s.s}</span></div>`});
 
-// Verticals
-const vg = document.getElementById('vertGrid');
-verticals.forEach(v => {
-  const tags = v.companies.map(c => `<span class="vert-tag">${c}</span>`).join('');
-  vg.innerHTML += `<div class="vert-card"><div class="vert-header"><div class="vert-dot"></div><div class="vert-name">${v.name}</div></div><div class="vert-tagline">"${v.tagline}"</div><p class="vert-desc">${v.description}</p><div class="vert-biz">${v.businessModel}</div><div class="vert-tags">${tags}</div><div class="vert-insight">${v.insight}</div></div>`;
-});
+const orb=document.getElementById('mouseOrb');
+if(window.matchMedia('(hover:hover)').matches){document.addEventListener('mousemove',e=>{orb.style.left=(e.clientX-300)+'px';orb.style.top=(e.clientY-300)+'px'})}
 
-// Geography
-const gp = document.getElementById('geoPoints');
-gulfPoints.forEach(p => { gp.innerHTML += `<div class="geo-point"><span class="geo-point-dot"></span><span>${p}</span></div>`; });
-const sl = document.getElementById('spList');
-spaceports.forEach(s => { sl.innerHTML += `<div class="sp-item"><span class="sp-region">${s.region}</span><span class="sp-status">${s.status}</span></div>`; });
-
-// Mouse orb
-const orb = document.getElementById('mouseOrb');
-document.addEventListener('mousemove', e => {
-  orb.style.left = (e.clientX - 300) + 'px';
-  orb.style.top = (e.clientY - 300) + 'px';
-});
-
-// BLINC sub-tabs
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('blinc-tab')) {
-    document.querySelectorAll('.blinc-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.blinc-panel').forEach(p => p.classList.remove('active'));
+document.addEventListener('click',e=>{
+  if(e.target.classList.contains('blinc-tab')){
+    document.querySelectorAll('.blinc-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.blinc-panel').forEach(p=>p.classList.remove('active'));
     e.target.classList.add('active');
-    const panel = document.getElementById(e.target.dataset.panel);
-    if (panel) panel.classList.add('active');
+    const panel=document.getElementById(e.target.dataset.panel);
+    if(panel)panel.classList.add('active');
   }
 });
-
 renderNav();
 </script>
 </body>
