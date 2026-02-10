@@ -302,7 +302,90 @@
   .footer-left{font-size:clamp(9px,2vw,11px);color:var(--blue);letter-spacing:2px}
   .footer-right{font-size:clamp(9px,2vw,11px);color:var(--blue-pale);opacity:.5}
 
-  @media(max-width:480px){.orbital-el{display:none}.press-card{grid-template-columns:1fr}.press-icon{width:36px;height:36px;font-size:14px}}
+  @media(max-width:600px){
+    :root{--pad:14px}
+    header{padding:10px var(--pad);gap:8px}
+    .header-left{gap:10px}
+    .header-left svg{width:36px;min-width:36px}
+    .header-label{font-size:8px;letter-spacing:1.5px}
+    .header-title{font-size:14px}
+    .header-sub{font-size:8px}
+    .orbital-el{display:none}
+    nav{top:48px;padding:8px var(--pad);gap:4px}
+    .nav-btn{padding:8px 14px;font-size:10px;letter-spacing:1px;min-height:40px;border-radius:20px}
+    main{padding:14px}
+    .section-label{font-size:9px;letter-spacing:2px;margin-bottom:10px}
+    .section-heading{font-size:22px;margin-bottom:10px}
+    .section-sub{font-size:13px}
+    .infra-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .infra-card{padding:14px 10px}
+    .qa-grid{grid-template-columns:1fr;gap:10px}
+    .qa-card{padding:14px}
+    .what-we-see{padding:16px}
+    .wws-item{gap:8px}
+    .wws-num{min-width:20px;font-size:11px}
+    .wws-text{font-size:13px}
+    .vert-grid{grid-template-columns:1fr;gap:12px}
+    .vert-card{padding:16px}
+    .vert-name{font-size:16px}
+    .vert-qatar{padding:8px 12px;font-size:11px}
+    .blinc-tabs{gap:4px;padding:0}
+    .blinc-tab{padding:8px 12px;font-size:9px;letter-spacing:1px;min-height:38px;border-radius:20px}
+    .vc-callout-box{padding:14px;gap:10px}
+    .vc-callout-icon{font-size:22px}
+    .vc-two-col{grid-template-columns:1fr;gap:12px}
+    .vc-box{padding:16px}
+    .vc-pillar-label{font-size:9px}
+    .vc-pillar-title{font-size:16px}
+    .vc-proposal{padding:16px}
+    .vc-stat-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .impact-stat{padding:12px 8px}
+    .impact-num{font-size:20px}
+    .impact-label{font-size:8px}
+    .vc-funds-row{padding:8px 10px}
+    .vc-roadmap-grid{grid-template-columns:1fr;gap:10px}
+    .vc-roadmap-card{padding:16px!important}
+    .vc-partner-wrap{padding:16px}
+    .vc-tag-row{gap:6px}
+    .vc-partner-tag{padding:5px 10px;font-size:10px}
+    .vc-timeline-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .vc-cap-grid{grid-template-columns:1fr;gap:10px}
+    .vc-cap-card{padding:14px}
+    .blinc-team-grid{grid-template-columns:1fr;gap:10px}
+    .blinc-team-card{padding:14px}
+    .vc-milestone-grid{grid-template-columns:1fr;gap:8px}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .gallery-card{aspect-ratio:4/3}
+    .team-intro p{font-size:14px}
+    .team-grid{gap:14px}
+    .team-card{padding:16px}
+    .team-avatar{width:48px;height:48px;font-size:18px}
+    .team-name{font-size:17px}
+    .team-bio{font-size:12px}
+    .team-cred{font-size:11px}
+    .advisory-block{padding:16px}
+    .advisory-title{font-size:18px}
+    .advisory-names{gap:6px}
+    .advisory-name-tag{padding:5px 10px;font-size:10px}
+    .vc-why-box{padding:16px}
+    .press-grid{gap:10px}
+    .press-card{grid-template-columns:1fr;gap:10px;padding:14px}
+    .press-icon{width:36px;height:36px;font-size:14px}
+    .press-title-text{font-size:14px}
+    .geo-grid{grid-template-columns:1fr;gap:14px}
+    .geo-left,.geo-right{padding:16px}
+    .closing{padding:20px 16px}
+    .cl-title{font-size:22px}
+    .cl-desc{font-size:13px}
+    footer{padding:12px var(--pad);flex-direction:column;align-items:flex-start;gap:4px}
+    .press-link-row{padding:8px 10px}
+  }
+  @media(max-width:360px){
+    .vc-stat-grid{grid-template-columns:1fr}
+    .vc-timeline-grid{grid-template-columns:1fr}
+    .infra-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery-grid{grid-template-columns:1fr}
+  }
   @media(hover:hover){.vert-card:hover{border-color:rgba(123,163,190,0.35);transform:translateY(-2px)}.team-card:hover{border-color:rgba(123,163,190,0.4);transform:translateY(-2px)}.gallery-card:hover{border-color:rgba(232,184,109,0.4);transform:translateY(-2px)}.press-card:hover{border-color:rgba(123,163,190,0.35);transform:translateY(-1px)}.press-link-row:hover{background:rgba(123,163,190,0.15)}}
 </style>
 </head>
@@ -332,12 +415,6 @@
 <main>
   <!-- THESIS -->
   <div class="section active" id="sec-thesis">
-    <div class="qatar-hero">
-      <div class="qatar-flag">🇶🇦</div>
-      <h2>A Strategic Invitation to the <span class="q-accent">State of Qatar</span></h2>
-      <p>Qatar's National Vision 2030 calls for economic diversification, knowledge-based growth, and global technological leadership. Space infrastructure is the next frontier of that ambition — and this fund is designed to deliver it. <strong style="color:var(--white)">Anchor LP opportunity: $25M–$100M commitment</strong> with co-investment rights and strategic advisory seat.</p>
-    </div>
-
     <div class="thesis-hero">
       <div class="section-label">THE CORE THESIS</div>
       <h1>Space is not a destination.<br>Space is infrastructure.</h1>
@@ -708,23 +785,6 @@
       <div class="geo-right">
         <h3>GCC Spaceport Network</h3>
         <div class="sp-list" id="spList"></div>
-      </div>
-    </div>
-
-    <div style="max-width:800px;margin:clamp(30px,5vw,60px) auto">
-      <div class="vc-proposal" style="text-align:center;margin:0 auto">
-        <div class="section-label">QATAR ANCHOR LP TERMS</div>
-        <div class="vc-stat-grid" style="margin-bottom:clamp(20px,3.5vw,30px)">
-          <div class="impact-stat"><div class="impact-num" style="color:var(--white)">$25M–$100M</div><div class="impact-label">ANCHOR COMMITMENT RANGE</div></div>
-          <div class="impact-stat"><div class="impact-num" style="color:var(--accent)">Advisory Seat</div><div class="impact-label">GOVERNANCE</div></div>
-        </div>
-        <div style="display:grid;gap:8px;max-width:500px;margin:0 auto;text-align:left">
-          <div class="vc-funds-row"><span class="vc-funds-label">Co-investment rights on all deals</span><span class="vc-funds-pct">✓</span></div>
-          <div class="vc-funds-row"><span class="vc-funds-label">Qatar campus priority partnership</span><span class="vc-funds-pct">✓</span></div>
-          <div class="vc-funds-row"><span class="vc-funds-label">Qatarization employment targets</span><span class="vc-funds-pct">✓</span></div>
-          <div class="vc-funds-row"><span class="vc-funds-label">Quarterly reporting to LP committee</span><span class="vc-funds-pct">✓</span></div>
-          <div class="vc-funds-row"><span class="vc-funds-label">QSTP / Education City partnership</span><span class="vc-funds-pct">✓</span></div>
-        </div>
       </div>
     </div>
 
